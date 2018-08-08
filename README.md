@@ -1,2 +1,2 @@
-# WB
+# War Beast
 
