@@ -13,7 +13,7 @@ The elder Treant, the mind within nature, awakened The Tree of Life to use its p
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-PT-BT
+PT-BR
 
 Em WarBeast, a terra foi quase destruida pela ultima guerra mundial. Dominados pela ganancia, os humanos usaram tudo para vencer, incluindo as devastadoras armas nucleares. Milhões de pessoas, animais e a natureza em si viraram cinzas, e o planeta não conseguiria suportar a vida por muito mais tempo. Entretanto, no meio desse caos, um ser antigo retorna de seu sono como a ultima esperança da vida na terra.
 
