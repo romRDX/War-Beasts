@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "react-router-dom": "^5.1.2"
+  },
+  "name": "War-Beast",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/romRDX/War-Beast.git",
+  "author": "Rômullo S. <romullo_sas@outlook.com>",
+  "license": "MIT"
+}
