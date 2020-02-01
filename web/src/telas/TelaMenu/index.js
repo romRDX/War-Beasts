@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-export default class TelaMenu extends React.Component {
+export default class TelaMenu extends Component {
     render() {
         return (
-            <>
             <div>
                 <h1>MENU</h1>
                 <Link to="/personagem">Personagem</Link>
@@ -12,8 +11,6 @@ export default class TelaMenu extends React.Component {
                 <Link to="/Arena">Arena</Link>
                 <Link to="/personagens">Escolher personagem</Link>
             </div>
-
-            </>
         )
     }
 };
