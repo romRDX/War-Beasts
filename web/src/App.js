@@ -12,12 +12,13 @@ import NotFound from './telas/NotFound';
 import history from './services/history';
 
 import './global.css';
+import { Main } from "./styles.js";
 
 export default class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div id="RDX">
+        <Main id="RDX">
           <Switch>
             <Route path="/login" component={TelaLogin} />
             <Route path="/personagens" component={TelaPersonagens} />
@@ -27,7 +28,7 @@ export default class App extends Component {
             <Route path="/arena" component={TelaArena} />
             <Route component={NotFound} />
           </Switch>
-        </div>
+        </Main>
       </Router>
     )
   }
