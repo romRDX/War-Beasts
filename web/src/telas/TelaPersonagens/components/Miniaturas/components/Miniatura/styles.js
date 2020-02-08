@@ -43,7 +43,5 @@ export const PersonagemMiniatura = styled.div`
         * {
             margin: 4px 0 7px 0;
         }
-    }
-    
-    
+    }  
 `;
