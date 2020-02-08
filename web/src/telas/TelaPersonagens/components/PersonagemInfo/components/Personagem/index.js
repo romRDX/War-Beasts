@@ -1,8 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import store from '../../../../../../store';
+import history from '../../../../../../services/history';
 
 import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
 
-export default class Personagem extends Component {
+class Personagem extends Component {
+
+    chooseChar = () => {
+        // console.log(this.props.characters); OK
+        // console.log(this.props.char)
+
+        const dispatcher = {
+            type: 'SELECT_CHARACTER',
+            char: this.props.char
+        }
+
+        store.dispatch(dispatcher);
+
+        history.push('/main');
+    };
+
     render() {
         return (
             <Info>
@@ -28,8 +46,10 @@ export default class Personagem extends Component {
                         <div className="AGI" >AGI : {this.props.char.atributos.AGI}</div>
                     </Atributos>
                 </Divisor> 
-                <button> Entrar </button>
+                <button onClick={this.chooseChar}> Entrar </button>
             </Info>
         )
     }
 }
+
+export default connect( state => ({ characters: state.characters }))(Personagem);
