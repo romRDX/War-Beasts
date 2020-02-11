@@ -26,12 +26,21 @@ time, mark, audio, video {
 
 html, body{
     height: 100%;
+    width: 100%;
+}
+
+#root {
+    height: 100%;
 }
 
 #RDX {
-    position: fixed;
     height: 100%;
     width: 100%;
+    display: flex;
+}
+
+#RDX .tela {
+    height: inherit;
 }
 
 /* make sure to set some focus styles for accessibility */

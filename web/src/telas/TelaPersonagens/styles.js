@@ -4,6 +4,7 @@ export const Selecao = styled.div`
 
   height: inherit;
   display: flex;
+  width: 100%;
 `;
 
 export const PersonagemInfo = styled.div`
