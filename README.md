@@ -1,7 +1,7 @@
 # Execution/Execução
   
-  cd web
-  yarn start 
+  > cd web
+  > yarn start 
 
 # War Beast
 
