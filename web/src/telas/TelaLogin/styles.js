@@ -10,13 +10,15 @@ export const Background = styled.div`
     background-position: center center;
     background-size: cover;
     overflow: hidden;
+    width: 100%;
 
     div:first-child {
         border-radius: 20px;
         background-color: #CD853F;
         max-width: 550px;
         padding: 40px 0px;
-        margin: 305px auto 0 auto;
+        margin: 200px auto 0 auto;
+        height: fit-content !important;
     }
 
     h1 {

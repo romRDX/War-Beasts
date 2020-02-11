@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const TelaPersonagem = (props) => (
-            <div>
-                <h1>PERSONAGEM</h1>
-                <Link to="/main">Voltar</Link>
-                <h1>{props.characters.nome}</h1>
-            </div>
+import { Info, Voltar } from './styles.js';
+
+import Atributos from './components/Atributos';
+import Detalhes from './components/Detalhes';
+import Portrait from './components/Portrait';
+import Habilidades from './components/Habilidades';
+
+const TelaPersonagem = (props) => (    
+   
+    <Info>
+        <Link className="voltar" to="/main">Voltar</Link>
+        <Portrait />
+        <Detalhes character={props.character} />
+        <Atributos character={props.character} />
+        <Habilidades />
+    </Info>
+   
 );
 
 
-export default connect( state => ({ characters: state.activeCharacter }))(TelaPersonagem);
+export default connect( state => ({ character: state.activeCharacter }))(TelaPersonagem);
+
+// state.activeCharacter // state.characters[0]   MUDAR DE VOLTA DEPOIS
+
+// <Link to="/main">Voltar</Link>
+//                 <h1>{props.character.nome}</h1>
