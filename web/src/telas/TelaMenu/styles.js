@@ -27,6 +27,8 @@ export const Menu = styled.div`
         background: #7B7167;
         color: #800000;
         box-shadow: 0px 0px 2px 1.5px black;
+        cursor: pointer;
+        user-select: none;
 
         &:hover {
             color: red;
@@ -35,5 +37,16 @@ export const Menu = styled.div`
     }
     
 `;
+
+export const Background = styled.div`
+
+    width: 60%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+`;
+
 
 // Nosifer|Piedra|Special+Elite|Teko

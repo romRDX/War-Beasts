@@ -9,6 +9,7 @@ const INITIAL_STATE = {
         {id: 3685846, nome: 'Aurelion', nivel: 2, classe: 'Dragão', atributos: {STR: 5, DEX: 3, CON: 5 , INT: 7, TOU: 8, AGI: 9}},
     ],
     activeCharacter: '',
+    activeMap: '',
 };
 
 function reducer( state = INITIAL_STATE , action ){
@@ -20,11 +21,21 @@ function reducer( state = INITIAL_STATE , action ){
                 activeCharacter: action.char
             }
         }
+
+        case 'SELECT_MAP' : {
+            return {
+                ... state,
+                activeMap: action.map
+            }
+        }
     }
 
     return state;
 }
 
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;

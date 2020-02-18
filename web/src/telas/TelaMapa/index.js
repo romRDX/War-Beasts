@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
+import Mapa from './components/Mapa';
+import Detalhes from './components/Detalhes';
+
+import { Box } from './styles';
+
 export default class TelaMapa extends Component {
     render() {
         return (
-            <div>
-                <h1>MAPA</h1>
-                <Link to="/main">Voltar</Link>
-            </div>
+            <Box>
+                <Detalhes />
+                <Mapa />
+            </Box>
         )
     }
 };
