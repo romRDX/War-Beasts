@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 
+import store from 'store';
+import history from 'services/history';
+
 import {  } from './styles';
 import { Box, Portrait, Info, Entrar } from './styles';
 
 
-export default class index extends Component {
+export default class Detalhes extends Component {
 
     entrarEstagio(){
 
-    }
+        const dispatcher = {
+            type: 'ENTER_STAGE',
+            stage: this.props.info.nome,
+            nome: this.props.info.nome
+        }
 
-    selecionarEstagio(){
-        
+        store.dispatch(dispatcher);
+
+        history.push('/battle-E');
     }
 
     render() {
@@ -20,16 +28,16 @@ export default class index extends Component {
                 <Portrait />
                 <Info>
                     <div>
-                        Estágio: 1
+                        { this.props.info.nome  && <h2>Estágio: { this.props.info.nome }</h2>}
                     </div>
                     <div>
-                        Nível: 1
+                        { this.props.info.nivel  && <h2>Nível: { this.props.info.nivel }</h2>}
                     </div>
                     <div>
-                        Inimigos: 
+                        
                     </div>
                 </Info>
-                <Entrar onClick={this.entrarEstagio}> Entrar </Entrar>
+                <Entrar onClick={this.entrarEstagio.bind(this)}> Entrar </Entrar>
             </Box>
         )
     }

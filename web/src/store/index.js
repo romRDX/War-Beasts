@@ -10,6 +10,8 @@ const INITIAL_STATE = {
     ],
     activeCharacter: '',
     activeMap: '',
+    activeStage: '',
+    activeScreen: '',
 };
 
 function reducer( state = INITIAL_STATE , action ){
@@ -26,6 +28,13 @@ function reducer( state = INITIAL_STATE , action ){
             return {
                 ... state,
                 activeMap: action.map
+            }
+        }
+
+        case 'ENTER_STAGE' : {
+            return {
+                ... state,
+                activeStage: action.stage
             }
         }
     }

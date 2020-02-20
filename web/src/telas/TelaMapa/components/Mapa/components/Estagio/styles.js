@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-    color: ${props => props.cor };
     font-size: 30px;
     display: flex;
     left: ${props => props.posicao[0] }%;
@@ -9,8 +8,12 @@ export const Box = styled.div`
     position: absolute;
     border: 2px solid black;
     border-radius: 50%;
-    background: white;
+    background: ${ props => props.cor };
     color: red;
     width: 30px;
     height: 30px;
+
+    &:hover {
+        box-shadow: 0px 0px 15px 4px red;
+    }
 `;
