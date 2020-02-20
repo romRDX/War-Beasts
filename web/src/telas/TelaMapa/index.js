@@ -1,13 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-export default class TelaMapa extends Component {
-    render() {
-        return (
-            <div>
-                <h1>MAPA</h1>
-                <Link to="/main">Voltar</Link>
-            </div>
-        )
-    }
+import Mapa from './components/Mapa';
+import Detalhes from './components/Detalhes';
+
+import { Box } from './styles';
+
+ const TelaMapa = (props) => {
+
+    const [ selected, setSelected ] = useState('');
+
+    useEffect( ()=> {
+
+        return () => {
+
+        };
+
+    }, [selected]);
+
+    function selecionar(est){
+        setSelected(est);
+    };
+    
+    return (
+        <Box>
+            <Detalhes info={ selected } />
+            <Mapa func={selecionar.bind(this)} selected={selected} />
+        </Box>
+    )
+    
 };
+
+export default TelaMapa;

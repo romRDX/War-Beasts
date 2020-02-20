@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import store from '../../../../../../store';
-import history from '../../../../../../services/history';
+import store from 'store';
+import history from 'services/history';
 
 import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
 

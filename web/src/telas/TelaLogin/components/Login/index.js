@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 
 import { FormLogin } from "./styles.js";
 
-import history from '../../../../services/history';
+import history from 'services/history';
 
 
 

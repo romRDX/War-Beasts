@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Info, Voltar } from './styles.js';
+import { Info } from './styles.js';
 
 import Atributos from './components/Atributos';
 import Detalhes from './components/Detalhes';

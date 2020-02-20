@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Status } from './styles';
+import { Box } from './styles';
 
 const Atributos = (props) => (
     <Box>
