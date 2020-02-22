@@ -12,7 +12,7 @@ import Habilidades from './components/Habilidades';
 const TelaPersonagem = (props) => (    
    
     <Info>
-        <Link className="voltar" to="/main">Voltar</Link>
+        <Link className="voltar" to="/principal">Voltar</Link>
         <Portrait />
         <Detalhes character={props.character} />
         <Atributos character={props.character} />
