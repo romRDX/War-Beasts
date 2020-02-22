@@ -19,7 +19,7 @@ export default class Detalhes extends Component {
 
         store.dispatch(dispatcher);
 
-        history.push('/battle-E');
+        history.push('/batalha-A');
     }
 
     render() {

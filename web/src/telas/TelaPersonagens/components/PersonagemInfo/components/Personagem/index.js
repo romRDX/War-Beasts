@@ -18,7 +18,7 @@ class Personagem extends Component {
 
         store.dispatch(dispatcher);
 
-        history.push('/main');
+        history.push('/principal');
     };
 
     render() {

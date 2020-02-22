@@ -8,10 +8,11 @@ const INITIAL_STATE = {
         {id: 4574335, nome: 'Warwick', nivel: 7, classe: 'Lobo', atributos: {STR: 5, DEX: 3, CON: 5 , INT: 7, TOU: 8, AGI: 9}},
         {id: 3685846, nome: 'Aurelion', nivel: 2, classe: 'Dragão', atributos: {STR: 5, DEX: 3, CON: 5 , INT: 7, TOU: 8, AGI: 9}},
     ],
-    activeCharacter: '',
+    activeCharacter: {id: 2536734, nome: 'Renekton', nivel: 10, classe: 'Crocodilo', atributos: {STR: 5, DEX: 4, CON: 4, INT: 1, TOU: 2, AGI: 3}},
     activeMap: '',
     activeStage: '',
     activeScreen: '',
+    activeBattle: '',
 };
 
 function reducer( state = INITIAL_STATE , action ){
