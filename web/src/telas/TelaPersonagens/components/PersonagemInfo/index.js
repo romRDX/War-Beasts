@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Personagem from './components/Personagem';
 
-export default class index extends Component {
-    render() {
-        return (
-            <>  
-                {this.props.slc && <Personagem char={this.props.slc} /> }
-            </>
-        )
-    }
+const PersonagemInfo = (props) => {
+    
+    return (
+        <>  
+            {props.slc && <Personagem char={props.slc} /> }
+        </>
+    )
 }
 
-
+export default PersonagemInfo;

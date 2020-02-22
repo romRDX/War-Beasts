@@ -16,14 +16,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import './global.css';
-import { Main } from "./styles.js";
 
 export default class App extends Component {
   render() {
     return (
       <Router history={history}>
         <Provider store={store}>
-          <Main id="RDX">
+          <div id="RDX">
             <Switch>
               <Route path="/login" component={TelaLogin} />
               <Route path="/personagens" component={TelaPersonagens} />
@@ -34,7 +33,7 @@ export default class App extends Component {
               <Route path="/arena" component={TelaArena} />
               <Route component={NotFound} />
             </Switch>
-          </Main>
+          </div>
         </Provider>
       </Router>
     )

@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { Conteiner } from './styles'
 
-export default class index extends Component {
-    render() {
-        return (
-            <Conteiner>
-                
-            </Conteiner>
-        )
-    }
+const PlayerChar = () => {
+ 
+    return (
+        <Conteiner>
+            
+        </Conteiner>
+    )
 }
+
+export default PlayerChar;

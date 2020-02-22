@@ -23,8 +23,3 @@ const TelaPersonagem = (props) => (
 
 
 export default connect( state => ({ character: state.activeCharacter }))(TelaPersonagem);
-
-// state.activeCharacter // state.characters[0]   MUDAR DE VOLTA DEPOIS
-
-// <Link to="/main">Voltar</Link>
-//                 <h1>{props.character.nome}</h1>

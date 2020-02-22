@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class NotFound extends Component {
-    render() {
-        return (
-            <>
-            <div>
-                <h1>ERRO: PAGINA NÃO ENCONTRADA</h1>
-            </div>
+const NotFound = (props) => {
+    return (
+        <>
+        <div>
+            <h1>ERRO: PAGINA NÃO ENCONTRADA</h1>
+        </div>
 
-            </>
-        )
-    }
+        </>
+    )
 };
+
+export default NotFound;

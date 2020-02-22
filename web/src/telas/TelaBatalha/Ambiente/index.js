@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { Container } from './styles';
@@ -9,18 +9,17 @@ import EnemyModel from './components/EnemyChar';
 import BottomMenu from './components/BottomMenu';
 
 
-class Ambiente extends Component {
+const Ambiente = (props) => {
 
-    render() {
-        return (
-            <Container>
-                <PlayerCard />
-                <PlayerModel />
-                <EnemyModel />
-                <BottomMenu />
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <PlayerCard />
+            <PlayerModel />
+            <EnemyModel />
+            <BottomMenu />
+        </Container>
+    )
+
 }
 
 export default connect( state => ({ stage: state.activeStage }))(Ambiente);

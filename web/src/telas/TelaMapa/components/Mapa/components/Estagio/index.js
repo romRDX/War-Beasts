@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Box } from './styles';
 
-export default class Estagio extends Component {
+const Estagio = (props) => {
 
-    selecionado(){
-        return ( this.props.selected.nome == this.props.est.nome ) ? 'red' : 'white';
+    const selecionado = () => {
+        return ( props.selected.nome === props.est.nome ) ? 'red' : 'white';
     }
 
-    render() {
-        return (
-            <Box posicao={this.props.est.posicao} onClick={ () => this.props.func(this.props.est) }  cor={ this.selecionado.bind(this) }/>
-        )
-    }
+    return (
+        <Box posicao={props.est.posicao} onClick={ () => props.func(props.est) }  cor={ selecionado.bind(this) }/>
+    )
 }
+
+export default Estagio
