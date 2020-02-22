@@ -20,24 +20,26 @@ function reducer( state = INITIAL_STATE , action ){
     switch(action.type){
         case 'SELECT_CHARACTER' : {
             return {
-                ... state,
+                ...state,
                 activeCharacter: action.char
             }
         }
 
         case 'SELECT_MAP' : {
             return {
-                ... state,
+                ...state,
                 activeMap: action.map
             }
         }
 
         case 'ENTER_STAGE' : {
             return {
-                ... state,
+                ...state,
                 activeStage: action.stage
             }
         }
+
+        default : {}
     }
 
     return state;

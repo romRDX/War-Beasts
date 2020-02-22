@@ -1,28 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Estagio from './components/Estagio';
 
 import { connect } from 'react-redux';
 
 import { Background } from './styles.js';
-
-// class Mapa extends Component {
-
-
-
-//     render() {
-//         return (
-//             <Background>
-//                 {
-//                     this.props.map.estagios.map( est => (
-//                         <Estagio est={est} />
-//                     ))
-//                 }
-//             </Background>
-//         )
-//     }
-// }
-
 
 const Mapa = (props) => {
 
@@ -34,9 +16,7 @@ const Mapa = (props) => {
                 ))
             }
         </Background>
-    )
-    
+    ) 
 }
-
 
 export default connect( state => ({ map: state.activeMap }) )(Mapa);

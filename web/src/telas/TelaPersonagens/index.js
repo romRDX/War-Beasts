@@ -4,10 +4,10 @@ import { Selecao } from "./styles.js";
 import Miniaturas from './components/Miniaturas';
 import PersonagemInfo from './components/PersonagemInfo';
 
-export default function TelaPersonagens(props) {
+const TelaPersonagens = (props) => {
     const [ selected, setSelected ] = useState('');
 
-    function test(select) {
+    const test = (select) => {
         setSelected(select);
     }
 
@@ -27,3 +27,5 @@ export default function TelaPersonagens(props) {
     )
 
 }
+
+export default TelaPersonagens;

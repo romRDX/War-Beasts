@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Box } from './styles';
 
-const Atributos = (props) => (
+const Detalhes = (props) => (
     <Box>
         <div>Nome: {props.character.nome}</div>
         <div>Change Titles</div>
@@ -14,4 +14,4 @@ const Atributos = (props) => (
     </Box>                        
 );
 
-export default Atributos;
+export default Detalhes;
