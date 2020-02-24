@@ -6,14 +6,11 @@ import history from 'services/history';
 import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
 
 const Personagem = (props) => {
-
     const chooseChar = () => {
-
         const dispatcher = {
             type: 'SELECT_CHARACTER',
             char: props.char
         }
-
         store.dispatch(dispatcher);
         history.push('/principal');
     };
@@ -21,7 +18,6 @@ const Personagem = (props) => {
     return (
         <Info>
             <h1>Prefixo - {props.char.nome} - Sufixo</h1>
-
             <Portrait ></Portrait>
             <Divisor>
                 <h2>Detalhes</h2>
