@@ -11,7 +11,7 @@ War Beast is a game project.
 *abstract*
 
 
-In War Beast, earth was almost destroyed by the last world war. Driven by greed, humans used everything they had to win, and that included devastating nuclear weapons. Millions of people, animals and nature itself were turned to ashes and the planet would not support life long...
+In War Beasts, earth was almost destroyed by the last world war. Driven by greed, humans used everything they had to win, and that included devastating nuclear weapons. Millions of people, animals and nature itself were turned to ashes and the planet would not support life long...
 However, amidist that chaos, an ancient being returned from it's slumber as the last chance to save for life on earth.
 
 
@@ -23,7 +23,7 @@ For that purpose, the Elder Treant, using the powers of nature, chose among the 
 
 PT-BR
 
-Em WarBeast, a terra foi quase destruida pela ultima guerra mundial. Dominados pela ganancia, os humanos usaram tudo para vencer, incluindo as devastadoras armas nucleares. Milhões de pessoas, animais e a natureza em si viraram cinzas, e o planeta não conseguiria suportar a vida por muito mais tempo...
+Em War Beasts, a terra foi quase destruida pela ultima guerra mundial. Dominados pela ganancia, os humanos usaram tudo para vencer, incluindo as devastadoras armas nucleares. Milhões de pessoas, animais e a natureza em si viraram cinzas, e o planeta não conseguiria suportar a vida por muito mais tempo...
 Entretanto, no meio desse caos, um ser antigo retorna de seu sono como a ultima chance da vida na terra.
 
 O Ente Ancião, a mente "por trás" da natureza, despertou a árvore da vida para usar seus poderes em uma tentativa de sobreviver e reestabelecer a vida como ela era. Mas não apenas se viu que a vida estava fraca por causa da guerra nuclear, mas também que alguma outra coisa estava contribuindo para o fim da terra. Alguns animais e criaturas muito estranhas foram vistas perambulando as terras destruidas, de maneira nenhuma elas eram naturais, e carregavam consigo uma energia super negativa, que chamamos de corrupção. Ela se alastrava a cada segundo enquanto o mundo definhava, e a vida teria que lutar contra isso.
