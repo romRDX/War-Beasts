@@ -21,6 +21,10 @@ export const Portrait = styled.div`
     width: 40%;
     height: 80%;
     box-sizing: border-box;
+    background-image: url('${ props => props.img}');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 `;
 
 export const Info = styled.div`

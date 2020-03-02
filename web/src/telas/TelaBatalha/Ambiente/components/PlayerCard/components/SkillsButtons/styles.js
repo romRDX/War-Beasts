@@ -29,6 +29,24 @@ export const Buttons = styled.div`
 
 `;
 
+export const Skill = styled.div`
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url('${props => props.icone}');
+    position: relative;
+
+    h2 {
+        text-align: center;
+        position: absolute;
+        right: -10%;
+        border-radius: 50%;
+        background: black;
+        color: yellow;
+        padding: 3%;
+    }
+`;
+
 
 export const EnergyBar = styled.div`
 
@@ -49,8 +67,9 @@ width: 100%;
 
         .bar {
             width: 55%;
-            background: green;
+            background: yellow;
             height: 40%;
             margin: auto;
+            border: 1px solid gray;
         }
 `;

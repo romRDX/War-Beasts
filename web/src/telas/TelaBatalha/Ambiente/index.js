@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { Container } from './styles';
 
 import PlayerCard from './components/PlayerCard';
-import PlayerModel from './components/PlayerChar';
-import EnemyModel from './components/EnemyChar';
+import PlayerTeam from './components/PlayerTeam';
+import EnemyTeam from './components/EnemyTeam';
 import BottomMenu from './components/BottomMenu';
 
 
-class Ambiente extends Component {
+const Ambiente = () => {
 
-    render() {
-        return (
-            <Container>
-                <PlayerCard />
-                <PlayerModel />
-                <EnemyModel />
-                <BottomMenu />
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <PlayerCard />
+            <PlayerTeam />
+            <EnemyTeam />
+            <BottomMenu />
+        </Container>
+    )
 }
 
 export default connect( state => ({ stage: state.activeStage }))(Ambiente);

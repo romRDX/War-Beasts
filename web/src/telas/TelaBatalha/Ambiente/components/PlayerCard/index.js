@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -7,15 +7,16 @@ import Detalhes from './components/Detalhes';
 
 import { Conteiner } from './styles';
 
-class PlayerCard extends Component {
-    render() {
-        return (
-            <Conteiner>
-                <Detalhes player={this.props.player} />
-                <SkillsButtons skills={this.props.player} />
-            </Conteiner>
-        )
-    }
+const PlayerCard = (props) => {
+
+    const player = props.player;
+    
+    return (
+        <Conteiner>
+            <Detalhes player={player} />
+            <SkillsButtons skills={props.player} />
+        </Conteiner>
+    )
 }
 
 export default connect( state => ({ player: state.activeCharacter }))(PlayerCard);
