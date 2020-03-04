@@ -28,16 +28,16 @@ const Detalhes = (props) => {
             <Portrait />
             <Info>
                 <div>
-                    { props.info.nome  && <h2>Estágio: { props.info.nome }</h2>}
+                    { this.props.info.nome  && <h2>Estágio: { this.props.info.nome }</h2>}
                 </div>
                 <div>
-                    { props.info.nivel  && <h2>Nível: { props.info.nivel }</h2>}
+                    { this.props.info.nivel  && <h2>Nível: { this.props.info.nivel }</h2>}
                 </div>
                 <div>
                     
                 </div>
             </Info>
-            <Entrar onClick={ entrarEstagio.bind(this)}> Entrar </Entrar>
+            <Entrar onClick={this.entrarEstagio.bind(this)}> Entrar </Entrar>
         </Box>
     )
     

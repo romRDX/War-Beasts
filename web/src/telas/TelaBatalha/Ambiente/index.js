@@ -4,21 +4,22 @@ import { connect } from 'react-redux';
 import { Container } from './styles';
 
 import PlayerCard from './components/PlayerCard';
-import PlayerTeam from './components/PlayerTeam';
-import EnemyTeam from './components/EnemyTeam';
+import PlayerModel from './components/PlayerModel';
+import EnemyModel from './components/EnemyModel';
 import BottomMenu from './components/BottomMenu';
 
 
-const Ambiente = () => {
+const Ambiente = (props) => {
 
     return (
         <Container>
             <PlayerCard />
-            <PlayerTeam />
-            <EnemyTeam />
+            <PlayerModel />
+            <EnemyModel />
             <BottomMenu />
         </Container>
     )
+
 }
 
 export default connect( state => ({ stage: state.activeStage }))(Ambiente);
