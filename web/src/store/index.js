@@ -6,10 +6,11 @@ const INITIAL_STATE = {
     user: {},
     characters: personagens,
     activeCharacter: personagens[0],
-    activeMap: '',
+    activeMap: {nome: 'estagio 1', posicao: [7,64],  nivel: 1, inimigos: [], img: '', dificuldade: ''},
     activeStage: '',
     activeScreen: '',
     activeBattle: '',
+    mapProgress: { tokens: 0, open: []},
 };
 
 function reducer( state = INITIAL_STATE , action ){

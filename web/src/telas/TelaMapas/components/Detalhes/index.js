@@ -5,28 +5,33 @@ import store from 'store';
 import history from 'services/history';
 
 import {  } from './styles';
-import { Box, Portrait, Info, Entrar } from './styles';
+import { Conteiner, Portrait, Info, Entrar, Desbloquear } from './styles';
 
 
 export default class Detalhes extends Component {
 
-    entrarEstagio(){
+    entrarEstagio(e){
 
+        e.preventDefault();
+
+        if (!this.props.info){
+            return;
+        }
+        
         const dispatcher = {
-            type: 'ENTER_STAGE',
-            stage: this.props.info.nome,
-            nome: this.props.info.nome
+            type: 'SELECT_MAP',
+            map: this.props.info
         }
 
         store.dispatch(dispatcher);
-
-        history.push('/batalha-A');
+    
+        history.push('/mapa');
     }
 
     render() {
         return (
-            <Box>
-                <Link className="voltar" to="/mapas">Voltar</Link>
+            <Conteiner>
+                <Link className="voltar" to="/principal">Voltar</Link>
                 <Portrait />
                 <Info>
                     <div>
@@ -40,7 +45,7 @@ export default class Detalhes extends Component {
                     </div>
                 </Info>
                 <Entrar onClick={this.entrarEstagio.bind(this)}> Entrar </Entrar>
-            </Box>
+            </Conteiner>
         )
     }
 };

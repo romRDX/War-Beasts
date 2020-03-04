@@ -7,6 +7,7 @@ import TelaMenu from './telas/TelaMenu';
 import TelaArena from './telas/TelaArena';
 import TelaPersonagem from './telas/TelaPersonagem';
 import TelaMapa from './telas/TelaMapa';
+import TelaMapas from './telas/TelaMapas';
 import TelaBatalha_A from './telas/TelaBatalha/Ambiente';
 import NotFound from './telas/NotFound';
 
@@ -30,6 +31,7 @@ export default class App extends Component {
               <Route path="/principal" component={TelaMenu} />
               <Route path="/personagem" component={TelaPersonagem} />
               <Route path="/mapa" component={TelaMapa} />
+              <Route path="/mapas" component={TelaMapas} />
               <Route path="/batalha-A" component={TelaBatalha_A} />
               <Route path="/arena" component={TelaArena} />
               <Route component={NotFound} />

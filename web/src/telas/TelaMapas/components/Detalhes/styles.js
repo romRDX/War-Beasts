@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 
 
-export const Box = styled.div`
-    width: 30%;
+export const Conteiner = styled.div`
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border-right: 1px solid black;
 
+    
     .voltar {
         position: absolute;
         top: 0%;

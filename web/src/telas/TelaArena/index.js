@@ -6,7 +6,7 @@ export default class TelaArena extends Component {
         return (
             <div>
                 <h1>ARENA</h1>
-                <Link to="/main">Voltar</Link>
+                <Link to="/principal">Voltar</Link>
             </div>
         )
     }

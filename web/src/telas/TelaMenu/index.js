@@ -27,11 +27,11 @@ export default class TelaMenu extends Component {
             <>
                 <Menu>
                     <h1>WAR BEAST</h1>
-                    <Link className="menuLink" to="/personagem">Personagem</Link>
-                    <div className="menuLink" onClick={this.showStages}>Mapa</div>
-                    <Link className="menuLink" to="/Arena">Arena</Link>
-                    <Link className="menuLink" to="/main">Teste</Link>
-                    <Link className="menuLink" to="/personagens">Escolher personagem</Link>
+                    <Link className="menuLink" to="/personagem"> Personagem </Link>
+                    <Link className="menuLink" to="/mapas"> Mapas </Link>
+                    <Link className="menuLink" to="/Arena"> Arena </Link>
+                    <Link className="menuLink" to="/main"> Teste </Link>
+                    <Link className="menuLink" to="/personagens"> Escolher personagem </Link>
                 </Menu>
                 <Background>
                     { this.state.mapSelection && <MapaEstagios /> }
