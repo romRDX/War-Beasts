@@ -1,13 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class TelaPersonagem extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>PERSONAGEM</h1>
-                <Link to="/main">Voltar</Link>
-            </div>
-        )
-    }
-};
+import { Info } from './styles.js';
+
+import Atributos from './components/Atributos';
+import Detalhes from './components/Detalhes';
+import Portrait from './components/Portrait';
+import Habilidades from './components/Habilidades';
+
+const TelaPersonagem = (props) => (    
+   
+    <Info>
+        <Link className="voltar" to="/principal">Voltar</Link>
+        <Portrait />
+        <Detalhes character={props.character} />
+        <Atributos character={props.character} />
+        <Habilidades />
+    </Info>
+   
+);
+
+
+export default connect( state => ({ character: state.activeCharacter }))(TelaPersonagem);

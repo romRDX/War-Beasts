@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-export default class TelaArena extends React.Component {
+export default class TelaArena extends Component {
     render() {
         return (
             <div>
                 <h1>ARENA</h1>
-                <Link to="/main">Voltar</Link>
+                <Link to="/principal">Voltar</Link>
             </div>
         )
     }

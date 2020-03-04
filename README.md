@@ -1,3 +1,9 @@
+# Execution/Execução
+  
+  > cd web
+  
+  > yarn start 
+
 # War Beast
 
 War Beast is a game project.
