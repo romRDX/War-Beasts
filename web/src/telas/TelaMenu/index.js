@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-import MapaEstagios from './components/mapaEstagios';
-
 import { Menu, Background } from "./styles.js";
 
 const TelaMenu = (props) => {
-    const [ selectedMap, setSelectedMap] = useState(false);
-
-    const showStages = () => {
-        setSelectedMap( !selectedMap );
-    }
-
     return (
         <>
             <Menu>

@@ -5,10 +5,10 @@ import Miniaturas from './components/Miniaturas';
 import PersonagemInfo from './components/PersonagemInfo';
 
 const TelaPersonagens = (props) => {
-    const [ selected, setSelected ] = useState('');
+    const [ personagemSelecionado, setarPersonagemSelecionado ] = useState('');
 
-    const test = (select) => {
-        setSelected(select);
+    const selecionarPersonagem = (personagemSelecionado) => {
+        setarPersonagemSelecionado(personagemSelecionado);
     }
 
     useEffect( ()=> {
@@ -17,12 +17,12 @@ const TelaPersonagens = (props) => {
 
         };
 
-    }, [selected]);
+    }, [personagemSelecionado]);
 
     return (
         <Selecao>
-            <Miniaturas func={test.bind(this)}/>
-            <PersonagemInfo slc={selected}/>
+            <Miniaturas func={selecionarPersonagem.bind(this)}/>
+            <PersonagemInfo slc={personagemSelecionado}/>
         </Selecao>
     )
 

@@ -23,6 +23,13 @@ function reducer( state = INITIAL_STATE , action ){
             }
         }
 
+        case 'CREATE_CHARACTER' : {
+            return {
+                ...state,
+                characters: [...state.characters, action.novoPersonagem]
+            }
+        }
+
         case 'SELECT_MAP' : {
             return {
                 ...state,
