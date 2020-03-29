@@ -4,10 +4,11 @@ import Mapa from './components/Mapa';
 import Detalhes from './components/Detalhes';
 
 import { Box } from './styles';
+import MapaContext from 'telas/TelaMapa/context/MapaContext';
 
 const TelaMapa = (props) => {
 
-    const [ selected, setSelected ] = useState('');
+    const [ estagio, setEstagio ] = useState('');
 
     useEffect( ()=> {
 
@@ -15,16 +16,19 @@ const TelaMapa = (props) => {
 
         };
 
-    }, [selected]);
+    }, [estagio]);
 
-    function selecionar(est){
-        setSelected(est);
+    function selecionarEstagio(est){
+        setEstagio(est);
     };
     
     return (
         <Box>
-            <Detalhes info={ selected } />
-            <Mapa func={selecionar.bind(this)} selected={selected} />
+            <MapaContext.Provider value={{ selecionarEstagio, estagio }}>
+                <Detalhes info={ estagio } />
+                <Mapa />
+            </MapaContext.Provider>
+            
         </Box>
     )
     

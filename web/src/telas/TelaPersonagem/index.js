@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import { Info } from './styles.js';
 
@@ -10,16 +9,14 @@ import Portrait from './components/Portrait';
 import Habilidades from './components/Habilidades';
 
 const TelaPersonagem = (props) => (    
-   
     <Info>
         <Link className="voltar" to="/principal">Voltar</Link>
         <Portrait />
-        <Detalhes character={props.character} />
-        <Atributos character={props.character} />
+        <Detalhes />
+        <Atributos />
         <Habilidades />
     </Info>
-   
 );
 
 
-export default connect( state => ({ character: state.activeCharacter }))(TelaPersonagem);
+export default TelaPersonagem;

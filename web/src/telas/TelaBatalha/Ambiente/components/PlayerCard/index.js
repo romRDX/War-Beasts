@@ -8,15 +8,13 @@ import Detalhes from './components/Detalhes';
 import { Conteiner } from './styles';
 
 const PlayerCard = (props) => {
-
-    const player = props.player;
     
     return (
         <Conteiner>
-            <Detalhes player={player} />
-            <SkillsButtons skills={props.player} />
+            <Detalhes />
+            <SkillsButtons />
         </Conteiner>
     )
 }
 
-export default connect( state => ({ player: state.activeCharacter }))(PlayerCard);
+export default PlayerCard;

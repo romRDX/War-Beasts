@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Cenario, Info } from './styles';
 
 import store from 'store';
 
 import history from 'services/history';
+import MapasContext from 'telas/TelaMapas/context/MapasContext';
+
+
 
 const Mapa = (props) => {
+    const { selecionarMapa } = useContext(MapasContext);
 
     function goToMap(e) {
         e.preventDefault();
@@ -23,7 +27,7 @@ const Mapa = (props) => {
     }
 
     return (
-        <Box onClick={ () => props.func(props.mapa)}>
+        <Box onClick={ () => selecionarMapa(props.mapa)}>
             <Cenario />
             <Info>
                 <h1>{props.mapa.nome}</h1>

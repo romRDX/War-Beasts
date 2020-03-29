@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Conteiner, Nome, Botao } from './styles';
+import { Conteiner } from './styles';
+import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/RacasContext';
 
-const Atributos = ( props ) => (
-    <Conteiner>
-        <h2>STR: {props.atri.STR}</h2>
-        <h2>DEX: {props.atri.DEX}</h2>
-        <h2>INT: {props.atri.INT}</h2>
-        <h2>CON: {props.atri.CON}</h2>
-        <h2>TOU: {props.atri.TOU}</h2>
-        <h2>AGI: {props.atri.AGI}</h2>
-    </Conteiner>
-);
+const Atributos = ( props ) => {
+    const { raca } = useContext(RacaContext)
+
+    return (
+        <Conteiner>
+        { raca && <>
+            <h2>STR: {raca.atributos.STR}</h2>
+            <h2>DEX: {raca.atributos.DEX}</h2>
+            <h2>INT: {raca.atributos.INT}</h2>
+            <h2>CON: {raca.atributos.CON}</h2>
+            <h2>TOU: {raca.atributos.TOU}</h2>
+            <h2>AGI: {raca.atributos.AGI}</h2>
+            </>
+        }
+            
+        </Conteiner>
+    )
+    
+};
 
 export default Atributos;

@@ -7,8 +7,8 @@ import { Conteiner } from './styles.js';
 
 const TelaTribos = ( props ) => (
     <Conteiner>
-        <Detalhes selecionada={props.tribo} func={props.confirmar} />
-        <Opcoes func={props.selecionar} />
+        <Detalhes func={props.confirmar} />
+        <Opcoes />
     </Conteiner>
 );
 

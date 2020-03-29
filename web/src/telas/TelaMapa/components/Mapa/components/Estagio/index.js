@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box } from './styles';
+import MapaContext from 'telas/TelaMapa/context/MapaContext';
 
 const Estagio = (props) => {
+    const { estagio, selecionarEstagio } = useContext(MapaContext);
 
     const selecionado = () => {
-        return ( props.selected.nome === props.est.nome ) ? 'red' : 'white';
+        return ( estagio.nome === props.est.nome ) ? 'red' : 'white';
     }
 
     return (
-        <Box posicao={props.est.posicao} onClick={ () => props.func(props.est) }  cor={ selecionado.bind(this) }/>
+        <Box posicao={props.est.posicao} onClick={ () => selecionarEstagio(props.est) }  cor={ selecionado }/>
     )
 }
 

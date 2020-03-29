@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { PersonagemMiniatura } from "./styles.js";
+import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext.js';
 
  const Miniatura = (props) => {
+    const { selecionarPersonagem } = useContext(PersonagensContext);
 
     return (
-        <PersonagemMiniatura onClick={() => props.func(props.char)}>
+        <PersonagemMiniatura onClick={() => selecionarPersonagem(props.char)}>
             <div className="info" >
                 <h2>{props.char.nome}</h2>
                 <h3>{props.char.classe}</h3>

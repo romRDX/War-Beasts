@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Conteiner } from './styles.js';
+import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext.js';
 
-const Detalhes = ( props ) => (
-    <Conteiner onClick={ () => props.func(props.tribo) }>
-        botão
-    </Conteiner>
-);
+const Detalhes = ( props ) => {
+    const { selecionada, confirmarTribo } = useContext(TriboContext);
+
+    return (
+        <Conteiner onClick={ () => confirmarTribo(selecionada) }>
+            botão
+        </Conteiner>
+    )
+    
+};
 
 export default Detalhes;

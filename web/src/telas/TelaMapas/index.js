@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-import Mapas from './components/Mapas'
+import MapasContext from './context/MapasContext';
+
+import Mapas from './components/Mapas';
 import Detalhes from './components/Detalhes';
 
 import { Conteiner } from './styles';
 
- const TelaMapas = (props) => {
+const TelaMapas = (props) => {
 
     const [ selected, setSelected ] = useState('');
 
@@ -17,14 +19,16 @@ import { Conteiner } from './styles';
 
     }, [selected]);
 
-    function selecionar(est){
+    function selecionarMapa(est){
         setSelected(est);
     };
     
     return (
         <Conteiner>
-            <Detalhes info={ selected } />
-            <Mapas func={selecionar.bind(this)} />
+            <MapasContext.Provider value={{ selecionarMapa }}>
+                <Detalhes info={ selected } />
+                <Mapas />
+            </MapasContext.Provider>
         </Conteiner>
     )
     

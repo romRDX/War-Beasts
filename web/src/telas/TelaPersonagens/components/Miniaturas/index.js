@@ -11,7 +11,7 @@ const Miniaturas = ( props ) => (
             <Minis>
                 {   
                     props.characters.map( char => (
-                        <Miniatura func={props.func} char={char} key={char.id}/>
+                        <Miniatura char={char} key={char.id}/>
                     ))
                 }
             </Minis>
