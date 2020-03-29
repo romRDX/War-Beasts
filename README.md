@@ -1,14 +1,17 @@
+# War Beasts
+
+Wars Beasts é um projeto de um jogo digital online do gênero MORPG com combate em turnos.
+Este projero usará as seguintes técnologias para sua implementação:
+* ReactJs/Redux
+* NodeJs
+
 # Execution/Execução
 
   > cd web
   
   > yarn start 
-# War Beast
 
-War Beast is a game project.
-
-*abstract*
-
+# História/Story
 
 In War Beasts, earth was almost destroyed by the last world war. Driven by greed, humans used everything they had to win, and that included devastating nuclear weapons. Millions of people, animals and nature itself were turned to ashes and the planet would not support life long...
 However, amidist that chaos, an ancient being returned from it's slumber as the last chance to save for life on earth.
