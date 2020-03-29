@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { Box } from './styles';
 
@@ -9,4 +10,4 @@ const Passivas = (props) => (
     </Box>                        
 );
 
-export default Passivas;
+export default connect( state => ({ character: state.activeCharacter }))(Passivas);

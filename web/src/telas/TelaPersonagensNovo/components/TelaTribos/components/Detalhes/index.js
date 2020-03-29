@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Conteiner } from './styles.js';
 
 import Logo from './components/Logo';
 import Descricao from './components/Descricao';
 import Botao from './components/Botao';
+import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext.js';
 
-const Detalhes = ( props ) => (
-    <Conteiner>
-    <h1>{ props.selecionada.nome }</h1>
-        <Logo />
+const Detalhes = ( props ) => {
+    const { selecionada } = useContext(TriboContext);
+
+    return (
+        <Conteiner>
+            <h1>{ selecionada.nome }</h1>
+            <Logo />
     
-        <Descricao descricao={ props.selecionada.descricao} />
-        <Botao func={props.func} tribo={props.selecionada} />
-    </Conteiner>
-);
+            <Descricao descricao={ selecionada.descricao} />
+            <Botao />
+        </Conteiner>
+    )
+    
+};
 
 export default Detalhes;

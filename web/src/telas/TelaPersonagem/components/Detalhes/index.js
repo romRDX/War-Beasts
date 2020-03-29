@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { Box } from './styles';
 
@@ -14,4 +15,4 @@ const Detalhes = (props) => (
     </Box>                        
 );
 
-export default Detalhes;
+export default connect( state => ({ character: state.activeCharacter }))(Detalhes);

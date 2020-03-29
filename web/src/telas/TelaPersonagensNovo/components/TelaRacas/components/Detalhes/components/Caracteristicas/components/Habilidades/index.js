@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Conteiner, Nome, Botao } from './styles';
+import { Conteiner } from './styles';
+import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/RacasContext';
 
-const Habilidades = ( props ) => (
-    <Conteiner>
-        <div>{ props.hab && props.hab.ativas[0].nome}</div>
-    </Conteiner>
-);
+const Habilidades = ( props ) => {
+    const { raca } = useContext(RacaContext);
+
+    return (
+        <Conteiner>
+            <div>{ raca && raca.habilidades.ativas[0].nome}</div>
+        </Conteiner>
+    )
+    
+};
 
 export default Habilidades;

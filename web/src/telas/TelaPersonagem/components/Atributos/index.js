@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { Box, Atributo, Principais, Secundarios } from './styles';
 
@@ -29,4 +30,4 @@ const Atributos = (props) => (
     </Box>                        
 );
 
-export default Atributos;
+export default connect( state => ({ character: state.activeCharacter }))(Atributos);

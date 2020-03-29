@@ -6,12 +6,12 @@ import Habilidades from './components/Habilidades';
 
 const Caracteristicas = ( props ) => (
     <Conteiner>
-        {props.raca && 
+        
             <>
-                <Atributos atri={props.raca.atributos}/>
-                <Habilidades hab={props.raca.habilidades} />
+                <Atributos />
+                <Habilidades  />
             </>
-        }
+        
     </Conteiner>
 );
 

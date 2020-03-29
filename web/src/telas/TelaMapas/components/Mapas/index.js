@@ -15,7 +15,7 @@ const mapaEstagios = (props) => {
             {
                 
                 mapas.map( mapa => (
-                    <Mapa key={mapa.nome} func={props.func} mapa={mapa} />
+                    <Mapa key={mapa.nome} mapa={mapa} />
                 ))
             }
         </Mapas>

@@ -6,7 +6,7 @@ const PersonagemInfo = (props) => {
     
     return (
         <>  
-            {props.slc && <Personagem char={props.slc} /> }
+            <Personagem  />
         </>
     )
 }

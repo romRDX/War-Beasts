@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import TriboContext from './context/TriboContext';
+
 import TelaRacas from './components/TelaRacas';
 import TelaTribos from './components/TelaTribos';
 import { Conteiner } from "./styles.js";
@@ -26,15 +28,13 @@ const TelaPersonagensNovo = (props) => {
 
     return (
         <Conteiner>
+            <TriboContext.Provider value={{ tribo, selecionada, confirmarTribo, selecionarTribo }}>
             {
                 tribo ? 
-                    <TelaRacas tribo={tribo} /> :
-                    <TelaTribos 
-                        tribo={selecionada}
-                        confirmar={confirmarTribo.bind(this)}
-                        selecionar={selecionarTribo.bind(this)} 
-                    />
+                    <TelaRacas /> :
+                    <TelaTribos />
             }
+            </TriboContext.Provider>
         </Conteiner>
     )
 

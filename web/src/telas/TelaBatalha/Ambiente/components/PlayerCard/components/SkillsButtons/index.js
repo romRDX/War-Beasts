@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { Conteiner, Buttons, EnergyBar, Skill } from "./styles";
 
@@ -8,7 +9,7 @@ const SkillsButtons = (props) => {
         <Conteiner>
             <Buttons>
                 {
-                    props.skills.habilidades.ativas.map( hab => (
+                    props.player.habilidades.ativas.map( hab => (
                         <Skill className='skill' icone={hab.icone} ><h2>{hab.custo}</h2></Skill>
                     ))
                 }
@@ -21,4 +22,4 @@ const SkillsButtons = (props) => {
     )
 }
 
-export default SkillsButtons;
+export default connect( state => ({ player: state.activeCharacter }))(SkillsButtons);

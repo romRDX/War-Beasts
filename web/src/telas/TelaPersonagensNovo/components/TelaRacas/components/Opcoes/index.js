@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import OpcaoRaca from './components/OpcaoRaca';
 
 import { Conteiner } from './styles';
+import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext';
 
-const Opcoes = ( props ) => (
-        <Conteiner>
+const Opcoes = ( props ) => {
+        const { tribo } = useContext(TriboContext)
+
+        return (
+                <Conteiner>
                 {
-                        props.racas.map( raca => (
-                                <OpcaoRaca key={raca.nome} func={props.func} raca={raca } />
+                        tribo.racas.map( raca => (
+                                <OpcaoRaca key={raca.nome} raca={raca } />
                         ))
                 }
-        </Conteiner>
-);
+                </Conteiner>
+        )
+        
+};
 
 export default Opcoes;

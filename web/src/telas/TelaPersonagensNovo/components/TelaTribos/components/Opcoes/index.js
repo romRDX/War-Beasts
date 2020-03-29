@@ -16,7 +16,7 @@ const Opcoes = ( props ) => {
                 <Conteiner>
                         {   
                                 tribos.map( tribo => (
-                                        <OpcaoTribo tribo={tribo}  key={tribo.nome} func={props.func} />
+                                        <OpcaoTribo tribo={tribo}  key={tribo.nome} />
                                 ))
                         }
                 </Conteiner>

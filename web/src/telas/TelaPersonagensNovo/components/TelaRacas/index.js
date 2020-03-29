@@ -14,7 +14,7 @@ import RacaContext from './context/RacasContext';
 
 const TelaRacas = ( props ) => {
 
-    const [raca, setRaca ] = useState('');
+    const [raca, setRaca ] = useState();
 
     const selecionarRaca = (racax) => {
         setRaca(racax);
@@ -49,9 +49,9 @@ const TelaRacas = ( props ) => {
 
     return (
         <Conteiner>
-            <RacasContext.Provider value={{ criarPersonagem }}>
-                <Detalhes raca={raca} />
-                <Opcoes racas={props.tribo.racas} func={ selecionarRaca.bind(this) } />
+            <RacasContext.Provider value={{ raca, criarPersonagem, selecionarRaca }}>
+                <Detalhes />
+                <Opcoes />
             </RacasContext.Provider>
         </Conteiner>
     )

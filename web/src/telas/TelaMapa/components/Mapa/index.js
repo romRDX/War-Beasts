@@ -11,12 +11,12 @@ const Mapa = (props) => {
     return (
         <Background>
             {
-                props.map.estagios.map( est => (
-                    <Estagio key={est.nome} est={est} func={ props.func } selected={props.selected} />
+                props.activeMap.estagios.map( est => (
+                    <Estagio key={est.nome} est={est} />
                 ))
             }
         </Background>
     ) 
 }
 
-export default connect( state => ({ map: state.activeMap }) )(Mapa);
+export default connect( state => ({ activeMap: state.activeMap }) )(Mapa);

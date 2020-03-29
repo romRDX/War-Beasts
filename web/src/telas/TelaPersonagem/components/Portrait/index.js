@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { Box } from './styles';
 
@@ -8,4 +9,4 @@ const Portrait = (props) => (
     </Box>                        
 );
 
-export default Portrait;
+export default connect( state => ({ character: state.activeCharacter }))(Portrait);
