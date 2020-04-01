@@ -5,7 +5,7 @@ import store from 'store';
 import history from 'services/history';
 
 import {  } from './styles';
-import { Conteiner, Portrait, Info, Entrar, Desbloquear } from './styles';
+import { Conteiner, Portrait, Info, Entrar } from './styles';
 
 
 export default class Detalhes extends Component {

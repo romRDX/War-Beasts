@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Miniatura from './components/Miniatura';
-import { Conteiner , Minis, NovoPersonagem } from './styles.js';
+import { Conteiner , Minis } from './styles.js';
 
 const Miniaturas = ( props ) => (
         <Conteiner>

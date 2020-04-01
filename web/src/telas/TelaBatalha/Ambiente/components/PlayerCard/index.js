@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-
 import SkillsButtons from './components/SkillsButtons';
 import Detalhes from './components/Detalhes';
 

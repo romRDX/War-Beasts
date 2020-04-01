@@ -19,7 +19,7 @@ const BottomMenu = () => {
         <Conteiner>
             <div>End Turn</div>
             <Menu onClick={toggleMenu} >
-                { menu && <div className="menu"><h2>Fugir</h2><h2>Opções</h2><h2></h2></div>}
+                { menu && <div className="menu"><h2>Fugir</h2><h2>Opções</h2></div>}
                 <h2>Menu</h2>
             </Menu>
             <div onClick={toggleBattleLog} > Battle Log

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Box, Atributo, Principais, Secundarios } from './styles';
+import { Conteiner, Atributo, Principais, Secundarios } from './styles';
 
 const Atributos = (props) => (
-    <Box>
+    <Conteiner>
         <Principais>
             <Atributo className="STR" > STR : {props.character.atributos.STR} </Atributo>
             <Atributo className="DEX" > DEX : {props.character.atributos.DEX} </Atributo>
@@ -27,7 +27,7 @@ const Atributos = (props) => (
             <Atributo className="AGITOU" > Resistencia a Critico : {props.character.atributos.AGI} </Atributo>
             <Atributo className="TOUCON" > Resistencia a Atordoar : {props.character.atributos.AGI} </Atributo>
         </Secundarios>
-    </Box>                        
+    </Conteiner>                        
 );
 
 export default connect( state => ({ character: state.activeCharacter }))(Atributos);

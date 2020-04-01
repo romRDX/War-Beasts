@@ -21,7 +21,7 @@ export const Conteiner = styled.div`
     }
 `;
 
-export const Conteiner_2 = styled.div`
+export const ConteinerB = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

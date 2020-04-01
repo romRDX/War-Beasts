@@ -10,7 +10,6 @@ import Opcoes from './components/Opcoes';
 import personagemFactory from './functions/personagemFactory';
 
 import { Conteiner } from './styles.js';
-import RacaContext from './context/RacasContext';
 
 const TelaRacas = ( props ) => {
 

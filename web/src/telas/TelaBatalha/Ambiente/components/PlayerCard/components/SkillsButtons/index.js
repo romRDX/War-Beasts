@@ -9,7 +9,7 @@ const SkillsButtons = (props) => {
         <Conteiner>
             <Buttons>
                 {
-                    props.player.habilidades.ativas.map( hab => (
+                    props.player.habilidades.map( hab => (
                         <Skill className='skill' icone={hab.icone} ><h2>{hab.custo}</h2></Skill>
                     ))
                 }

@@ -4,8 +4,8 @@ export const Box = styled.div`
 
     display: flex;
     flex-direction: column;
-    width: 48%;
-    height: 46%;
+    width: 49%;
+    height: 49%;
     justify-content: space-evenly;
     border: 1px solid black;
     padding: 8px;
