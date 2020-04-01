@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Conteiner, Nome, Botao } from './styles';
+import { Conteiner } from './styles';
 import Atributos from './components/Atributos';
 import Habilidades from './components/Habilidades';
 

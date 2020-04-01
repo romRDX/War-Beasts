@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
-export const Box = styled.div`
+export const Conteiner = styled.div`
 
     display: flex;
     flex-direction: row;
-    width: 48%;
-    height: 46%;
+    width: 49%;
+    height: 49%;
     flex-wrap: wrap;
     justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 10px;
-    padding: 8px;
+    padding: 2px;
     margin: auto;
 
     .STR {
@@ -91,7 +91,7 @@ export const Secundarios = styled.div`
     text-shadow: 1px 0 0 white, -1px 0 0 white, 0 1px 0 white, 0 -1px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
 
     div {
-        font-size: 14px;
+        font-size: 16px;
         margin: 2px 0;
         background: linear-gradient(90deg, gray,lightgray, white, white, lightgray, gray);
     }

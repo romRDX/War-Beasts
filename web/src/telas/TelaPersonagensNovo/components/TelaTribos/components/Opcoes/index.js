@@ -8,10 +8,6 @@ import OpcaoTribo from './components/OpcaoTribo';
 
 const Opcoes = ( props ) => {
 
-        const teste = (select) => {
-                console.log('asdasd');
-        }
-
         return (
                 <Conteiner>
                         {   

@@ -6,7 +6,7 @@ import NomePersonagem from './components/NomePersonagem';
 import CriarPersonagem from './components/CriarPersonagem';
 import Caracteristicas from './components/Caracteristicas';
 
-import { Conteiner, Conteiner_2, Descricao } from './styles';
+import { Conteiner, ConteinerB , Descricao } from './styles';
 
 const Detalhes = ( props ) => {
     const { raca } = useContext(RacaContext);
@@ -17,10 +17,10 @@ const Detalhes = ( props ) => {
                 { raca && raca.nome }
             </Descricao>
             <Caracteristicas />
-            <Conteiner_2>
+            <ConteinerB>
                 <NomePersonagem />
                 <CriarPersonagem />
-            </Conteiner_2>
+            </ConteinerB>
         </Conteiner>
     );
 };
