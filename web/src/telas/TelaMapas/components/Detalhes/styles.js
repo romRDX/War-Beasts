@@ -31,6 +31,26 @@ export const Conteiner = styled.div`
     }
 `;
 
+export const BotaoVoltar = styled.div`
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 15px 17px;
+    border: 1px solid black;
+    background: white;
+    border-radius: 0px 0 10px 0;
+    text-decoration: none;
+    font-family: 'Piedra';
+    text-shadow: 3px 0 0 lightgray, -3px 0 0 lightgray, 0 3px 0 lightgray, 0 -3px 0 lightgray, 2px 2px lightgray, -2px -2px 0 lightgray, 2px -2px 0 lightgray, -2px 2px 0 lightgray;
+    background: #7B7167;
+    color: #800000;
+
+    &:hover {
+        color: red;
+        box-shadow: inset 0px 0px 8px 1px black;
+    }
+`;
+
 export const Portrait= styled.div`
     width: 90%;
     border: 1px solid black;

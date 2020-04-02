@@ -7,7 +7,6 @@ import history from 'services/history';
 import {  } from './styles';
 import { Box, Portrait, Info, Entrar } from './styles';
 
-
 const Detalhes = (props) => {
 
     const entrarEstagio = () => {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Botao = styled.div`
+  position: absolute;
   margin: auto;
   text-decoration: none;
   text-shadow: 3px 0 0 lightgrey, -3px 0 0 lightgrey, 0 3px 0 lightgrey, 0 -3px 0 lightgrey, 2px 2px lightgrey, -2px -2px 0 lightgrey, 2px -2px 0 lightgrey, -2px 2px 0 lightgrey;
@@ -16,6 +17,11 @@ export const Botao = styled.div`
   &:hover {
     color: red;
     box-shadow: inset 0px 0px 8px 1px black;
+  }
+
+  * {
+    width: 100%;
+    height: 100%;
   }
     
 `;

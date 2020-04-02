@@ -4,7 +4,8 @@ import { FormLogin } from "./styles.js";
 
 import history from 'services/history';
 
-const Login = () => {
+const Login = (props) => {
+
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push('/personagens');

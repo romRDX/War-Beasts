@@ -7,45 +7,43 @@ import history from 'services/history';
 import {  } from './styles';
 import { Conteiner, Portrait, Info, Entrar } from './styles';
 
+const Detalhes = (props) => {
 
-export default class Detalhes extends Component {
-
-    entrarEstagio(e){
-
+    const entrarMapa = (e) => {
         e.preventDefault();
 
-        if (!this.props.info){
+        if (!props.info){
             return;
         }
         
         const dispatcher = {
             type: 'SELECT_MAP',
-            map: this.props.info
+            map:  props.info
         }
 
         store.dispatch(dispatcher);
-    
         history.push('/mapa');
     }
 
-    render() {
-        return (
-            <Conteiner>
-                <Link className="voltar" to="/principal">Voltar</Link>
-                <Portrait />
-                <Info>
-                    <div>
-                        { this.props.info.nome  && <h2>Estágio: { this.props.info.nome }</h2>}
-                    </div>
-                    <div>
-                        { this.props.info.nivel  && <h2>Nível: { this.props.info.nivel }</h2>}
-                    </div>
-                    <div>
-                        
-                    </div>
-                </Info>
-                <Entrar onClick={this.entrarEstagio.bind(this)}> Entrar </Entrar>
-            </Conteiner>
-        )
-    }
+    return (
+        <Conteiner>
+            <Link className="voltar" to="/principal">Voltar</Link>
+            <Portrait />
+            <Info>
+                <div>
+                    {  props.info.nome  && <h2>Estágio: {  props.info.nome }</h2>}
+                </div>
+                <div>
+                    {  props.info.nivel  && <h2>Nível: {  props.info.nivel }</h2>}
+                </div>
+                <div>
+                    
+                </div>
+            </Info>
+            <Entrar onClick={ entrarMapa.bind(this)}> Entrar </Entrar>
+        </Conteiner>
+    )
+    
 };
+
+export default Detalhes;
