@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
+import { BotaoVoltar } from 'globalComponents/Botoes/styles';
 import { Conteiner } from './styles';
 
 import TracosPersonagemContext from './context/TracosPersonagemContext';
@@ -20,6 +22,7 @@ const TelaPersonagemTracos = (props) => {
 
     return (
         <Conteiner>
+            <BotaoVoltar ><Link  to="/personagem">Voltar</Link></BotaoVoltar>
             <TracosPersonagemContext.Provider value={{ tracoSelecionado, setTracoSelecionado }} >
                 <Detalhes />
                 <Habilidades />

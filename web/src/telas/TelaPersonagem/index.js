@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Info } from './styles.js';
 
+import { BotaoVoltar } from 'globalComponents/Botoes/styles';
 import Atributos from './components/Atributos';
 import Detalhes from './components/Detalhes';
 import Portrait from './components/Portrait';
@@ -12,7 +13,7 @@ const TelaPersonagem = (props) => {
     
     return (
         <Info>
-            <Link className="voltar" to="/principal">Voltar</Link>
+            <BotaoVoltar ><Link  to="/principal">Voltar</Link></BotaoVoltar>
             <Portrait />
             <Detalhes />
             <Atributos />

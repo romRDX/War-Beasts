@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Botao } from 'globalComponents/Botoes/styles.js';
 
 import store from 'store';
 import history from 'services/history';
@@ -25,9 +26,14 @@ const Detalhes = (props) => {
         history.push('/mapa');
     }
 
+    const buttonStyle ={
+        margin: ' 0 auto 15px',
+        size: [60,6],
+        fontSize: '20px',
+    }
+
     return (
         <Conteiner>
-            <Link className="voltar" to="/principal">Voltar</Link>
             <Portrait />
             <Info>
                 <div>
@@ -40,7 +46,7 @@ const Detalhes = (props) => {
                     
                 </div>
             </Info>
-            <Entrar onClick={ entrarMapa.bind(this)}> Entrar </Entrar>
+            <Botao theme={buttonStyle} onClick={ entrarMapa.bind(this)}> Entrar </Botao>
         </Conteiner>
     )
     

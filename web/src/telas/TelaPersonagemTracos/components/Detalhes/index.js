@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import Info from './components/Info';
 
-import { Conteiner, Portrait, Entrar } from './styles';
+import { Botao } from 'globalComponents/Botoes/styles';
+import { Conteiner, Portrait } from './styles';
 import TracosPersonagemContext from 'telas/TelaPersonagemTracos/context/TracosPersonagemContext';
 
 
@@ -29,7 +30,7 @@ const Detalhes = (props) => {
             <Info>
                 
             </Info>
-            <Entrar onClick={() => {} }> Alterar </Entrar>
+            <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
         </Conteiner>
     )
     

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Miniatura from './components/Miniatura';
+
+import { Botao } from 'globalComponents/Botoes/styles';
 import { Conteiner , Minis } from './styles.js';
 
 const Miniaturas = ( props ) => (
@@ -15,7 +17,7 @@ const Miniaturas = ( props ) => (
                     ))
                 }
             </Minis>
-            <Link className='novoPersonagem' to="/personagens/novo">Criar novo personagem</Link>
+            <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao>
         </Conteiner>
 );
 

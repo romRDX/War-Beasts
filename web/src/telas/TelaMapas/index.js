@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import { BotaoVoltar } from 'globalComponents/Botoes/styles.js';
 
 import MapasContext from './context/MapasContext';
 
@@ -22,9 +25,15 @@ const TelaMapas = (props) => {
     function selecionarMapa(est){
         setSelected(est);
     };
+
+    const buttonStyle = {
+        margin: 'auto',
+        pos: [0,0 ],
+    }
     
     return (
         <Conteiner>
+            <BotaoVoltar theme={ buttonStyle } ><Link  to="/principal">Voltar</Link></BotaoVoltar>
             <MapasContext.Provider value={{ selecionarMapa }}>
                 <Detalhes info={ selected } />
                 <Mapas />
