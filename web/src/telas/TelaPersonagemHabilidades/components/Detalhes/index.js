@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import Info from './components/Info';
 
-import { Conteiner, Portrait, Entrar } from './styles';
+import { Botao } from 'globalComponents/Botoes/styles';
+import { Conteiner, Portrait } from './styles';
 import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPersonagemContext';
 
 
@@ -24,13 +24,12 @@ const Detalhes = (props) => {
 
     return (
         <Conteiner>
-            <Link className="voltar" to="/personagem">Voltar</Link>
             <Portrait img={ habSelecionada.icone } />
             <Info>
                 { habSelecionada.nome }
                 { habSelecionada.custo}
             </Info>
-            <Entrar onClick={() => {} }> Alterar </Entrar>
+            <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
         </Conteiner>
     )
     

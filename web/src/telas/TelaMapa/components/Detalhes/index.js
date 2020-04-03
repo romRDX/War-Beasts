@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import store from 'store';
 import history from 'services/history';
 
-import {  } from './styles';
-import { Box, Portrait, Info, Entrar } from './styles';
-
+import { Botao } from 'globalComponents/Botoes/styles';
+import { Conteiner, Portrait, Info, Entrar } from './styles';
 
 const Detalhes = (props) => {
 
@@ -23,8 +21,7 @@ const Detalhes = (props) => {
     }
 
     return (
-        <Box>
-            <Link className="voltar" to="/mapas">Voltar</Link>
+        <Conteiner>
             <Portrait />
             <Info>
                 <div>
@@ -37,8 +34,8 @@ const Detalhes = (props) => {
                     
                 </div>
             </Info>
-            <Entrar onClick={ entrarEstagio.bind(this)}> Entrar </Entrar>
-        </Box>
+            <Botao theme={{ size: [60,6], margin: '10px auto 25px'}} onClick={ entrarEstagio.bind(this)}> Entrar </Botao>
+        </Conteiner>
     )
     
 };

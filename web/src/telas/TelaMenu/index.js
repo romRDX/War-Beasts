@@ -1,18 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+import { Botao } from 'globalComponents/Botoes/styles';
+
 import { Menu, Background } from "./styles.js";
 
 const TelaMenu = (props) => {
+    const buttonStyle = {
+        fontSize: '30px',
+        size: [75],
+        margin: '15px auto'
+    };
+
     return (
         <>
             <Menu>
                 <h1>WAR BEAST</h1>
-                <Link className="menuLink" to="/personagem"> Personagem </Link>
-                <Link className="menuLink" to="/mapas"> Mapas </Link>
-                <Link className="menuLink" to="/Arena"> Arena </Link>
-                <Link className="menuLink" to="/main"> Teste </Link>
-                <Link className="menuLink" to="/personagens"> Escolher personagem </Link>
+               <Botao theme={buttonStyle} ><Link to="/personagem">Personagem</Link></Botao>
+               <Botao theme={buttonStyle} ><Link to="/mapas">Mapas</Link></Botao>
+               <Botao theme={buttonStyle} ><Link to="/arena">Arena</Link></Botao>
+               <Botao theme={buttonStyle} ><Link to="/personagens">Escolher Personagens</Link></Botao>
             </Menu>
             <Background>
             </Background>
@@ -21,3 +28,5 @@ const TelaMenu = (props) => {
 };
 
 export default TelaMenu;
+
+// <Link  to="/principal"></Link>
