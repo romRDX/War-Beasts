@@ -4,8 +4,8 @@ export const Botao = styled.button`
   display: block;
   user-select: none;
   border: 1px solid black;
-  padding: 10px;
   border-radius: 10px;
+  padding: 0;
   font-family: 'Piedra';
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -30,6 +30,7 @@ export const Botao = styled.button`
     display: block;
     margin: auto;
     text-decoration: none;
+    padding: 10px;
 
     &:hover {
       color: red;

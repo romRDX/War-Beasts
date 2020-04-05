@@ -8,7 +8,7 @@ const Habilidades = ( props ) => {
 
     return (
         <Conteiner>
-            <div>{ raca && raca.habilidades.ativas[0].nome}</div>
+            <div>{ raca && raca.habilidades[0].nome}</div>
         </Conteiner>
     )
     

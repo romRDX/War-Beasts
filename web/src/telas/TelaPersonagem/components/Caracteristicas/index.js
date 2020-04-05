@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import items from 'Data/Items';
 
-import { Conteiner } from './styles';
-import ListaIcones from './components/ListaIcones';
+import { Conteiner, Conteiner2 } from './styles';
+import ListaIcones from 'globalComponents/ListaIcones';
 import history from 'services/history';
 
 const Caracteristicas = (props) => {
@@ -23,9 +23,9 @@ const Caracteristicas = (props) => {
 
     return (
         <Conteiner>
-            <ListaIcones page={ goToItem } dados={ items }/>
-            <ListaIcones page={ goToHab } dados={ props.character.habilidades}/>
-            <ListaIcones page={ goToTrait } dados={ props.character.tracos}/>
+            <Conteiner2 onClick={goToItem} ><ListaIcones page={ goToItem } dados={ items }/></Conteiner2>
+            <Conteiner2 onClick={goToHab} ><ListaIcones page={ goToHab } dados={ props.character.habilidades}/></Conteiner2>
+            <Conteiner2 onClick={goToTrait} ><ListaIcones page={ goToTrait } dados={ props.character.tracos}/></Conteiner2>
         </Conteiner>
     )
     
