@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 
 import { Conteiner } from './styles.js';
-import ListaIcones from './components/ListaIcones';
+import ListaIcones from 'globalComponents/ListaIcones';
+
+import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPersonagemContext';
 
 const Habilidades = (props) => {
+    const { setHabSelecionada } = useContext(HabPersonagemContext);
 
     return (
         <Conteiner>
-            <ListaIcones dados={props.habilidades} />
+            <ListaIcones dados={props.habilidades} selecionar={setHabSelecionada} />
         </Conteiner>
     ) 
 }

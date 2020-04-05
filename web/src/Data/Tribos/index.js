@@ -17,18 +17,16 @@ const tribos = [
                 portrait: lobo,
                 descricao: 'exemplo descrição',
                 modelo: icones[2].cam,
-                habilidades: {
-                    ativas: [
-                        { nome: 'Garras', mod: 1, custo: 50, tipo: 'ataque', icone: icones[0].cam},
-                        { nome: 'Mordida', mod: 1.2, custo: 50, tipo: 'ataque', icone: icones[1].cam},
-                        { nome: 'Cura', mod: 10, custo: 16, tipo: 'cura'}
-                    ], 
-                    passivas: [
-                        { nome: 'regen', efeito: ''},
-                        { nome: 'sangria', efeito: ''},
-                    ],
-                    especial: { nome: 'especial', tipo: 'fortalecimento', mod: 1.4, efeito: ''}
-                },
+                habilidades: [
+                    { nome: 'Garras', mod: 1, custo: 50, tipo: 'ataque', icone: icones[0].cam},
+                    { nome: 'Mordida', mod: 1.2, custo: 50, tipo: 'ataque', icone: icones[1].cam},
+                    { nome: 'Cura', mod: 10, custo: 16, tipo: 'cura'}
+                ], 
+                tracos: [
+                    { nome: 'regen', efeito: ''},
+                    { nome: 'sangria', efeito: ''},
+                ],
+                especial: { nome: 'especial', tipo: 'fortalecimento', mod: 1.4, efeito: ''},
                 atributos: { STR: 360, DEX: 335, CON: 330, INT: 210, TOU: 240, AGI: 325}
             },
             { 

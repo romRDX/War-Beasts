@@ -22,7 +22,6 @@ const TelaRacas = ( props ) => {
     const criarPersonagem = () => {
 
         if (raca) {
-
             const nomePersonagem = document.getElementById('nomePersonagem').value;
 
             const novoPersonagem = personagemFactory(raca, 1, nomePersonagem);

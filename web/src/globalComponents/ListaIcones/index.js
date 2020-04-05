@@ -3,13 +3,13 @@ import React from 'react';
 import { Conteiner , Dado} from './styles';
 
 const ListaIcones = (props) => (
-<Conteiner onClick={ () => props.page() }>
+    <>
     {
         props.dados.map( dado => (
-            <Dado key={dado.nome} icone={ dado.icone } />
+            <Dado key={dado.nome} icone={ dado.icone } onClick={ () => props.selecionar && props.selecionar(dado) } />
         ))
     }
-    </Conteiner>                        
+    </>                     
 );
 
 export default ListaIcones;
