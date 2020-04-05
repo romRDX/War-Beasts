@@ -14,9 +14,9 @@ const Login = (props) => {
   return (
     <div className="Login">
       <FormLogin onSubmit={ handleSubmit }>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="user">Usuário</label>
         <input id="email" />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Senha</label>
         <input id="password" />
         <button type="submit">Login</button>
       </FormLogin>
