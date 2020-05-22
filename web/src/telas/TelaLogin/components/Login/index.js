@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useCallback} from "react";
+// import { useHistory } from 'react-router-dom';
 
 import { FormLogin } from "./styles.js";
 
 import history from 'services/history';
 
 const Login = (props) => {
+  // const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback( (e) => {
     e.preventDefault();
     history.push('/personagens');
-  }
+  }, [history]);
 
   return (
     <div className="Login">
       <FormLogin onSubmit={ handleSubmit }>
-        <label htmlFor="user">Usuário</label>
+        <label htmlFor="email">Email</label>
         <input id="email" />
-        <label htmlFor="password">Senha</label>
+        <label htmlFor="password">Password</label>
         <input id="password" />
         <button type="submit">Login</button>
       </FormLogin>
