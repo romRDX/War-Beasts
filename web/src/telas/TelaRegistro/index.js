@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 const TelaLogin = () => {
     const teste = (e) => {
         e.preventDefault();
-    }
+        // if(a === b)
+    };
     
     return (
         <Background>

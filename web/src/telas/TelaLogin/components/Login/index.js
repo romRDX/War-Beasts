@@ -1,12 +1,10 @@
 import React, { useCallback} from "react";
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { FormLogin } from "./styles.js";
 
-import history from 'services/history';
-
 const Login = (props) => {
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = useCallback( (e) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { Conteiner, Menu } from './styles';
 
@@ -7,13 +7,13 @@ const BottomMenu = () => {
     const [menu, setMenu] = useState(false);
     const [battleLog, setBattleLog] = useState(false);
 
-    const toggleMenu = () => {
-        setMenu( !menu );
-    }
+    const toggleMenu = useCallback( () => {
+        setMenu(oldMenu => !oldMenu );
+    },[]);
 
-    const toggleBattleLog = () => {
-        setBattleLog( !battleLog );
-    }
+    const toggleBattleLog = useCallback( () => {
+        setBattleLog( oldBattleLog => !oldBattleLog);
+    },[]);
 
     return  ( 
         <Conteiner>

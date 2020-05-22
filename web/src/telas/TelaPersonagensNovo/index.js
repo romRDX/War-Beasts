@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import TriboContext from './context/TriboContext';
 
@@ -10,13 +10,13 @@ const TelaPersonagensNovo = (props) => {
     const [ tribo, setTribo ] = useState('');
     const [ selecionada , setSelecionada] = useState('');
 
-    const selecionarTribo = (select) => {
+    const selecionarTribo = useCallback( (select) => {
         setSelecionada(select);
-    }
+    },[]);
 
-    const confirmarTribo = (select) => {
+    const confirmarTribo = useCallback( (select) => {
         setTribo(select);
-    }
+    },[]);
 
     useEffect( ()=> {
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import PersonagensContext from './context/PersonagensContext';
 
@@ -9,9 +9,9 @@ import PersonagemInfo from './components/PersonagemInfo';
 const TelaPersonagens = (props) => {
     const [ personagemSelecionado, setarPersonagemSelecionado ] = useState({});
 
-    const selecionarPersonagem = (personagemSelecionado) => {
+    const selecionarPersonagem = useCallback( (personagemSelecionado) => {
         setarPersonagemSelecionado(personagemSelecionado);
-    }
+    },[personagemSelecionado]);
 
     useEffect( ()=> {
 

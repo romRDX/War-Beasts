@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, useCallback } from 'react';
 
 import { Botao } from 'globalComponents/Botoes/styles.js';
 
 import store from 'store';
-import history from 'services/history';
+import { useHistory } from 'react-router-dom';
 
-import {  } from './styles';
+// import {  } from './styles';
 import { Conteiner, Portrait, Info, Entrar } from './styles';
 
 const Detalhes = (props) => {
+    const history = useHistory();
 
-    const entrarMapa = (e) => {
+    const entrarMapa = useCallback( (e)  => {
         e.preventDefault();
 
         if (!props.info){
@@ -24,9 +25,9 @@ const Detalhes = (props) => {
 
         store.dispatch(dispatcher);
         history.push('/mapa');
-    }
+    }, [store, history, props]);
 
-    const buttonStyle ={
+    const buttonStyle = {
         margin: ' 0 auto 15px',
         size: [60,6],
         fontSize: '20px',
