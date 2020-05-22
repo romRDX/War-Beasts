@@ -1,12 +1,13 @@
 import React from 'react';
 
 import store from 'store';
-import history from 'services/history';
+import { useHistory } from 'react-router-dom';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 import { Conteiner, Portrait, Info, Entrar } from './styles';
 
 const Detalhes = (props) => {
+    const history = useHistory();
 
     const entrarEstagio = () => {
 

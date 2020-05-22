@@ -5,9 +5,10 @@ import items from 'Data/Items';
 
 import { Conteiner, Conteiner2 } from './styles';
 import ListaIcones from 'globalComponents/ListaIcones';
-import history from 'services/history';
+import { useHistory } from 'react-router-dom';
 
 const Caracteristicas = (props) => {
+    const history = useHistory();
 
     const goToDetails = useCallback( (screen) => {
         history.push(`/personagem/${screen}`);

@@ -3,12 +3,13 @@ import React, { Component, useCallback } from 'react';
 import { Botao } from 'globalComponents/Botoes/styles.js';
 
 import store from 'store';
-import history from 'services/history';
+import { useHistory } from 'react-router-dom';
 
 // import {  } from './styles';
 import { Conteiner, Portrait, Info, Entrar } from './styles';
 
 const Detalhes = (props) => {
+    const history = useHistory();
 
     const entrarMapa = useCallback( (e)  => {
         e.preventDefault();

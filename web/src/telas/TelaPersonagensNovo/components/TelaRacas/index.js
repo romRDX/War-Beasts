@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import store from 'store';
-import history from 'services/history';
+import { useHistory } from 'react-router-dom';
 
 import RacasContext from './context/RacasContext';
 
@@ -12,6 +12,7 @@ import personagemFactory from './functions/personagemFactory';
 import { Conteiner } from './styles.js';
 
 const TelaRacas = ( props ) => {
+    const history = useHistory();
 
     const [raca, setRaca ] = useState();
 
