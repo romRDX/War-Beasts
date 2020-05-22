@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { BotaoVoltar } from 'globalComponents/Botoes/styles.js';
@@ -14,17 +14,9 @@ const TelaMapas = (props) => {
 
     const [ selected, setSelected ] = useState('');
 
-    useEffect( ()=> {
-
-        return () => {
-
-        };
-
-    }, [selected]);
-
-    function selecionarMapa(est){
+    const  selecionarMapa = useCallback( (est) => {
         setSelected(est);
-    };
+    },[]);
 
     const buttonStyle = {
         margin: 'auto',

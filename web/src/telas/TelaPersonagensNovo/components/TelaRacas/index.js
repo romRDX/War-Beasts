@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import store from 'store';
 import history from 'services/history';
 
@@ -15,11 +15,19 @@ const TelaRacas = ( props ) => {
 
     const [raca, setRaca ] = useState();
 
-    const selecionarRaca = (racax) => {
-        setRaca(racax);
-    }
+    useEffect( ()=> {
 
-    const criarPersonagem = () => {
+        return () => {
+
+        };
+
+    }, [raca]);
+
+    const selecionarRaca = useCallback( (racax) => {
+        setRaca(racax);
+    },[]);
+
+    const criarPersonagem = useCallback( () => {
 
         if (raca) {
             const nomePersonagem = document.getElementById('nomePersonagem').value;
@@ -35,15 +43,7 @@ const TelaRacas = ( props ) => {
 
             history.push('/personagens');
         }
-    }
-
-    useEffect( ()=> {
-
-        return () => {
-
-        };
-
-    }, [raca]);
+    }, [raca, store, history]);
 
     return (
         <Conteiner>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { connect } from 'react-redux';
 import store from 'store';
 import history from 'services/history';
@@ -9,14 +9,14 @@ import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext
 const Personagem = (props) => {
     const { personagemSelecionado } = useContext(PersonagensContext);
 
-    const chooseChar = () => {
+    const chooseChar = useCallback( () => {
         const dispatcher = {
             type: 'SELECT_CHARACTER',
             char: personagemSelecionado
         }
         store.dispatch(dispatcher);
         history.push('/principal');
-    };
+    }, [history, store]);
 
     return (
         <Info>

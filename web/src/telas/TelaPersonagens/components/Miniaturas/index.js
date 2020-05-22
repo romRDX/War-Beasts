@@ -7,7 +7,8 @@ import Miniatura from './components/Miniatura';
 import { Botao } from 'globalComponents/Botoes/styles';
 import { Conteiner , Minis } from './styles.js';
 
-const Miniaturas = ( props ) => (
+const Miniaturas = ( props ) => {
+    return (
         <Conteiner>
             <h1>WAR BEAST</h1>
             <Minis>
@@ -19,6 +20,7 @@ const Miniaturas = ( props ) => (
             </Minis>
             <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao>
         </Conteiner>
-);
+    )
+};
 
 export default connect( state => ({ characters: state.characters }))(Miniaturas);
