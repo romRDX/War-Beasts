@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 
+import TelaInicial from './telas/TelaInicial';
+import TelaRegistro from './telas/TelaRegistro';
 import TelaLogin from './telas/TelaLogin';
 import TelaPersonagens from './telas/TelaPersonagens';
 import TelaPersonagensNovo from './telas/TelaPersonagensNovo';
@@ -29,6 +31,8 @@ export default class App extends Component {
         <Provider store={store}>
           <div id="RDX">
             <Switch>
+              <Route path="/" component={TelaInicial} exact />
+              <Route path="/registro" component={TelaRegistro} exact />
               <Route path="/login" component={TelaLogin} exact />
               <Route path="/personagens" component={TelaPersonagens}  exact />
                 <Route path="/personagens/novo" component={TelaPersonagensNovo} exact />

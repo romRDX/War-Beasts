@@ -1,16 +1,16 @@
 import React from 'react'
 import Login from './components/Login';
 
-import { Background } from "./styles.js";
+import { Background, Conteiner } from "./styles.js";
 
 const TelaLogin = () => {
     
     return (
         <Background>
-            <div>
+            <Conteiner>
                 <h1>WAR BEAST</h1>
                 <Login />
-            </div>
+            </Conteiner>
         </Background>
     )
 }

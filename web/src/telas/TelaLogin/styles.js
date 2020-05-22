@@ -12,16 +12,16 @@ export const Background = styled.div`
     overflow: hidden;
     width: 100%;
     display: flex;
-    font-family: 'Teko';
+    font-family: 'Teko'; 
+`;
 
-    div:first-child {
-        border-radius: 20px;
-        background-color: #CD853F;
-        width: 35%;
-        padding: 40px 0px;
-        margin: auto;
-        height: fit-content !important;
-    }
+export const Conteiner = styled.div`
+    border-radius: 20px;
+    background-color: #CD853F;
+    width: 35%;
+    height: 50%;
+    padding: 40px 0px;
+    margin: auto;
 
     h1 {
         font-weight: bold;
