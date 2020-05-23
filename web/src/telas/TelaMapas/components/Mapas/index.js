@@ -7,11 +7,11 @@ import Mapa from './Components/Mapa';
 
 import { Mapas, Tokens } from './styles';
 
-const mapaEstagios = (props) => {
+const mapaEstagios = ({mapProgress}) => {
     
     return (
         <Mapas>
-            <Tokens>{ props.mapProgress.tokens }</Tokens>
+            <Tokens>{ mapProgress.tokens }</Tokens>
             {
                 
                 mapas.map( mapa => (

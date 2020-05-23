@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import items from 'Data/Items';
 
-import { Conteiner, Conteiner2 } from './styles';
+import { Container, Container_2 } from './styles';
 import ListaIcones from 'globalComponents/ListaIcones';
 import { useHistory } from 'react-router-dom';
 
@@ -15,11 +15,11 @@ const Caracteristicas = (props) => {
     },[history]);
 
     return (
-        <Conteiner>
-            <Conteiner2 onClick={ () => goToDetails('items')} ><ListaIcones dados={ items }/></Conteiner2>
-            <Conteiner2 onClick={() => goToDetails('habilidades')} ><ListaIcones dados={ props.character.habilidades}/></Conteiner2>
-            <Conteiner2 onClick={() => goToDetails('tracos')} ><ListaIcones dados={ props.character.tracos}/></Conteiner2>
-        </Conteiner>
+        <Container>
+            <Container_2 onClick={ () => goToDetails('items')} ><ListaIcones dados={ items }/></Container_2>
+            <Container_2 onClick={() => goToDetails('habilidades')} ><ListaIcones dados={ props.character.habilidades}/></Container_2>
+            <Container_2 onClick={() => goToDetails('tracos')} ><ListaIcones dados={ props.character.tracos}/></Container_2>
+        </Container>
     )
     
 };

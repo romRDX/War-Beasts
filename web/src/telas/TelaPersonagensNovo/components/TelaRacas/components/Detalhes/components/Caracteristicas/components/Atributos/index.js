@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/RacasContext';
 
 const Atributos = ( props ) => {
     const { raca } = useContext(RacaContext)
 
     return (
-        <Conteiner>
+        <Container>
         { raca && <>
             <h2>STR: {raca.atributos.STR}</h2>
             <h2>DEX: {raca.atributos.DEX}</h2>
@@ -18,7 +18,7 @@ const Atributos = ( props ) => {
             </>
         }
             
-        </Conteiner>
+        </Container>
     )
     
 };

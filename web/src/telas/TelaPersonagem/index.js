@@ -9,7 +9,7 @@ import Detalhes from './components/Detalhes';
 import Portrait from './components/Portrait';
 import Caracteristicas from './components/Caracteristicas';
 
-const TelaPersonagem = (props) => {   
+const TelaPersonagem = () => {   
     
     return (
         <Info>

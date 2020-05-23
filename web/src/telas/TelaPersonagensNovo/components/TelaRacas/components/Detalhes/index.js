@@ -6,22 +6,22 @@ import NomePersonagem from './components/NomePersonagem';
 import CriarPersonagem from './components/CriarPersonagem';
 import Caracteristicas from './components/Caracteristicas';
 
-import { Conteiner, ConteinerB , Descricao } from './styles';
+import { Container, Container_2 , Descricao } from './styles';
 
 const Detalhes = ( props ) => {
     const { raca } = useContext(RacaContext);
 
     return (
-        <Conteiner>
+        <Container>
             <Descricao>
                 { raca && raca.nome }
             </Descricao>
             <Caracteristicas />
-            <ConteinerB>
+            <Container_2>
                 <NomePersonagem />
                 <CriarPersonagem />
-            </ConteinerB>
-        </Conteiner>
+            </Container_2>
+        </Container>
     );
 };
 

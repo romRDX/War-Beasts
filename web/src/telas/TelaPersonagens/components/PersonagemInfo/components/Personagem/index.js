@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
 import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext.js';
 
-const Personagem = (props) => {
+const Personagem = () => {
     const history = useHistory();
     const { personagemSelecionado } = useContext(PersonagensContext);
 
@@ -17,7 +17,7 @@ const Personagem = (props) => {
         }
         store.dispatch(dispatcher);
         history.push('/principal');
-    }, [history, store]);
+    }, [personagemSelecionado, history, store]);
 
     return (
         <Info>

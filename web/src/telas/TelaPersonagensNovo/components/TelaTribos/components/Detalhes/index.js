@@ -1,23 +1,23 @@
 import React, { useContext } from 'react'
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
 import Logo from './components/Logo';
 import Descricao from './components/Descricao';
 import Botao from './components/Botao';
 import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext.js';
 
-const Detalhes = ( props ) => {
-    const { selecionada } = useContext(TriboContext);
+const Detalhes = () => {
+    const { triboSelecionada } = useContext(TriboContext);
 
     return (
-        <Conteiner>
-            <h1>{ selecionada.nome }</h1>
+        <Container>
+            <h1>{ triboSelecionada.nome }</h1>
             <Logo />
     
-            <Descricao descricao={ selecionada.descricao} />
+            <Descricao descricao={ triboSelecionada.descricao} />
             <Botao />
-        </Conteiner>
+        </Container>
     )
     
 };

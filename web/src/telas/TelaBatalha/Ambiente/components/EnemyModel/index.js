@@ -1,15 +1,15 @@
 import React from 'react';
-import { Conteiner } from './styles';
+import { Container } from './styles';
 import { connect } from 'react-redux';
 
 import { Modelo } from './styles'
 
-const index = (props) => {
+const index = ({player}) => {
    
     return (
-        <Conteiner>
-            <Modelo img={props.player.modelo} />
-        </Conteiner>
+        <Container>
+            <Modelo img={player.modelo} />
+        </Container>
     )
 }
 

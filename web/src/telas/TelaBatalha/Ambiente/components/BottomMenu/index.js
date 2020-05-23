@@ -1,31 +1,31 @@
 import React, { useState, useCallback } from 'react';
 
-import { Conteiner, Menu } from './styles';
+import { Container, Menu } from './styles';
 
 const BottomMenu = () => {
 
-    const [menu, setMenu] = useState(false);
-    const [battleLog, setBattleLog] = useState(false);
+    const [openMenu, setOpenMenu] = useState(false);
+    const [openBattleLog, setOpenBattleLog] = useState(false);
 
     const toggleMenu = useCallback( () => {
-        setMenu(oldMenu => !oldMenu );
+        setOpenMenu(oldMenu => !oldMenu );
     },[]);
 
     const toggleBattleLog = useCallback( () => {
-        setBattleLog( oldBattleLog => !oldBattleLog);
+        setOpenBattleLog( oldBattleLog => !oldBattleLog);
     },[]);
 
     return  ( 
-        <Conteiner>
+        <Container>
             <div>End Turn</div>
             <Menu onClick={toggleMenu} >
-                { menu && <div className="menu"><h2>Fugir</h2><h2>Opções</h2></div>}
+                { openMenu && <div className="menu"><h2>Fugir</h2><h2>Opções</h2></div>}
                 <h2>Menu</h2>
             </Menu>
             <div onClick={toggleBattleLog} > Battle Log
-                { battleLog && <div className="menu">BATTLE LOG</div>}
+                { openBattleLog && <div className="menu">BATTLE LOG</div>}
             </div>
-        </Conteiner>
+        </Container>
     )
 }
     

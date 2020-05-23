@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
 const Habilidades = (props) => {
 
     return (
-        <Conteiner>
+        <Container>
             
-        </Conteiner>
+        </Container>
     ) 
 }
 

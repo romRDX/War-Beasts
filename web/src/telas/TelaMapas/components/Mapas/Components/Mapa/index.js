@@ -4,14 +4,14 @@ import { Box, Cenario, Info } from './styles';
 
 import MapasContext from 'telas/TelaMapas/context/MapasContext';
 
-const Mapa = (props) => {
+const Mapa = ({mapa}) => {
     const { selecionarMapa } = useContext(MapasContext);
 
     return (
-        <Box onClick={ () => selecionarMapa(props.mapa)}>
+        <Box onClick={ () => selecionarMapa(mapa)}>
             <Cenario />
             <Info>
-                <h1>{props.mapa.nome}</h1>
+                <h1>{mapa.nome}</h1>
             
             </Info>
         </Box>

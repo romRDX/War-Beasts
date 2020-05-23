@@ -3,15 +3,15 @@ import React from 'react';
 import SkillsButtons from './components/SkillsButtons';
 import Detalhes from './components/Detalhes';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 
-const PlayerCard = (props) => {
+const PlayerCard = () => {
     
     return (
-        <Conteiner>
+        <Container>
             <Detalhes />
             <SkillsButtons />
-        </Conteiner>
+        </Container>
     )
 }
 

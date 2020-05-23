@@ -6,7 +6,7 @@ import { Selecao } from "./styles.js";
 import Miniaturas from './components/Miniaturas';
 import PersonagemInfo from './components/PersonagemInfo';
 
-const TelaPersonagens = (props) => {
+const TelaPersonagens = () => {
     const [ personagemSelecionado, setarPersonagemSelecionado ] = useState({});
 
     const selecionarPersonagem = useCallback( (personagemSelecionado) => {

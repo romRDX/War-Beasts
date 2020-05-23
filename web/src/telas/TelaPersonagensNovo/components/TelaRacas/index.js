@@ -9,9 +9,9 @@ import Opcoes from './components/Opcoes';
 
 import personagemFactory from './functions/personagemFactory';
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
-const TelaRacas = ( props ) => {
+const TelaRacas = () => {
     const history = useHistory();
 
     const [raca, setRaca ] = useState();
@@ -47,12 +47,12 @@ const TelaRacas = ( props ) => {
     }, [raca, store, history]);
 
     return (
-        <Conteiner>
+        <Container>
             <RacasContext.Provider value={{ raca, criarPersonagem, selecionarRaca }}>
                 <Detalhes />
                 <Opcoes />
             </RacasContext.Provider>
-        </Conteiner>
+        </Container>
     )
 };
 

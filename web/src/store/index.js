@@ -1,11 +1,11 @@
 import { createStore } from 'redux';
 
-import personagens from 'Data/SandBox/Personagens'; // SANDBOX
+import { personagens, personagens2 } from 'Data/SandBox/Personagens'; // SANDBOX
 
 const INITIAL_STATE = {
     user: {},
     characters: personagens,
-    activeCharacter: personagens[0],
+    activeCharacter: personagens2[0],
     activeMap: {nome: 'estagio 1', posicao: [7,64],  nivel: 1, inimigos: [], img: '', dificuldade: ''},
     activeStage: '',
     activeScreen: '',

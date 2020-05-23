@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
  
     width: 40%;
     border-right: 1px solid black;
@@ -21,7 +21,7 @@ export const Conteiner = styled.div`
     }
 `;
 
-export const ConteinerB = styled.div`
+export const Container_2 = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

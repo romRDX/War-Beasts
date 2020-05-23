@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
     border: 0;
     border-radius: 10px;
     width: 30%;
