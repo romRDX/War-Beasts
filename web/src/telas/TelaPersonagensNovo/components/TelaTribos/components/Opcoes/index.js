@@ -1,21 +1,20 @@
 import React from 'react';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 
 import tribos from 'Data/Tribos';
 
 import OpcaoTribo from './components/OpcaoTribo';
 
-const Opcoes = ( props ) => {
-
+const Opcoes = () => {
         return (
-                <Conteiner>
+                <Container>
                         {   
                                 tribos.map( tribo => (
                                         <OpcaoTribo tribo={tribo}  key={tribo.nome} />
                                 ))
                         }
-                </Conteiner>
+                </Container>
         )
 };
 

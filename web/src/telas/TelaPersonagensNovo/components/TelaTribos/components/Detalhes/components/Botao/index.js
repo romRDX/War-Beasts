@@ -1,18 +1,16 @@
 import React, { useContext } from 'react'
 
-// import { Conteiner } from './styles.js';
 import { Botao } from 'globalComponents/Botoes/styles';
 import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext.js';
 
-const Detalhes = ( props ) => {
-    const { selecionada, confirmarTribo } = useContext(TriboContext);
+const Detalhes = () => {
+    const { triboSelecionada, confirmarTribo } = useContext(TriboContext);
 
     return (
-        <Botao theme={{size: [50,6] }} onClick={ () => confirmarTribo(selecionada) }>
+        <Botao theme={{size: [50,6] }} onClick={ () => confirmarTribo(triboSelecionada) }>
             Selecionar
         </Botao>
     )
-    
 };
 
 export default Detalhes;

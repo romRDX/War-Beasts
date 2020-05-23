@@ -28,5 +28,3 @@ const TelaMenu = (props) => {
 };
 
 export default TelaMenu;
-
-// <Link  to="/principal"></Link>

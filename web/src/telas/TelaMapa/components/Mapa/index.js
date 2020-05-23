@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 
 import { Background } from './styles.js';
 
-const Mapa = (props) => {
+const Mapa = ({activeMap}) => {
 
     return (
         <Background>
             {
-                props.activeMap.estagios.map( est => (
-                    <Estagio key={est.nome} est={est} />
+                activeMap.estagios.map( estagio => (
+                    <Estagio key={estagio.nome} estagio={estagio} />
                 ))
             }
         </Background>

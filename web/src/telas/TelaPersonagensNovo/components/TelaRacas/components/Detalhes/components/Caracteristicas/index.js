@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 import Atributos from './components/Atributos';
 import Habilidades from './components/Habilidades';
 
 const Caracteristicas = ( props ) => (
-    <Conteiner>
+    <Container>
         
             <>
                 <Atributos />
                 <Habilidades  />
             </>
         
-    </Conteiner>
+    </Container>
 );
 
 export default Caracteristicas;

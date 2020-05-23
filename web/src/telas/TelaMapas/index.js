@@ -8,14 +8,14 @@ import MapasContext from './context/MapasContext';
 import Mapas from './components/Mapas';
 import Detalhes from './components/Detalhes';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 
-const TelaMapas = (props) => {
+const TelaMapas = () => {
 
-    const [ selected, setSelected ] = useState('');
+    const [ mapaSelecionado, setMapaSelecionado ] = useState('');
 
-    const  selecionarMapa = useCallback( (est) => {
-        setSelected(est);
+    const  selecionarMapa = useCallback( (estagio) => {
+        setMapaSelecionado(estagio);
     },[]);
 
     const buttonStyle = {
@@ -24,13 +24,13 @@ const TelaMapas = (props) => {
     }
     
     return (
-        <Conteiner>
+        <Container>
             <BotaoVoltar theme={ buttonStyle } ><Link  to="/principal">Voltar</Link></BotaoVoltar>
             <MapasContext.Provider value={{ selecionarMapa }}>
-                <Detalhes info={ selected } />
+                <Detalhes mapaSelecionado={ mapaSelecionado } />
                 <Mapas />
             </MapasContext.Provider>
-        </Conteiner>
+        </Container>
     )
     
 };

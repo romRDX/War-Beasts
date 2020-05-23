@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Conteiner , Dado} from './styles';
+import { Dado} from './styles';
 
-const ListaIcones = (props) => (
+const ListaIcones = ({dados, selecionar}) => (
     <>
     {
-        props.dados.map( dado => (
-            <Dado key={dado.nome} icone={ dado.icone } onClick={ () => props.selecionar && props.selecionar(dado) } />
+       dados && dados.map( dado => (
+            <Dado key={dado.nome} icone={ dado.icone } onClick={ () => selecionar && selecionar(dado) } />
         ))
     }
     </>                     

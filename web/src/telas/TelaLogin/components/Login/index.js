@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { FormLogin } from "./styles.js";
 
-const Login = (props) => {
+const Login = () => {
   const history = useHistory();
 
   const handleSubmit = useCallback( (e) => {

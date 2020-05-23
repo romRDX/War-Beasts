@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
   max-width: 40%;
   height: 100%;
   width: 100%;

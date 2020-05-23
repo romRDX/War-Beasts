@@ -3,13 +3,13 @@ import React from 'react';
 import Detalhes from './components/Detalhes';
 import Opcoes from './components/Opcoes';
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
 const TelaTribos = ( props ) => (
-    <Conteiner>
-        <Detalhes func={props.confirmar} />
+    <Container>
+        <Detalhes func={props.confirmarTribo} />
         <Opcoes />
-    </Conteiner>
+    </Container>
 );
 
 export default TelaTribos;

@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom';
 import Miniatura from './components/Miniatura';
 
 import { Botao } from 'globalComponents/Botoes/styles';
-import { Conteiner , Minis } from './styles.js';
+import { Container , Minis } from './styles.js';
 
-const Miniaturas = ( props ) => {
+const Miniaturas = ( { characters } ) => {
     return (
-        <Conteiner>
+        <Container>
             <h1>WAR BEAST</h1>
             <Minis>
                 {   
-                    props.characters.map( char => (
-                        <Miniatura char={char} key={char.id}/>
+                    characters.map( character => (
+                        <Miniatura character={character} key={character.id}/>
                     ))
                 }
             </Minis>
             <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao>
-        </Conteiner>
+        </Container>
     )
 };
 

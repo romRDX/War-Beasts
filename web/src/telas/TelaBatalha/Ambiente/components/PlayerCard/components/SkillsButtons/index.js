@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Conteiner, Buttons, EnergyBar, Skill } from "./styles";
+import { Container, Buttons, EnergyBar, Skill } from "./styles";
 
-const SkillsButtons = (props) => {
+const SkillsButtons = ({player}) => {
     
     return (
-        <Conteiner>
+        <Container>
             <Buttons>
                 {
-                    props.player.habilidades.map( hab => (
+                    player.habilidades.map( hab => (
                         <Skill className='skill' icone={hab.icone} ><h2>{hab.custo}</h2></Skill>
                     ))
                 }
@@ -18,7 +18,7 @@ const SkillsButtons = (props) => {
                     <div className='skill'></div>
                     <div className="bar" ></div>
             </EnergyBar>
-        </Conteiner>
+        </Container>
     )
 }
 

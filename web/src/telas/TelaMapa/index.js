@@ -6,12 +6,12 @@ import { BotaoVoltar } from 'globalComponents/Botoes/styles';
 import Mapa from './components/Mapa';
 import Detalhes from './components/Detalhes';
 
-import { Conteiner } from './styles';
+import { Container } from './styles';
 import MapaContext from 'telas/TelaMapa/context/MapaContext';
 
-const TelaMapa = (props) => {
+const TelaMapa = () => {
 
-    const [ estagio, setEstagio ] = useState('');
+    const [ estagioSelecionado, setEstagioSelecionado ] = useState('');
 
     useEffect( ()=> {
 
@@ -19,21 +19,21 @@ const TelaMapa = (props) => {
 
         };
 
-    }, [estagio]);
+    }, [estagioSelecionado]);
 
-    const  selecionarEstagio = useCallback( (est) => {
-        setEstagio(est);
+    const selecionarEstagio = useCallback( (stage) => {
+        setEstagioSelecionado(stage);
     }, [])
     
     return (
-        <Conteiner>
+        <Container>
             <BotaoVoltar ><Link  to="/mapas">Voltar</Link></BotaoVoltar>
-            <MapaContext.Provider value={{ selecionarEstagio, estagio }}>
-                <Detalhes info={ estagio } />
+            <MapaContext.Provider value={{ selecionarEstagio, estagioSelecionado }}>
+                <Detalhes estagioSelecionado={ estagioSelecionado } />
                 <Mapa />
             </MapaContext.Provider>
             
-        </Conteiner>
+        </Container>
     )
     
 };

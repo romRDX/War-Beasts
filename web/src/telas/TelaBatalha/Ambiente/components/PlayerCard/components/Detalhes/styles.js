@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
     border-radius: 10px;
     height: 35%;
     position: relative;
     display: flex;
     
-    .test1 {
+    .playerInfo {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -36,7 +36,7 @@ export const Info = styled.div`
     height: 80%;
     box-sizing: border-box;
 
-    .nome {
+    h3 {
         width: 100%;
         border-bottom: 1px solid black;
         padding: 3% 0;

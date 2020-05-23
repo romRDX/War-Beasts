@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import Lista from './components/Lista';
 import Equipadas from './components/Equipadas';
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
 const Habilidades = (props) => {
 
     return (
-        <Conteiner>
+        <Container>
             <Lista />
             <Equipadas />
-        </Conteiner>
+        </Container>
     ) 
 }
 

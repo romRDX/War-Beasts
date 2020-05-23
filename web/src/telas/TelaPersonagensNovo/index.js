@@ -4,18 +4,18 @@ import TriboContext from './context/TriboContext';
 
 import TelaRacas from './components/TelaRacas';
 import TelaTribos from './components/TelaTribos';
-import { Conteiner } from "./styles.js";
+import { Container } from "./styles.js";
 
-const TelaPersonagensNovo = (props) => {
+const TelaPersonagensNovo = () => {
     const [ tribo, setTribo ] = useState('');
-    const [ selecionada , setSelecionada] = useState('');
+    const [ triboSelecionada , setTriboSelecionada] = useState('');
 
-    const selecionarTribo = useCallback( (select) => {
-        setSelecionada(select);
+    const selecionarTribo = useCallback( (tribo) => {
+        setTriboSelecionada(tribo);
     },[]);
 
-    const confirmarTribo = useCallback( (select) => {
-        setTribo(select);
+    const confirmarTribo = useCallback( (tribo) => {
+        setTribo(tribo);
     },[]);
 
     useEffect( ()=> {
@@ -27,15 +27,15 @@ const TelaPersonagensNovo = (props) => {
     }, [tribo]);
 
     return (
-        <Conteiner>
-            <TriboContext.Provider value={{ tribo, selecionada, confirmarTribo, selecionarTribo }}>
+        <Container>
+            <TriboContext.Provider value={{ tribo, triboSelecionada, confirmarTribo, selecionarTribo }}>
             {
                 tribo ? 
                     <TelaRacas /> :
                     <TelaTribos />
             }
             </TriboContext.Provider>
-        </Conteiner>
+        </Container>
     )
 
 }

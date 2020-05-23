@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 
-import { Background, Conteiner, Conteiner2 } from "./styles.js";
-import { Link } from 'react-router-dom';
+import { Background, Container, Container_2 } from "./styles.js";
 
 const TelaLogin = () => {
     const teste = (e) => {
@@ -13,9 +12,9 @@ const TelaLogin = () => {
     
     return (
         <Background>
-            <Conteiner>
+            <Container>
                 <h1>WAR BEAST</h1>
-                <Conteiner2>
+                <Container_2>
                     <form onSubmit={ teste }>
                         <div>
                             <label>Nome</label>
@@ -39,8 +38,8 @@ const TelaLogin = () => {
                         </div>
                         <Botao type="submit" theme={{size: [60,30], fontSize: '35px', paddA: '13% 2%' }}>Cadastrar</Botao>
                     </form>
-                </Conteiner2>
-            </Conteiner>
+                </Container_2>
+            </Container>
         </Background>
     )
 }

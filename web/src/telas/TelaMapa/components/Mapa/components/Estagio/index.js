@@ -3,15 +3,15 @@ import React, { useContext, useCallback } from 'react';
 import { Box } from './styles';
 import MapaContext from 'telas/TelaMapa/context/MapaContext';
 
-const Estagio = (props) => {
-    const { estagio, selecionarEstagio } = useContext(MapaContext);
+const Estagio = ({estagio}) => {
+    const { estagioSelecionado, selecionarEstagio } = useContext(MapaContext);
 
     const selecionado = useCallback( () => {
-        return ( estagio.nome === props.est.nome ) ? 'red' : 'white';
-    }, [estagio]);
+        return ( estagioSelecionado.nome === estagio.nome ) ? 'red' : 'white';
+    },[estagioSelecionado, estagio]);
 
     return (
-        <Box posicao={props.est.posicao} onClick={ () => selecionarEstagio(props.est) }  cor={ selecionado }/>
+        <Box posicao={estagio.posicao} onClick={ () => selecionarEstagio(estagio) }  cor={ selecionado }/>
     )
 }
 

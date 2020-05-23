@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
     width: 50%;
     border-right: 1px solid black;
     margin: auto;

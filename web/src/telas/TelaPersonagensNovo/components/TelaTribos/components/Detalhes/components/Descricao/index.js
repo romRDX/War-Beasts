@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Conteiner } from './styles.js';
+import { Container } from './styles.js';
 
-const Detalhes = ( props ) => (
-    <Conteiner>
-        {props.descricao}
-    </Conteiner>
+const Detalhes = ({ descricao }) => (
+    <Container>
+        {descricao}
+    </Container>
 );
 
 export default Detalhes;

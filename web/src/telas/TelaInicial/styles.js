@@ -15,7 +15,7 @@ export const Background = styled.div`
     font-family: 'Teko'; 
 `;
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
     border-radius: 20px;
     background-color: #CD853F;
     width: 35%;
@@ -31,7 +31,7 @@ export const Conteiner = styled.div`
     }
 `;
 
-export const Conteiner2 = styled.div`
+export const Container_2 = styled.div`
     display: flex;
     padding: 15% 0;
 `;

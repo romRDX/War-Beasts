@@ -1,42 +1,41 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import store from 'store';
-import { useHistory } from 'react-router-dom';
+import history from 'services/history';
 
 import { Botao } from 'globalComponents/Botoes/styles';
-import { Conteiner, Portrait, Info, Entrar } from './styles';
+import { Container, Portrait, Info } from './styles';
 
-const Detalhes = (props) => {
-    const history = useHistory();
+const Detalhes = ({estagioSelecionado}) => {
 
-    const entrarEstagio = () => {
+    const entrarEstagio = useCallback( () => {
 
         const dispatcher = {
             type: 'ENTER_STAGE',
-            stage: props.info.nome,
-            nome: props.info.nome
+            stage: estagioSelecionado.nome,
+            nome: estagioSelecionado.nome
         }
 
         store.dispatch(dispatcher);
         history.push('/batalha-A');
-    }
+    }, [history, store, estagioSelecionado]);
 
     return (
-        <Conteiner>
+        <Container>
             <Portrait />
             <Info>
                 <div>
-                    { props.info.nome  && <h2>Estágio: { props.info.nome }</h2>}
+                    { estagioSelecionado.nome  && <h2>Estágio: { estagioSelecionado.nome }</h2>}
                 </div>
                 <div>
-                    { props.info.nivel  && <h2>Nível: { props.info.nivel }</h2>}
+                    { estagioSelecionado.nivel  && <h2>Nível: { estagioSelecionado.nivel }</h2>}
                 </div>
                 <div>
                     
                 </div>
             </Info>
             <Botao theme={{ size: [60,6], margin: '10px auto 25px'}} onClick={ entrarEstagio.bind(this)}> Entrar </Botao>
-        </Conteiner>
+        </Container>
     )
     
 };

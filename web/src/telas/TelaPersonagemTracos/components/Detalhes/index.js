@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Info from './components/Info';
 
 import { Botao } from 'globalComponents/Botoes/styles';
-import { Conteiner, Portrait } from './styles';
+import { Container, Portrait } from './styles';
 import TracosPersonagemContext from 'telas/TelaPersonagemTracos/context/TracosPersonagemContext';
 
 
@@ -24,14 +24,14 @@ const Detalhes = (props) => {
     }
 
     return (
-        <Conteiner>
+        <Container>
             <Link className="voltar" to="/personagem">Voltar</Link>
             <Portrait img={ {} } />
             <Info>
                 
             </Info>
             <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
-        </Conteiner>
+        </Container>
     )
     
 };
