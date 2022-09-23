@@ -5,15 +5,17 @@ import { Container } from './styles.js';
 import ListaIcones from 'globalComponents/ListaIcones';
 
 import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPersonagemContext';
+import { useCharacter } from 'hooks/useCharacter.js';
 
-const Habilidades = ({habilidades}) => {
+const Habilidades = () => {
     const { setHabSelecionada } = useContext(HabPersonagemContext);
-
+    const { selectedCharacter } = useCharacter();
+    console.log(selectedCharacter);
     return (
         <Container>
-            <ListaIcones dados={habilidades} selecionar={setHabSelecionada} />
+            <ListaIcones dados={selectedCharacter?.habilidades} selecionar={setHabSelecionada} />
         </Container>
     ) 
 }
 
-export default connect( state => ({ habilidades: state.activeCharacter.habilidades }))(Habilidades);
+export default Habilidades;

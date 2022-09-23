@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 
-import store from 'store';
 import history from 'services/history';
 
 import { Botao } from 'globalComponents/Botoes/styles';
@@ -16,9 +15,8 @@ const Detalhes = ({estagioSelecionado}) => {
             nome: estagioSelecionado.nome
         }
 
-        store.dispatch(dispatcher);
         history.push('/batalha-A');
-    }, [history, store, estagioSelecionado]);
+    }, [history, estagioSelecionado]);
 
     return (
         <Container>

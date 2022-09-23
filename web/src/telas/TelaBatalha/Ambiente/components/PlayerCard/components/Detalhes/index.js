@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import { Container } from './styles';
 import { Portrait, Info, Life, Secundarios } from './styles';
@@ -34,4 +33,4 @@ const Detalhes = ({player}) => {
     )
 };
 
-export default connect( state => ({ player: state.activeCharacter }))(Detalhes);
+export default Detalhes;

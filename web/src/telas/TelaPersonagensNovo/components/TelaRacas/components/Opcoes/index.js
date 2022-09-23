@@ -5,8 +5,10 @@ import OpcaoRaca from './components/OpcaoRaca';
 import { Container } from './styles';
 import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext';
 
-const Opcoes = ( props ) => {
+const Opcoes = () => {
         const { tribo } = useContext(TriboContext)
+
+        console.log("XX: ", tribo);
 
         return (
                 <Container>

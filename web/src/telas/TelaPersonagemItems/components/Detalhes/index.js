@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Info from './components/Info';
 
@@ -9,18 +9,18 @@ import ItemsPersonagemContext from 'telas/TelaPersonagemItems/context/ItemsPerso
 
 
 const Detalhes = (props) => {
+    const history = useHistory();
     const { itemSelecionado } = useContext(ItemsPersonagemContext);
 
     const entrarEstagio = () => {
 
-        // const dispatcher = {
-        //     type: 'ENTER_STAGE',
-        //     stage: props.info.nome,
-        //     nome: props.info.nome
-        // }
+        const dispatcher = {
+            type: 'ENTER_STAGE',
+            stage: props.info.nome,
+            nome: props.info.nome
+        }
 
-        // store.dispatch(dispatcher);
-        // history.push('/batalha-A');
+        history.push('/batalha-A');
     }
 
     return (

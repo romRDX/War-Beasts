@@ -7,6 +7,7 @@ import TelaTribos from './components/TelaTribos';
 import { Container } from "./styles.js";
 
 const TelaPersonagensNovo = () => {
+
     const [ tribo, setTribo ] = useState('');
     const [ triboSelecionada , setTriboSelecionada] = useState('');
 
@@ -18,13 +19,7 @@ const TelaPersonagensNovo = () => {
         setTribo(tribo);
     },[]);
 
-    useEffect( ()=> {
-
-        return () => {
-
-        };
-
-    }, [tribo]);
+    console.log("TRIBO1: ", tribo);
 
     return (
         <Container>

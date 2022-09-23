@@ -1,9 +1,11 @@
+import { useCharacter } from 'hooks/useCharacter';
 import React from 'react';
-import { connect } from 'react-redux';
 
 import { Container, Buttons, EnergyBar, Skill } from "./styles";
 
 const SkillsButtons = ({player}) => {
+
+    const { selectedCharacter } = useCharacter();
     
     return (
         <Container>
@@ -22,4 +24,4 @@ const SkillsButtons = ({player}) => {
     )
 }
 
-export default connect( state => ({ player: state.activeCharacter }))(SkillsButtons);
+export default SkillsButtons;

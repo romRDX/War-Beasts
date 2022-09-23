@@ -5,15 +5,14 @@ import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/
 
 import { Container } from './styles.js';
 
-const Miniaturas = ( props ) => {
-    const { selecionarRaca } = useContext(RacaContext)
+const Miniaturas = ({ raca }) => {
+    const { selecionarRaca } = useContext(RacaContext);
 
     return (
-        <Container onClick={ () => selecionarRaca(props.raca) }>
-            <h2>{props.raca.nome}</h2>
+        <Container onClick={ () => selecionarRaca(raca) }>
+            <h2>{raca && raca.nome}</h2>
         </Container>
     );
-        
 };
 
-export default connect( state => ({ characters: state.characters }))(Miniaturas);
+export default Miniaturas;

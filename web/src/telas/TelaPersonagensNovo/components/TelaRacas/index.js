@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import store from 'store';
 import { useHistory } from 'react-router-dom';
 
 import RacasContext from './context/RacasContext';
@@ -13,14 +12,9 @@ import { Container } from './styles.js';
 
 const TelaRacas = () => {
     const history = useHistory();
-
     const [raca, setRaca ] = useState();
 
     useEffect( ()=> {
-
-        return () => {
-
-        };
 
     }, [raca]);
 
@@ -40,11 +34,11 @@ const TelaRacas = () => {
                 novoPersonagem: novoPersonagem
             }
 
-            store.dispatch(dispatcher);
-
             history.push('/personagens');
         }
-    }, [raca, store, history]);
+    }, [raca, history]);
+
+    console.log("HHH: ", raca);
 
     return (
         <Container>

@@ -1,23 +1,22 @@
 import React, { useContext, useCallback } from 'react';
-import { connect } from 'react-redux';
-import store from 'store';
 import { useHistory } from 'react-router-dom';
 
 import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
 import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext.js';
+import { useCharacter } from 'hooks/useCharacter.js';
 
 const Personagem = () => {
+    const { setSelectedCharacter } = useCharacter();
+
+    console.log(setSelectedCharacter);
+
     const history = useHistory();
     const { personagemSelecionado } = useContext(PersonagensContext);
 
     const chooseChar = useCallback( () => {
-        const dispatcher = {
-            type: 'SELECT_CHARACTER',
-            char: personagemSelecionado
-        }
-        store.dispatch(dispatcher);
+        setSelectedCharacter(personagemSelecionado);
         history.push('/principal');
-    }, [personagemSelecionado, history, store]);
+    }, [personagemSelecionado, history]);
 
     return (
         <Info>
@@ -49,7 +48,6 @@ const Personagem = () => {
             }
         </Info>
     )
-
 }
 
-export default connect( state => ({ characters: state.characters }))(Personagem);
+export default Personagem;

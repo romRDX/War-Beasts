@@ -4,13 +4,13 @@ import { Container } from './styles';
 import Atributos from './components/Atributos';
 import Habilidades from './components/Habilidades';
 
-const Caracteristicas = ( props ) => (
+const Caracteristicas = () => (
     <Container>
         
-            <>
-                <Atributos />
-                <Habilidades  />
-            </>
+        <>
+            <Atributos />
+            <Habilidades  />
+        </>
         
     </Container>
 );

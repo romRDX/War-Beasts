@@ -1,16 +1,18 @@
 import React from 'react';
 import { Container } from './styles';
-import { connect } from 'react-redux';
 
 import { Modelo } from './styles'
+import { useCharacter } from 'hooks/useCharacter';
 
-const index = ({player}) => {
+const EnemyModel = () => {
+
+    const { selectedCharacter } = useCharacter();
    
     return (
         <Container>
-            <Modelo img={player.modelo} />
+            <Modelo img={selectedCharacter.modelo} />
         </Container>
     )
 }
 
-export default connect( state => ({ player: state.activeCharacter }))(index);
+export default EnemyModel;

@@ -4,7 +4,7 @@ import RacasContext from '../../../../context/RacasContext';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 
-const NomeCriar = ( props ) => {
+const NomeCriar = () => {
 
     const { criarPersonagem } = useContext(RacasContext);
 

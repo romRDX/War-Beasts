@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import Info from './components/Info';
 
 import { Botao } from 'globalComponents/Botoes/styles';
@@ -8,18 +8,18 @@ import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPer
 
 
 const Detalhes = (props) => {
+    const history = useHistory();
     const { habSelecionada } = useContext(HabPersonagemContext);
 
     const entrarEstagio = () => {
 
-        // const dispatcher = {
-        //     type: 'ENTER_STAGE',
-        //     stage: props.info.nome,
-        //     nome: props.info.nome
-        // }
+        const dispatcher = {
+            type: 'ENTER_STAGE',
+            stage: props.info.nome,
+            nome: props.info.nome
+        }
 
-        // store.dispatch(dispatcher);
-        // history.push('/batalha-A');
+        history.push('/batalha-A');
     }
 
     return (

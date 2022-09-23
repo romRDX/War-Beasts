@@ -11,7 +11,6 @@ const OpcaoTribo = ( {tribo} ) => {
                         <h2>{tribo.nome}</h2>
                 </Container>
         )
-        
 };
 
 export default OpcaoTribo;

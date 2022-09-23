@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Container } from './styles';
 import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/RacasContext';
 
-const Habilidades = ( props ) => {
+const Habilidades = () => {
     const { raca } = useContext(RacaContext);
 
     return (

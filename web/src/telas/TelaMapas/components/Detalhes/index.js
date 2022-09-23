@@ -2,7 +2,6 @@ import React, { Component, useCallback } from 'react';
 
 import { Botao } from 'globalComponents/Botoes/styles.js';
 
-import store from 'store';
 import { useHistory } from 'react-router-dom';
 
 import { Container, Portrait, Info, Entrar } from './styles';
@@ -22,9 +21,8 @@ const Detalhes = ({ mapaSelecionado }) => {
             map:  mapaSelecionado
         }
 
-        store.dispatch(dispatcher);
         history.push('/mapa');
-    }, [store, history, mapaSelecionado]);
+    }, [history, mapaSelecionado]);
 
     const buttonStyle = {
         margin: ' 0 auto 15px',
