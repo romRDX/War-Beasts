@@ -7,6 +7,7 @@ import { Botao } from 'globalComponents/Botoes/styles';
 import { Container , Minis } from './styles.js';
 import { personagens } from 'Data/SandBox/Personagens';
 import { apiWB } from 'services/axios';
+import { useWS } from 'hooks/useWS';
 
 const Miniaturas = () => {
 
@@ -18,7 +19,7 @@ const Miniaturas = () => {
         });
     }, []);
     
-
+    const { sendWsMessage } = useWS();
     return (
         <Container>
             <h1>WAR BEAST</h1>
@@ -29,7 +30,10 @@ const Miniaturas = () => {
                     ))
                 }
             </Minis>
-            <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao>
+            {/* <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao> */}
+            <Botao onClick={() => {
+                sendWsMessage(JSON.stringify({ teste: "RDX5" }));
+            }} theme={{ size: [60,6]}}>Criar novo personagem</Botao>
         </Container>
     )
 };

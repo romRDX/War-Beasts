@@ -3,18 +3,27 @@ import useWebSocket from 'react-use-websocket';
 
 const WsContext = createContext({});
 
+const test = "ws://localhost:3005"; //"ws://warbeasts-api.herokuapp.com";
+// 'ws://localhost:3001'
+const test2 = "ws://warbeasts-api-2.herokuapp.com/";
+
 export const WsProvider = ({ children }) => {
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:3001', {
+  const { lastJsonMessage, sendMessage, getWebSocket } = useWebSocket(test2, {
       onOpen: () => console.log(`Connected to App WS`),
-      onMessage: () => {
+      onMessage: (test) => {
           if (lastJsonMessage) {
-          console.log(lastJsonMessage);
+          console.log("WS1: ", lastJsonMessage);
+          console.log("WS2: ", test);
           }
       },
-      queryParams: { 'token': '123456' },
+      onClose: (test) => {
+        const x = getWebSocket();
+        console.log("connection closed: ", x);
+      },
+      queryParams: { 'token': '123456', origin: "*" },
       onError: (event) => { console.error(event); },
       shouldReconnect: (closeEvent) => true,
-      reconnectInterval: 5000
+      // reconnectInterval: 5000
   });
 
   const sendWsMessage = useCallback((value) => {
