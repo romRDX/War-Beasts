@@ -33,4 +33,12 @@ export const FormLogin = styled.form`
     button:focus {
         outline:0;
     }
+
+    div {
+        margin: 20px auto;
+        color: red;
+        font-size: 24px;
+        border: 2px solid red;
+        padding: 5px;
+    }
 `;

@@ -8,7 +8,7 @@ const test = "ws://localhost:3005"; //"ws://warbeasts-api.herokuapp.com";
 const test2 = "ws://warbeasts-api-2.herokuapp.com/";
 
 export const WsProvider = ({ children }) => {
-  const { lastJsonMessage, sendMessage, getWebSocket } = useWebSocket(test2, {
+  const { lastJsonMessage, sendMessage, getWebSocket } = useWebSocket(test, {
       onOpen: () => console.log(`Connected to App WS`),
       onMessage: (test) => {
           if (lastJsonMessage) {

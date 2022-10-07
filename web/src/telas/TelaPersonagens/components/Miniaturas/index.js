@@ -31,6 +31,15 @@ const Miniaturas = () => {
                 }
             </Minis>
             {/* <Botao theme={{ size: [60,6]}}><Link to="/personagens/novo">Criar novo personagem</Link></Botao> */}
+            
+
+            <Botao onClick={() => {
+                apiWB.post('/login').then((resp) => {
+                // apiWB.get('/characters').then((resp) => {
+                    console.log("rrr: ", resp);
+                });
+            }} theme={{ size: [60,6]}}>TESTE</Botao>
+
             <Botao onClick={() => {
                 sendWsMessage(JSON.stringify({ teste: "RDX5" }));
             }} theme={{ size: [60,6]}}>Criar novo personagem</Botao>
