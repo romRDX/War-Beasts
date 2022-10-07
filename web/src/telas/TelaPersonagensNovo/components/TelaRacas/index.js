@@ -38,8 +38,6 @@ const TelaRacas = () => {
         }
     }, [raca, history]);
 
-    console.log("HHH: ", raca);
-
     return (
         <Container>
             <RacasContext.Provider value={{ raca, criarPersonagem, selecionarRaca }}>

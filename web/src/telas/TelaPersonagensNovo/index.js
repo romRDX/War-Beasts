@@ -19,8 +19,6 @@ const TelaPersonagensNovo = () => {
         setTribo(tribo);
     },[]);
 
-    console.log("TRIBO1: ", tribo);
-
     return (
         <Container>
             <TriboContext.Provider value={{ tribo, triboSelecionada, confirmarTribo, selecionarTribo }}>

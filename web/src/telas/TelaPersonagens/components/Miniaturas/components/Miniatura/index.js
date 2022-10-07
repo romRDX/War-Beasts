@@ -9,10 +9,10 @@ import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext
     return (
         <PersonagemMiniatura onClick={() => selecionarPersonagem(character)}>
             <div className="info" >
-                <h2>{character.nome}</h2>
-                <h3>{character.classe}</h3>
+                <h2>{character.name}</h2>
+                <h3>{character.class_id}</h3>
                 <h4> Guild </h4>
-                <h5> Nv. {character.nivel}</h5>
+                <h5> Nv. {character.level}</h5>
             </div>
             <div className="image"></div>
         </PersonagemMiniatura>

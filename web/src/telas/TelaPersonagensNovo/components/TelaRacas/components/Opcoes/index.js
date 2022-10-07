@@ -8,8 +8,6 @@ import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext';
 const Opcoes = () => {
         const { tribo } = useContext(TriboContext)
 
-        console.log("XX: ", tribo);
-
         return (
                 <Container>
                 {

@@ -10,7 +10,6 @@ import { useCharacter } from 'hooks/useCharacter.js';
 const Habilidades = () => {
     const { setHabSelecionada } = useContext(HabPersonagemContext);
     const { selectedCharacter } = useCharacter();
-    console.log(selectedCharacter);
     return (
         <Container>
             <ListaIcones dados={selectedCharacter?.habilidades} selecionar={setHabSelecionada} />

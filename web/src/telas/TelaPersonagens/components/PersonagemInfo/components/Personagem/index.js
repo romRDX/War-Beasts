@@ -8,8 +8,6 @@ import { useCharacter } from 'hooks/useCharacter.js';
 const Personagem = () => {
     const { setSelectedCharacter } = useCharacter();
 
-    console.log(setSelectedCharacter);
-
     const history = useHistory();
     const { personagemSelecionado } = useContext(PersonagensContext);
 
