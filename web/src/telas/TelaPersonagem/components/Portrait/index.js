@@ -7,8 +7,6 @@ const Portrait = () => {
 
     const { selectedCharacter } = useCharacter();
 
-    console.log("FASDASD: ", selectedCharacter);
-
     return (
         <Box>
             <img src={selectedCharacter.portrait} />

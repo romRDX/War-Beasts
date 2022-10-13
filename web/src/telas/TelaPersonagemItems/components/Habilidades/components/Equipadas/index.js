@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 import { Container } from './styles.js';
 import ListaIcones from 'globalComponents/ListaIcones';
 
-import ItemsPersonagemContext from 'telas/TelaPersonagemItems/context/ItemsPersonagemContext';
+import { useCharacter } from 'hooks/useCharacter';
 
-const Tracos = (props) => {
-    const { setItemSelecionado } = useContext(ItemsPersonagemContext);
+const Itens = () => {
+
+    const { selectedCharacter } = useCharacter();
 
     return (
         <Container>
-            <ListaIcones dados={props.items} selecionar={ setItemSelecionado } />
+            <ListaIcones dados={selectedCharacter?.itens} />
         </Container>
     ) 
 }
 
-export default connect( state => ({ items: state.activeCharacter.items }))(Tracos);
+export default Itens;

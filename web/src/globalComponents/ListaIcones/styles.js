@@ -12,7 +12,6 @@ export const Container = styled.div`
 `;
 
 export const Dado = styled.div`
-    
     border-radius: 10px;
     height: 75%;
     width: 9.5%;
@@ -22,4 +21,6 @@ export const Dado = styled.div`
     background-image: url('${props => props.icon}');
     position: relative;
     margin: auto 1%;
+    box-sizing: border-box;
+    ${props => props.isSelected && "border: 3px solid red;"}
 `;

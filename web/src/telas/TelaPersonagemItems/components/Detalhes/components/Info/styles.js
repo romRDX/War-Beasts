@@ -14,5 +14,14 @@ export const Container = styled.div`
     h1 {
         font-size: 30px;
         text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    p:nth-of-type(7) {
+        margin: 20px 0 0 0;
     }
 `;

@@ -5,7 +5,7 @@ import Equipadas from './components/Equipadas';
 
 import { Container } from './styles.js';
 
-const Habilidades = (props) => {
+const Habilidades = () => {
 
     return (
         <Container>

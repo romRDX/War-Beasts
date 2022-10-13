@@ -26,10 +26,8 @@ const Detalhes = (props) => {
     return (
         <Container>
             <Link className="voltar" to="/personagem">Voltar</Link>
-            <Portrait img={ {} } />
-            <Info>
-                
-            </Info>
+            <Portrait img={itemSelecionado?.icon} />
+            <Info />
             <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
         </Container>
     )
