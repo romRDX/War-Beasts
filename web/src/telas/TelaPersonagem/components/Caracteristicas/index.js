@@ -18,9 +18,9 @@ const Caracteristicas = () => {
 
     return (
         <Container>
-            <Container_2 onClick={ () => goToDetails('items')} ><ListaIcones dados={ items }/></Container_2>
-            <Container_2 onClick={() => goToDetails('habilidades')} ><ListaIcones dados={ selectedCharacter?.habilidades}/></Container_2>
-            <Container_2 onClick={() => goToDetails('tracos')} ><ListaIcones dados={ selectedCharacter?.tracos}/></Container_2>
+            <Container_2 onClick={ () => goToDetails('items')} ><ListaIcones dados={ selectedCharacter?.itens }/></Container_2>
+            <Container_2 onClick={() => goToDetails('habilidades')} ><ListaIcones dados={ selectedCharacter?.skills}/></Container_2>
+            <Container_2 onClick={() => goToDetails('tracos')} ><ListaIcones dados={ selectedCharacter?.traits}/></Container_2>
         </Container>
     )
     

@@ -18,27 +18,27 @@ const Personagem = () => {
 
     return (
         <Info>
-            { personagemSelecionado.atributos && 
+            { personagemSelecionado.atributes && 
             <>
-                <h1>Prefixo - {personagemSelecionado.nome} - Sufixo</h1>
+                <h1>Prefixo - {personagemSelecionado.name} - Sufixo</h1>
                 <Portrait ></Portrait>
                 <Divisor>
                     <h2>Detalhes</h2>
                     <Detalhes>
-                        <div>level {personagemSelecionado.nivel}</div>
-                        <div>{personagemSelecionado.classe}</div>
-                        <div>Guild Name</div>
+                        <div>level {personagemSelecionado.level}</div>
+                        <div>{personagemSelecionado.class_id}</div>
+                        { personagemSelecionado.guild_id && <div>Guild Name: {personagemSelecionado.guild_name}</div>}
                     </Detalhes>
                 </Divisor>
                 <Divisor>
                     <h2>Atributos</h2>
                     <Atributos>
-                        <div className="STR" >STR : {personagemSelecionado.atributos.STR}</div>
-                        <div className="DEX" >DEX : {personagemSelecionado.atributos.DEX}</div>
-                        <div className="CON" >CON : {personagemSelecionado.atributos.CON}</div>
-                        <div className="INT" >INT : {personagemSelecionado.atributos.INT}</div>
-                        <div className="TOU" >TOU : {personagemSelecionado.atributos.TOU}</div>
-                        <div className="AGI" >AGI : {personagemSelecionado.atributos.AGI}</div>
+                        <div className="STR" >STR : {personagemSelecionado.atributes.STR}</div>
+                        <div className="DEX" >DEX : {personagemSelecionado.atributes.DEX}</div>
+                        <div className="CON" >CON : {personagemSelecionado.atributes.CON}</div>
+                        <div className="INT" >INT : {personagemSelecionado.atributes.INT}</div>
+                        <div className="TOU" >TOU : {personagemSelecionado.atributes.TOU}</div>
+                        <div className="AGI" >AGI : {personagemSelecionado.atributes.AGI}</div>
                     </Atributos>
                 </Divisor> 
                 <button onClick={chooseChar}> Entrar </button>

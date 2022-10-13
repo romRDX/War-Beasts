@@ -12,14 +12,14 @@ export const Container = styled.div`
 `;
 
 export const Dado = styled.div`
-    border: 1px solid black;
+    
     border-radius: 10px;
     height: 75%;
     width: 9.5%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-image: url('${props => props.icone}');
+    background-image: url('${props => props.icon}');
     position: relative;
     margin: auto 1%;
 `;

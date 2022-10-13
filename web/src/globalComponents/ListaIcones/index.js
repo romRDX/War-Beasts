@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Dado} from './styles';
+import { Dado } from './styles';
 
-const ListaIcones = ({dados, selecionar}) => (
-    <>
-    {
+const ListaIcones = ({dados, selecionar}) => {
+    console.log("DAD: ", dados);
+    return (
        dados && dados.map( dado => (
-            <Dado key={dado.nome} icone={ dado.icone } onClick={ () => selecionar && selecionar(dado) } />
+            <Dado key={dado.name} icon={ dado.icon } onClick={ () => selecionar && selecionar(dado) } />
         ))
-    }
-    </>                     
-);
+    )
+};
 
 export default ListaIcones;
