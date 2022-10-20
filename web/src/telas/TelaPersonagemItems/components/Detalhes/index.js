@@ -10,7 +10,7 @@ import ItemsPersonagemContext from 'telas/TelaPersonagemItems/context/ItemsPerso
 
 const Detalhes = (props) => {
     const history = useHistory();
-    const { itemSelecionado } = useContext(ItemsPersonagemContext);
+    const { itemSelecionado, handleEquipItem, handleUnequipItem } = useContext(ItemsPersonagemContext);
 
     const entrarEstagio = () => {
 
@@ -28,7 +28,10 @@ const Detalhes = (props) => {
             <Link className="voltar" to="/personagem">Voltar</Link>
             <Portrait img={itemSelecionado?.icon} />
             <Info />
-            <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
+            <div>
+                <Botao theme={{size:[60,30], margin: '0 auto 15px'}} onClick={() => { handleEquipItem () } }> Equipar </Botao>
+                <Botao theme={{size:[60,30], margin: '0 auto 15px'}} onClick={() => { handleUnequipItem () } }> Desequipar </Botao>
+            </div>
         </Container>
     )
     

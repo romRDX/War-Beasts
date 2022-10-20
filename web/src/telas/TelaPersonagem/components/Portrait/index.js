@@ -9,7 +9,7 @@ const Portrait = () => {
 
     return (
         <Box>
-            <img src={selectedCharacter.portrait} />
+            <img src={selectedCharacter?.portrait} />
         </Box>
     );
 };

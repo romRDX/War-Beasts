@@ -8,9 +8,10 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
 
   useEffect(() => {
-
+    console.log("AUTH1");
     if(authData === null){
       const authSavedData = window.sessionStorage.getItem('wb-login');
+      console.log("AUTH2: ", authSavedData);
       if(authSavedData){
         setAuthData(JSON.parse(authSavedData));
       }

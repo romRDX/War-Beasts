@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import Miniatura from './components/Miniatura';
 
@@ -14,18 +14,51 @@ const Miniaturas = () => {
 
     const { authData } = useAuth();
 
-    useEffect(() => {
+    const getMyCharacters = useCallback(() => {
         if(authData){
             apiWB.get('/characters', {
                 params: JSON.stringify({
                 userId: authData.id
                 })
+            }).catch((err)=>{
+                console.log("ERROR: ", err);
             }).then((resp) => {
-                console.log(resp.data.userCharacters);
+                // console.log();
+                console.log("YOUR CHAR: ", resp.data.userCharacters);
                 setMyCharacters(resp.data.userCharacters);
             });
         }
     }, [authData]);
+
+    // useEffect(() => {
+        // if(authData){
+        //     apiWB.get('/characters', {
+        //         params: JSON.stringify({
+        //         userId: authData.id
+        //         })
+        //     }).then((resp) => {
+        //         // console.log();
+        //         console.log("YOUR CHAR: ", resp.data.userCharacters);
+        //         setMyCharacters(resp.data.userCharacters);
+        //     });
+        // }
+        // if(myCharacters == null){
+        //     getMyCharacters();
+            // console.log("EFFECT1: ", myCharacters);
+            // console.log("EFFECT2: ", authData);
+        // }
+        
+    // }, [myCharacters, authData]);
+
+    useEffect(() => {
+        // if(myCharacters == null){
+            getMyCharacters();
+            // console.log("EFFECT3: ", myCharacters);
+            // console.log("EFFECT4: ", authData);
+        // }
+    }, []);
+
+    // getMyCharacters();
     
     const { sendWsMessage } = useWS();
     return (

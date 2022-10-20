@@ -22,4 +22,10 @@ export const Container_2 = styled.div`
     flex-direction: row;
     height: 32%;
     justify-content: flex-start;
+
+    > div {
+        width: 80px;
+        height: 80px;
+        margin: auto 2%;
+    }
 `;
