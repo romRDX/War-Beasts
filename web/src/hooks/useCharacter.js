@@ -22,20 +22,24 @@ export const CharacterProvider = ({ children }) => {
     window.localStorage.setItem('wb-char', char);
   }, []);
 
-  const handleUpdateSelectedCharacter = useCallback((value) => {
-    setSelectedCharacter(value);
+  const handleUpdateSelectedCharacter = useCallback((value, type) => {
+    setSelectedCharacter(prevValue => ({
+      ...prevValue,
+      [type]: value,
+    }));
     const char = JSON.stringify(value);
-
+    console.log("TYPE: ", type);
+    console.log("VALUE: ", value);
     window.localStorage.setItem('wb-char', char);
 
-    apiWB.put('/itens/update', {
+    apiWB.put(`/${type}/update`, {
       params: JSON.stringify({
         userId: selectedCharacter.user_id,
         characterId: selectedCharacter.id,
-        itensArray: value.itens,
+        dataArray: value,
       })
     }).then((resp) => {
-      console.log(resp);
+      console.log("RESP: ", resp);
     })
   }, [selectedCharacter]);
 

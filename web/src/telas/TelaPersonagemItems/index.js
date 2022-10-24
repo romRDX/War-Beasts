@@ -30,95 +30,28 @@ const TelaPersonagemItems = () => {
             
             if(isNotAlreadyEquiped){
                 
-                // const newItensArray = selectedCharacter.itens.map((item) => {
-                //     if(item && item.id === selectedCharacterSlot.id){
-                //         return  selectedItemFromList;
-                //     } else if( typeof selectedCharacterSlot == "string" ){
+                const newItensArray = selectedCharacter.itens.map((item, index) => {
 
-                //         const newItensArray = [];
-
-                //         const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
-
-                //         for(let i = 0; i<4; i++){
-                //             if(i == slotPosition){
-                //                 newItensArray.splice(i, 1, selectedItemFromList);
-                //             } else {
-                //                 newItensArray.push(selectedCharacter.itens[i]);
-                //             }
-                //         }
-
-                //         console.log("ABC: ", newItensArray);
-
-                //         updateSelectedCharacter({
-                //             ...selectedCharacter,
-                //             itens: newItensArray,
-                //         });
-                //     } else {
-                //         return item;
-                //     }
-                // })
-
-                // const newItensArray = selectedCharacter.itens.map((item, index) => {
-                //     const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
-
-                //     if(!item && index == slotPosition){
-                //         return selectedItemFromList;
-                //     } else {
-                //         return item;
-                //     }
-                // })
-
-                // --------------
-                // if(item && item.id === selectedCharacterSlot.id){
-                //     return  selectedItemFromList;
-                // } else if( typeof selectedCharacterSlot == "string" ){
-
-                //     const newItensArray = [];
-
-                //     const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
-
-                //     for(let i = 0; i<4; i++){
-                //         if(i == slotPosition){
-                //             newItensArray.splice(i, 1, selectedItemFromList);
-                //         } else {
-                //             newItensArray.push(selectedCharacter.itens[i]);
-                //         }
-                //     }
-
-                //     console.log("ABC: ", newItensArray);
-
-                //     updateSelectedCharacter({
-                //         ...selectedCharacter,
-                //         itens: newItensArray,
-                //     });
-                // } else {
-                //     return item;
-                // }
-                // --------
-
-                const newItensArray = [];
-                console.log("ZZ: ", selectedCharacterSlot);
-                
-
-                for(let i = 0; i<4; i++){
-                    if(selectedCharacter.itens[i] && selectedCharacter.itens[i].id === selectedCharacterSlot.id){
-                        newItensArray.push(selectedItemFromList);
-                    // } else if(i == slotPosition){
-                    } else if(typeof selectedCharacterSlot == "string"){
-                        const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
-                        if(i == slotPosition) newItensArray.push(selectedItemFromList);
+                    if(item){
+                        if(item.id !== selectedItemFromList.id && item.id == selectedCharacterSlot.id){
+                            setSelectedCharacterSlot(selectedItemFromList)
+                            return selectedItemFromList;
+                        } else {
+                            return item;
+                        }
                     } else {
-                        newItensArray.push(selectedCharacter.itens[i]);
+                        if(typeof selectedCharacterSlot == "string"){
+                            const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
+                            setSelectedCharacterSlot(selectedItemFromList)
+                            if(index == slotPosition) return selectedItemFromList;
+                            
+                        } else {
+                            return null;
+                        }
                     }
-                }
-                
-                // console.log("ZZ: ", newItensArray);
-
-                updateSelectedCharacter({
-                    ...selectedCharacter,
-                    itens: newItensArray,
                 });
-                // setSelectedCharacterSlot(selectedItemFromList);
+
+                updateSelectedCharacter(newItensArray, "itens");
             }
         }
     };
@@ -130,18 +63,15 @@ const TelaPersonagemItems = () => {
         const isAnEmptySlot = !selectedCharacterSlot.id;
 
         if(!isAnEmptySlot){
-            console.log("ASD");
             newItensArray.forEach((item, index) => {
                 if(item && item.id == selectedCharacterSlot.id){
                     newItensArray.splice(index, 1, undefined);
+                    setSelectedCharacterSlot("empty-slot-"+index);
                 }
             });
         };
 
-        updateSelectedCharacter({
-            ...selectedCharacter,
-            itens: newItensArray,
-        });
+        updateSelectedCharacter(newItensArray, "itens");
     };
 
     return (

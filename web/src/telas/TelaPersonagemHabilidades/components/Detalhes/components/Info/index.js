@@ -1,16 +1,26 @@
 import React, { useContext } from 'react';
 
 import { Container } from './styles';
-import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPersonagemContext';
+import characterSkillsContext from 'telas/TelaPersonagemHabilidades/context/characterSkillsContext';
 
-const Info = (props) => {
-    const { habSelecionada } = useContext(HabPersonagemContext);
-
+const Info = () => {
+    const { selectedSkill } = useContext(characterSkillsContext);
     return (
         <Container>
-            { habSelecionada.nome && <h1>{ habSelecionada.nome }</h1> }
-            { habSelecionada.custo && <h2>Custo: { habSelecionada.custo}</h2> }
-            <h3></h3>  
+            { selectedSkill && 
+                <>
+                    <h1>{ selectedSkill.name }</h1>
+                    
+                    <div>
+                        <p>Type:</p>
+                        { selectedSkill.type.map((item) => <p>{item}</p>)}
+                    </div>
+                    <p>Energy cost: { selectedSkill.energy }</p>
+                    <p>Value: { selectedSkill.value }</p>
+                    <p>Description:</p>
+                    <p>{selectedSkill.description}</p>
+                </>
+            }            
         </Container>
     )
     

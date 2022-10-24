@@ -1,35 +1,25 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import Info from './components/Info';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 import { Container, Portrait } from './styles';
-import HabPersonagemContext from 'telas/TelaPersonagemHabilidades/context/HabPersonagemContext';
+import characterSkillsContext from 'telas/TelaPersonagemHabilidades/context/characterSkillsContext';
 
 
-const Detalhes = (props) => {
-    const history = useHistory();
-    const { habSelecionada } = useContext(HabPersonagemContext);
-
-    const entrarEstagio = () => {
-
-        const dispatcher = {
-            type: 'ENTER_STAGE',
-            stage: props.info.nome,
-            nome: props.info.nome
-        }
-
-        history.push('/batalha-A');
-    }
+const Detalhes = () => {
+    const { selectedSkill, handleEquipSkill, handleUnequipSkill } = useContext(characterSkillsContext);
 
     return (
         <Container>
-            <Portrait img={ habSelecionada.icone } />
-            <Info>
-                { habSelecionada.nome }
-                { habSelecionada.custo}
-            </Info>
-            <Botao theme={{size:[60,6], margin: '0 auto 15px'}} onClick={() => {} }> Alterar </Botao>
+            <Link className="voltar" to="/personagem">Voltar</Link>
+            <Portrait img={selectedSkill?.icon} />
+            <Info />
+            <div>
+                <Botao theme={{size:[60,30], margin: '0 auto 15px'}} onClick={() => { handleEquipSkill() } }> Equipar </Botao>
+                <Botao theme={{size:[60,30], margin: '0 auto 15px'}} onClick={() => { handleUnequipSkill() } }> Desequipar </Botao>
+            </div>
         </Container>
     )
     

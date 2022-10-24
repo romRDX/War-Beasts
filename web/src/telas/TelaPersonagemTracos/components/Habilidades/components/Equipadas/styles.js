@@ -7,4 +7,10 @@ export const Container = styled.div`
     justify-content: space-evenly;
     flex-direction: row;
     border-top: 1px solid black;
+
+    > div {
+        height: 90px;
+        width: 90px;
+        margin: auto 1%;
+    }
 `;
