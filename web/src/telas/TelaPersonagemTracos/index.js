@@ -4,101 +4,94 @@ import { Link } from 'react-router-dom';
 import { BotaoVoltar } from 'globalComponents/Botoes/styles';
 import { Container } from './styles';
 
-import ItemsPersonagemContext from './context/ItemsPersonagemContext';
+import CharacterTraitsContext from './context/characterTraitsContext';
 
 import Detalhes from './components/Detalhes';
 import Habilidades from './components/Habilidades';
 import { useCharacter } from 'hooks/useCharacter';
 
-const TelaPersonagemItems = () => {
+const TelaPersonagemTracos = () => {
 
     const { selectedCharacter, setSelectedCharacter, updateSelectedCharacter } = useCharacter();
 
-    const [ itemSelecionado, setItemSelecionado ] = useState();
+    const [ selectedTrait, setSelectedTrait ] = useState();
     const [selectedCharacterSlot, setSelectedCharacterSlot] = useState(null);
-    const [selectedItemFromList, setSelectedItemFromList] = useState(null);
+    const [selectedTraitFromList, setSelectedTraitFromList] = useState(null);
 
-    const handleEquipItem = () => {
+    const handleEquipTrait = () => {
 
-        const areThereOneSlotAndOneItemSelected = selectedCharacterSlot && selectedItemFromList;
+        const areThereOneSlotAndOneTraitSelected = selectedCharacterSlot && selectedTraitFromList;
 
-        if(areThereOneSlotAndOneItemSelected){
+        if(areThereOneSlotAndOneTraitSelected){
 
-            const itensIds = selectedCharacter.itens.map((item) => item ? item.id : null);
+            const traitsIds = selectedCharacter.traits.map((trait) => trait ? trait.id : null);
 
-            const isNotAlreadyEquiped = !itensIds.includes(selectedItemFromList.id);
+            const isNotAlreadyEquiped = !traitsIds.includes(selectedTraitFromList.id);
             
             if(isNotAlreadyEquiped){
                 
-                const newItensArray = selectedCharacter.itens.map((item, index) => {
+                const newTraitsArray = selectedCharacter.traits.map((trait, index) => {
 
-                    console.log("------------------------------------");
-                    if(item){
-                        if(item.id !== selectedItemFromList.id && item.id == selectedCharacterSlot.id){
-                            setSelectedCharacterSlot(selectedItemFromList)
-                            return selectedItemFromList;
+                    if(trait){
+                        if(trait.id !== selectedTraitFromList.id && trait.id == selectedCharacterSlot.id){
+                            setSelectedCharacterSlot(selectedTraitFromList)
+                            return selectedTraitFromList;
                         } else {
-                            return item;
+                            return trait;
                         }
                     } else {
                         if(typeof selectedCharacterSlot == "string"){
                             const slotPosition = parseInt(selectedCharacterSlot.charAt(selectedCharacterSlot.length-1));
-                            setSelectedCharacterSlot(selectedItemFromList)
-                            if(index == slotPosition) return selectedItemFromList;
+                            setSelectedCharacterSlot(selectedTraitFromList)
+                            if(index == slotPosition) return selectedTraitFromList;
                             
                         } else {
                             return null;
                         }
                     }
                 });
-
-                updateSelectedCharacter({
-                    ...selectedCharacter,
-                    itens: newItensArray,
-                });
+                console.log(newTraitsArray);
+                updateSelectedCharacter(newTraitsArray, "traits");
             }
         }
     };
 
-    const handleUnequipItem = () => {
+    const handleUnequipTrait = () => {
 
-        const newItensArray = [...selectedCharacter.itens];
+        const newTraitsArray = [...selectedCharacter.traits];
 
         const isAnEmptySlot = !selectedCharacterSlot.id;
 
         if(!isAnEmptySlot){
-            newItensArray.forEach((item, index) => {
-                if(item && item.id == selectedCharacterSlot.id){
-                    newItensArray.splice(index, 1, undefined);
+            newTraitsArray.forEach((trait, index) => {
+                if(trait && trait.id == selectedCharacterSlot.id){
+                    newTraitsArray.splice(index, 1, undefined);
                     setSelectedCharacterSlot("empty-slot-"+index);
                 }
             });
         };
 
-        updateSelectedCharacter({
-            ...selectedCharacter,
-            itens: newItensArray,
-        });
+        updateSelectedCharacter(newTraitsArray, "traits");
     };
 
     return (
         <Container>
             <BotaoVoltar ><Link  to="/personagem">Voltar</Link></BotaoVoltar>
-            <ItemsPersonagemContext.Provider value={{
+            <CharacterTraitsContext.Provider value={{
                 selectedCharacterSlot,
                 setSelectedCharacterSlot,
-                selectedItemFromList,
-                setSelectedItemFromList,
-                itemSelecionado,
-                setItemSelecionado,
-                handleEquipItem,
-                handleUnequipItem
+                selectedTraitFromList,
+                setSelectedTraitFromList,
+                selectedTrait,
+                setSelectedTrait,
+                handleEquipTrait,
+                handleUnequipTrait
             }} >
                 <Detalhes />
                 <Habilidades />
-            </ItemsPersonagemContext.Provider>
+            </CharacterTraitsContext.Provider>
         </Container>
     )
 };
 
-export default TelaPersonagemItems;
+export default TelaPersonagemTracos;

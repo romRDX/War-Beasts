@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useContext} from 'react';
 import ListaIcones from 'globalComponents/ListaIcones/index.js';
 import { apiWB } from 'services/axios.js';
-import ItemsPersonagemContext from 'telas/TelaPersonagemItems/context/ItemsPersonagemContext.js';
+import CharacterTraitsContext from 'telas/TelaPersonagemTracos/context/characterTraitsContext.js';
 
 import { Container } from './styles.js';
 
-const Habilidades = (props) => {
+const Traits = () => {
 
-    const { selectedItemFromList, setSelectedItemFromList, setItemSelecionado } = useContext(ItemsPersonagemContext);
+    const { selectedTraitFromList, setSelectedTraitFromList, setSelectedTrait } = useContext(CharacterTraitsContext);
 
-    const [itens, setItens] = useState(null);
+    const [traits, setTraits] = useState(null);
 
     useEffect(() => {
-        apiWB.get('/itens').then((resp) => {
-            setItens(resp.data.itens);
+        apiWB.get('/traits').then((resp) => {
+            setTraits(resp.data.traits);
         });
     }, []);
     
@@ -21,10 +21,10 @@ const Habilidades = (props) => {
     return (
         <Container>
             {
-                itens && <ListaIcones dados={itens} selected={selectedItemFromList} setSelectedItemFromList={setSelectedItemFromList} setSelected={setItemSelecionado} />
+                traits && <ListaIcones dados={traits} selected={selectedTraitFromList} setSelectedItemFromList={setSelectedTraitFromList} setSelected={setSelectedTrait} />
             }
         </Container>
     ) 
 }
 
-export default Habilidades;
+export default Traits;

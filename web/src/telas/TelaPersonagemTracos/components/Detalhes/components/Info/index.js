@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
 
 import { Container } from './styles';
-import ItemsPersonagemContext from 'telas/TelaPersonagemItems/context/ItemsPersonagemContext';
+import CharacterTraitsContext from 'telas/TelaPersonagemTracos/context/characterTraitsContext';
 
 const Info = () => {
-    const { itemSelecionado } = useContext(ItemsPersonagemContext);
+    const { selectedTrait } = useContext(CharacterTraitsContext);
     return (
         <Container>
-            { itemSelecionado && 
+            { selectedTrait && 
                 <>
-                    <h1>{ itemSelecionado.name }</h1>
-                    <p>STR: {itemSelecionado.STR}</p>
-                    <p>DEX: {itemSelecionado.DEX}</p>
-                    <p>CON: {itemSelecionado.CON}</p>
-                    <p>AGI: {itemSelecionado.AGI}</p>
-                    <p>INT: {itemSelecionado.INT}</p>
-                    <p>TOU: {itemSelecionado.TOU}</p>
+                    <h1>{ selectedTrait.name }</h1>
+                    {/* <p>STR: {selectedTrait.STR}</p>
+                    <p>DEX: {selectedTrait.DEX}</p>
+                    <p>CON: {selectedTrait.CON}</p>
+                    <p>AGI: {selectedTrait.AGI}</p>
+                    <p>INT: {selectedTrait.INT}</p>
+                    <p>TOU: {selectedTrait.TOU}</p> */}
                     <p>Description:</p>
-                    <p>{itemSelecionado.description}</p>
+                    <p>{selectedTrait.description}</p>
                 </>
             }            
         </Container>

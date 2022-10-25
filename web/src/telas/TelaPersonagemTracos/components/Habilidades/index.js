@@ -5,7 +5,7 @@ import Equipadas from './components/Equipadas';
 
 import { Container } from './styles.js';
 
-const Habilidades = () => {
+const Tracos = () => {
 
     return (
         <Container>
@@ -15,4 +15,4 @@ const Habilidades = () => {
     ) 
 }
 
-export default Habilidades;
+export default Tracos;
