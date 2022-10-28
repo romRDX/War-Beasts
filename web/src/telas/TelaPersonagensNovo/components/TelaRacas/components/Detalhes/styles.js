@@ -34,4 +34,10 @@ export const Descricao = styled.div`
     height: 40%;
     border: 1px solid black;
     margin: auto;
+    padding-top: 50px;
+`;
+
+export const Nome = styled.input`
+    margin: auto;
+    width: 50%;
 `;

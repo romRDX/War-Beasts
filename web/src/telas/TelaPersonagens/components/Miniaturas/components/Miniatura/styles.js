@@ -17,6 +17,12 @@ export const PersonagemMiniatura = styled.div`
         max-width:55%;
         width: 100%;
         border-left: 1px solid black;
+        display: flex;
+
+        img {
+            height: 100%;
+            margin: 0 auto;
+        }
     }
 
     .info {

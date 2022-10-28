@@ -1,33 +1,67 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
-import TriboContext from './context/TriboContext';
+import RaceContext from './context/raceContext';
 
-import TelaRacas from './components/TelaRacas';
-import TelaTribos from './components/TelaTribos';
+import TelaClasses from './components/TelaRacas';
+import TelaRacas from './components/TelaClasses';
 import { Container } from "./styles.js";
+import { BotaoVoltar } from 'globalComponents/Botoes/styles';
+import { Link } from 'react-router-dom';
+import { useAuth } from 'hooks/useAuth';
+import { apiWB } from 'services/axios';
+
 
 const TelaPersonagensNovo = () => {
 
-    const [ tribo, setTribo ] = useState('');
-    const [ triboSelecionada , setTriboSelecionada] = useState('');
+    const { authData } = useAuth();
 
-    const selecionarTribo = useCallback( (tribo) => {
-        setTriboSelecionada(tribo);
+    const [ races, setRaces ] = useState('');
+    const [ selectedRace , setSelectedRace] = useState('');
+    const [ selectedClass , setSelectedClass] = useState('');
+
+    const selectRace = useCallback( (race) => {
+        setSelectedRace(race);
     },[]);
 
-    const confirmarTribo = useCallback( (tribo) => {
-        setTribo(tribo);
+    const confirmRace = useCallback( (race) => {
+        setRaces(race);
     },[]);
 
+    const createCharacter = (characterName) => {
+
+        apiWB.post("/characters/new", {
+            params: JSON.stringify({
+                raceId: selectedRace.id,
+                classId: selectedClass.id,
+                name: characterName,
+                playerId: authData.id,
+            })
+        }).then((resp) => {
+            console.log(resp);
+        });
+    }
+
+    console.log("CRIOU: ",authData);
+    
     return (
         <Container>
-            <TriboContext.Provider value={{ tribo, triboSelecionada, confirmarTribo, selecionarTribo }}>
+            <BotaoVoltar><Link  to="/personagens">Voltar</Link></BotaoVoltar>
+            <RaceContext.Provider value={{ 
+                    races,
+                    confirmRace,
+                    selectedRace,
+                    selectRace,
+                    selectedClass,
+                    setSelectedClass,
+                    createCharacter
+                }}
+            >
             {
-                tribo ? 
-                    <TelaRacas /> :
-                    <TelaTribos />
+                races ? 
+                    <TelaClasses /> :
+                    <TelaRacas />
             }
-            </TriboContext.Provider>
+            </RaceContext.Provider>
         </Container>
     )
 

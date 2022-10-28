@@ -47,6 +47,12 @@ export const Portrait = styled.div`
    height: 40%;
    border: 1px solid black;
    margin: 20px auto 0 auto;
+   display: flex;
+
+   img {
+      height: 100%;
+      margin: 0 auto;
+   }
 
 `;
 
@@ -87,6 +93,11 @@ export const Detalhes = styled.div`
       padding: 8px 15px;
       font-size: 25px;
       text-transform: uppercase;
+   }
+
+   div:last-of-type {
+      display: flex;
+      justify-content: space-evenly;
    }
 `;
 

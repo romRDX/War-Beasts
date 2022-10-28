@@ -50,7 +50,7 @@ const TelaPersonagemTracos = () => {
                         }
                     }
                 });
-                console.log(newTraitsArray);
+                
                 updateSelectedCharacter(newTraitsArray, "traits");
             }
         }

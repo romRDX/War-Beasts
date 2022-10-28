@@ -9,12 +9,13 @@ const Detalhes = () => {
     
     return (
         <Box>
-            <div>Nome: {selectedCharacter?.name}</div>
-            <div>Power: </div>
-            <div>EXP: </div>
+            <div>Name: {selectedCharacter?.name}</div>
+            <div>Power: --</div>
+            <div>EXP: {selectedCharacter?.experience}</div>
             <div>level: {selectedCharacter?.level}</div>
-            <div>class: {selectedCharacter?.class_id} race: </div>
-            <div>Guild Name: </div>
+            <div>race: {selectedCharacter?.race.name}</div>
+            <div>class: {selectedCharacter?.race.class.name}</div>
+            <div>Guild Name: --</div>
         </Box>                        
     )
 };

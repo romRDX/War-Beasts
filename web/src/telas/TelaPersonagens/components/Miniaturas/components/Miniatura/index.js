@@ -14,7 +14,9 @@ import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext
                 <h4> Guild </h4>
                 <h5> Nv. {character.level}</h5>
             </div>
-            <div className="image"></div>
+            <div className="image">
+                <img src={character.portrait} />
+            </div>
         </PersonagemMiniatura>
     )
 }

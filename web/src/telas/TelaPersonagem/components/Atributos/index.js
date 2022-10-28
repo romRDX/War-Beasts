@@ -15,7 +15,7 @@ const Atributos = () => {
             let INT = 0;
             let TOU = 0;
             let AGI = 0;
-            console.log("--: ", selectedCharacter);
+
             selectedCharacter.itens.forEach((item) => {
                 STR+= item ? item.STR : 0;
                 DEX+= item ? item.DEX : 0;

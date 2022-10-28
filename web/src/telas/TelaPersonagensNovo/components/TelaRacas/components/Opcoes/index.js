@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 
-import OpcaoRaca from './components/OpcaoRaca';
+import ClassOption from './components/ClassOption';
 
 import { Container } from './styles';
-import TriboContext from 'telas/TelaPersonagensNovo/context/TriboContext';
+import TriboContext from 'telas/TelaPersonagensNovo/context/raceContext';
 
-const Opcoes = () => {
-        const { tribo } = useContext(TriboContext)
-
+const Opcoes = ({ classes }) => {
         return (
                 <Container>
                 {
-                        tribo.racas.map( raca => (
-                                <OpcaoRaca key={raca.nome} raca={raca } />
+                        classes.map( classData => (
+                                <ClassOption key={classData.nome} classData={classData} />
                         ))
                 }
                 </Container>

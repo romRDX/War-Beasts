@@ -21,12 +21,17 @@ const Personagem = () => {
             { personagemSelecionado.atributes && 
             <>
                 <h1>Prefixo - {personagemSelecionado.name} - Sufixo</h1>
-                <Portrait ></Portrait>
+                <Portrait >
+                    <img src={personagemSelecionado.portrait} />
+                </Portrait>
                 <Divisor>
                     <h2>Detalhes</h2>
                     <Detalhes>
                         <div>level {personagemSelecionado.level}</div>
-                        <div>{personagemSelecionado.class_id}</div>
+                        <div>
+                            <p>{personagemSelecionado.race.name}</p> -
+                            <p>{personagemSelecionado.race.class.name}</p>
+                        </div>
                         { personagemSelecionado.guild_id && <div>Guild Name: {personagemSelecionado.guild_name}</div>}
                     </Detalhes>
                 </Divisor>

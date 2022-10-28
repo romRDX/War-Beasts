@@ -1,25 +1,28 @@
 import React, { useContext } from 'react';
 
-import RacaContext from 'telas/TelaPersonagensNovo/components/TelaRacas/context/RacasContext';
-
-import NomePersonagem from './components/NomePersonagem';
-import CriarPersonagem from './components/CriarPersonagem';
 import Caracteristicas from './components/Caracteristicas';
+import { Botao } from 'globalComponents/Botoes/styles';
 
-import { Container, Container_2 , Descricao } from './styles';
+import { Container, Container_2 , Descricao, Nome } from './styles';
+import raceContext from 'telas/TelaPersonagensNovo/context/raceContext';
 
-const Detalhes = ( props ) => {
-    const { raca } = useContext(RacaContext);
+const Detalhes = () => {
+    const { selectedClass, createCharacter } = useContext(raceContext);
 
-    return (
+    const handleCreateCharacter = () => {
+        const name = document.getElementById("nomePersonagem").value;
+        if(name && selectedClass) createCharacter(name);
+    }
+    
+    return (    
         <Container>
             <Descricao>
-                { raca && raca.nome }
+                { selectedClass && selectedClass.description }-X
             </Descricao>
             <Caracteristicas />
             <Container_2>
-                <NomePersonagem />
-                <CriarPersonagem />
+                <Nome id={'nomePersonagem'} placeholder="Nome" >{}</Nome>
+                <Botao theme={{size: [25,65]}} onClick={ () => handleCreateCharacter() } >Criar</Botao>
             </Container_2>
         </Container>
     );

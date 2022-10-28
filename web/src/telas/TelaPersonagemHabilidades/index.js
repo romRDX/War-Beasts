@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import { BotaoVoltar } from 'globalComponents/Botoes/styles';
@@ -12,7 +12,7 @@ import { useCharacter } from 'hooks/useCharacter';
 
 const TelaPersonagemHabilidades = () => {
 
-    const { selectedCharacter, setSelectedCharacter, updateSelectedCharacter } = useCharacter();
+    const { selectedCharacter, updateSelectedCharacter } = useCharacter();
 
     const [selectedSkill, setSelectedSkill ] = useState();
     const [selectedCharacterSlot, setSelectedCharacterSlot] = useState(null);
@@ -32,7 +32,6 @@ const TelaPersonagemHabilidades = () => {
                 
                 const newSkillsArray = selectedCharacter.skills.map((skill, index) => {
 
-                    console.log("------------------------------------");
                     if(skill){
                         if(skill.id !== selectedSkillFromList.id && skill.id == selectedCharacterSlot.id){
                             setSelectedCharacterSlot(selectedSkillFromList)
@@ -52,12 +51,7 @@ const TelaPersonagemHabilidades = () => {
                     }
                 });
 
-                console.log("skillArray: ", newSkillsArray);
-
-                updateSelectedCharacter({
-                    ...selectedCharacter,
-                    data: newSkillsArray,
-                }, "skills");
+                updateSelectedCharacter(newSkillsArray, "skills");
             }
         }
     };
@@ -76,11 +70,6 @@ const TelaPersonagemHabilidades = () => {
                 }
             });
         };
-
-        // updateSelectedCharacter({
-        //     ...selectedCharacter,
-        //     data: newSkillsArray,
-        // }, "skills");
 
         updateSelectedCharacter(newSkillsArray, "skills");
     };
