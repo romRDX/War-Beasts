@@ -27,18 +27,6 @@ export const Info = styled.div`
       text-align: center;
       margin: 10px 0 10px;
    }
-
-   button {
-      padding: 5px 70px 2px;
-      font-size: 40px;
-      border-radius: 5px;
-      border: .5px solid lightgray;
-      margin: 20px auto 0;
-      width: fit-content;
-      font-family: 'Teko';
-      text-transform: uppercase;
-   }
-    
 `;
 
 export const Portrait = styled.div`
@@ -104,7 +92,31 @@ export const Detalhes = styled.div`
 export const Divisor = styled.div`
    border: 1px solid black;
    border-radius: 5px;
-   margin: 15px auto 0px;
+   margin: 35px auto 0px;
    padding: 15px;
    width: 70%;
+`;
+
+export const DivisorBotao = styled.div`
+   margin: 0 auto;
+   padding: 15px;
+   width: 70%;
+   display: flex;
+   justify-content: space-between;
+
+   button {
+      padding: 5px 70px 2px;
+      font-size: 40px;
+      border-radius: 5px;
+      border: .5px solid lightgray;
+      margin: auto;
+      font-family: 'Teko';
+      text-transform: uppercase;
+      
+      &:last-child {
+      width: 45%;
+      height: 85%;
+      padding: 1px 70px 3px;
+      background: red;
+   }
 `;

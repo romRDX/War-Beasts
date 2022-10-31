@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useContext, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom';
 
 import Miniatura from './components/Miniatura';
@@ -7,12 +7,15 @@ import { Container , Minis } from './styles.js';
 import { apiWB } from 'services/axios';
 import { useWS } from 'hooks/useWS';
 import { useAuth } from 'hooks/useAuth';
+import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext';
 
-const Miniaturas = () => {
+const Miniaturas = ({ myCharacters, setMyCharacters}) => {
 
     const history = useHistory();
 
-    const [myCharacters, setMyCharacters] = useState(null);
+    const { personagemSelecionado } = useContext(PersonagensContext);
+
+    // const [myCharacters, setMyCharacters] = useState(null);
 
     const { authData } = useAuth();
 
@@ -43,7 +46,7 @@ const Miniaturas = () => {
             <Minis>
                 {   
                     myCharacters && myCharacters.map( character => (
-                        <Miniatura character={character} key={character.id}/>
+                        <Miniatura isSelected={personagemSelecionado?.id == character.id} character={character} key={character.id}/>
                     ))
                 }
             </Minis>

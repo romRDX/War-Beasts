@@ -1,17 +1,14 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext } from 'react';
+import StagesContext from 'telas/TelaMapa/context/StagesContext';
 
 import { Box } from './styles';
-import MapaContext from 'telas/TelaMapa/context/MapaContext';
 
 const Estagio = ({estagio}) => {
-    const { estagioSelecionado, selecionarEstagio } = useContext(MapaContext);
 
-    const selecionado = useCallback( () => {
-        return ( estagioSelecionado.nome === estagio.nome ) ? 'red' : 'white';
-    },[estagioSelecionado, estagio]);
-
+    const { setSelectedStage, selectedStage } = useContext(StagesContext);
+    
     return (
-        <Box posicao={estagio.posicao} onClick={ () => selecionarEstagio(estagio) }  cor={ selecionado }/>
+        <Box isSelected={selectedStage?.id == estagio.id} posicao={estagio.position} onClick={() => setSelectedStage(estagio)} > <p>{estagio.id}</p> </Box>
     )
 }
 

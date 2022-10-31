@@ -3,11 +3,11 @@ import React, { useContext } from 'react'
 import { PersonagemMiniatura } from "./styles.js";
 import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext.js';
 
- const Miniatura = ({ character }) => {
+ const Miniatura = ({ character, isSelected }) => {
     const { selecionarPersonagem } = useContext(PersonagensContext);
 
     return (
-        <PersonagemMiniatura onClick={() => selecionarPersonagem(character)}>
+        <PersonagemMiniatura isSelected={isSelected} onClick={() => selecionarPersonagem(character)}>
             <div className="info" >
                 <h2>{character.name}</h2>
                 <h3>{character.class_id}</h3>

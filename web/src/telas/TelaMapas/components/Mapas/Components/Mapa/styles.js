@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    height: 320px;
-    border-radius: 10px;
-    margin: 10px auto;
-    cursor: pointer;
-    box-shadow: inset 0 0 6px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 320px;
+  border-radius: 10px;
+  margin: 10px auto;
+  cursor: pointer;
+  box-shadow: inset 0 0 6px;
+  transition: 0.5s;
+
+  ${props => props.isSelected && `
+    box-shadow: 0 0 10px red;
+  `}
 
 `;
 

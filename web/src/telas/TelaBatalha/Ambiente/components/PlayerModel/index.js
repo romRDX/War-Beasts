@@ -10,7 +10,7 @@ const PlayerModel = () => {
    
     return (
         <Container>
-            <Modelo img={selectedCharacter.modelo} />
+            <Modelo img={selectedCharacter?.portrait} />
         </Container>
     )
 }

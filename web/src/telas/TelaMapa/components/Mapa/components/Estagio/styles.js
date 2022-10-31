@@ -8,10 +8,14 @@ export const Box = styled.div`
     position: absolute;
     border: 2px solid black;
     border-radius: 50%;
-    background: ${ props => props.cor };
-    color: red;
-    width: 30px;
-    height: 30px;
+    color: ${ props => props.isSelected ? "white" : "red"};
+    width: 50px;
+    height: 50px;
+    background: ${ props => props.isSelected ? "red" : "white"};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 0px 0px 15px 4px red;

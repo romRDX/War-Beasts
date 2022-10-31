@@ -1,34 +1,43 @@
+import { useCharacter } from 'hooks/useCharacter';
 import React from 'react';
 
 import { Container } from './styles';
 import { Portrait, Info, Life, Secundarios } from './styles';
 
-const Detalhes = ({player}) => { 
+const Detalhes = () => { 
+
+    const { selectedCharacter } = useCharacter();
+
+    console.log("ASD: ", selectedCharacter);
+
     return (
         <Container>
-            <div className='playerInfo'>
-                <Portrait img={ player.portrait }>
-                </Portrait>
-                <Info>
-                    <h3> {player.nome} </h3>
-                    <Secundarios>
-                        <h2 className="STR" > Dano : {player.atributos.STR} </h2>
-                        <h2 className="DEXINT" > Precisão : {player.atributos.INT} </h2>
-                        <h2 className="DEX" > C. Critico : {player.atributos.TOU} </h2>
-                        <h2 className="STR" > Dano Critico : {player.atributos.DEX} </h2>
-                        <h2 className="STRINT" > C. Atordoar : {player.atributos.CON} </h2>
-                        <h2 className="DEXAGI" > Velocidade : {player.atributos.AGI} </h2>
-                        <h2 className="CONINT" > Vigor : {player.atributos.AGI} </h2>
-                        <h2 className="AGI" > Evasão : {player.atributos.AGI} </h2>
-                        <h2 className="CON" > Pontos de Vida : {player.atributos.AGI} </h2>
-                        <h2 className="TOU" > Defesa : {player.atributos.AGI} </h2>
-                        <h2 className="AGITOU" > Resist. Critico : {player.atributos.AGI} </h2>
-                        <h2 className="TOUCON" > Resist. Atordoar : {player.atributos.AGI} </h2>
-                    </Secundarios>
-                </Info>
-                <Life>
-                </Life>
-            </div>
+            { selectedCharacter && (
+                    <div className='playerInfo'>
+                        <Portrait img={ selectedCharacter.portrait }>
+                        </Portrait>
+                        <Info>
+                            <h3> {selectedCharacter.name} </h3>
+                            <Secundarios>
+                                <h2 className="STR" > Dano : {selectedCharacter.atributes.STR} </h2>
+                                <h2 className="DEXINT" > Precisão : {selectedCharacter.atributes.INT} </h2>
+                                <h2 className="DEX" > C. Critico : {selectedCharacter.atributes.TOU} </h2>
+                                <h2 className="STR" > Dano Critico : {selectedCharacter.atributes.DEX} </h2>
+                                <h2 className="STRINT" > C. Atordoar : {selectedCharacter.atributes.CON} </h2>
+                                <h2 className="DEXAGI" > Velocidade : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="CONINT" > Vigor : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="AGI" > Evasão : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="CON" > Pontos de Vida : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="TOU" > Defesa : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="AGITOU" > Resist. Critico : {selectedCharacter.atributes.AGI} </h2>
+                                <h2 className="TOUCON" > Resist. Atordoar : {selectedCharacter.atributes.AGI} </h2>
+                            </Secundarios>
+                        </Info>
+                        <Life>
+                        </Life>
+                    </div>
+                )
+            }
         </Container>
     )
 };

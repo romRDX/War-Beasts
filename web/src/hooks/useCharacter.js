@@ -31,7 +31,7 @@ export const CharacterProvider = ({ children }) => {
     const char = JSON.stringify(value);
     
     window.localStorage.setItem('wb-char', char);
-    console.log(value);
+
     apiWB.put(`/${type}/update`, {
       params: JSON.stringify({
         userId: selectedCharacter.user_id,

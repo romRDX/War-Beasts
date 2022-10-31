@@ -4,10 +4,11 @@ import PersonagensContext from './context/PersonagensContext';
 
 import { Selecao } from "./styles.js";
 import Miniaturas from './components/Miniaturas';
-import PersonagemInfo from './components/PersonagemInfo';
+import Personagem from './components/Personagem';
 
 const TelaPersonagens = () => {
-    const [ personagemSelecionado, setarPersonagemSelecionado ] = useState({});
+    const [ personagemSelecionado, setarPersonagemSelecionado ] = useState(null);
+    const [myCharacters, setMyCharacters] = useState(null);
 
     const selecionarPersonagem = useCallback( (personagemSelecionado) => {
         setarPersonagemSelecionado(personagemSelecionado);
@@ -16,8 +17,8 @@ const TelaPersonagens = () => {
     return (
         <Selecao>
             <PersonagensContext.Provider value={{ selecionarPersonagem, personagemSelecionado }}>
-                <Miniaturas setSelectedChar={setarPersonagemSelecionado} />
-                <PersonagemInfo />
+                <Miniaturas setSelectedChar={setarPersonagemSelecionado} setMyCharacters={setMyCharacters} myCharacters={myCharacters} />
+                <Personagem setMyCharacters={setMyCharacters} />
             </PersonagensContext.Provider>
         </Selecao>
     )

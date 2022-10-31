@@ -67,4 +67,12 @@ export const Info = styled.div`
     border: 1px solid black;
     margin: auto;
     height: 57%;
+    
+    > div {
+        display: flex;
+
+        p {
+            margin: 0 10px;
+        }
+    }
 `;

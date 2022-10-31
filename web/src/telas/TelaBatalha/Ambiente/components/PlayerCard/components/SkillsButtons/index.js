@@ -11,8 +11,11 @@ const SkillsButtons = ({player}) => {
         <Container>
             <Buttons>
                 {
-                    player.habilidades.map( hab => (
-                        <Skill className='skill' icone={hab.icone} ><h2>{hab.custo}</h2></Skill>
+                    selectedCharacter?.skills?.map( hab => (
+                        <Skill key={hab.id} className='skill' >
+                            <img src={hab.icon} />
+                            <h2>{hab.energy}</h2>
+                        </Skill>
                     ))
                 }
             </Buttons>

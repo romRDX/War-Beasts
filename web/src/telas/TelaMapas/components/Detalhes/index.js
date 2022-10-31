@@ -1,28 +1,22 @@
-import React, { Component, useCallback } from 'react';
+import React from 'react';
 
 import { Botao } from 'globalComponents/Botoes/styles.js';
 
 import { useHistory } from 'react-router-dom';
 
-import { Container, Portrait, Info, Entrar } from './styles';
+import { Container, Portrait, Info } from './styles';
+import { useMap } from 'hooks/useMap';
 
 const Detalhes = ({ mapaSelecionado }) => {
     const history = useHistory();
-
-    const entrarMapa = useCallback( (e)  => {
-        e.preventDefault();
-
-        if (!mapaSelecionado){
-            return;
+    const { setActiveMap } = useMap();
+    
+    const entrarMapa = ()  => {
+        if (mapaSelecionado){
+            setActiveMap(mapaSelecionado);
+            history.push('/mapa');
         }
-        
-        const dispatcher = {
-            type: 'SELECT_MAP',
-            map:  mapaSelecionado
-        }
-
-        history.push('/mapa');
-    }, [history, mapaSelecionado]);
+    };
 
     const buttonStyle = {
         margin: ' 0 auto 15px',
@@ -35,16 +29,16 @@ const Detalhes = ({ mapaSelecionado }) => {
             <Portrait />
             <Info>
                 <div>
-                    {  mapaSelecionado.nome  && <h2>Estágio: {  mapaSelecionado.nome }</h2>}
+                    {  mapaSelecionado  && <h2>Estágio: {  mapaSelecionado.name }</h2>}
                 </div>
                 <div>
-                    {  mapaSelecionado.nivel  && <h2>Nível: {  mapaSelecionado.nivel }</h2>}
+                    {  mapaSelecionado  && <><h2>Nível:</h2><p>{mapaSelecionado.level[0]}</p>-<p>{mapaSelecionado.level[1]}</p></> }
                 </div>
                 <div>
-                    
+                {  mapaSelecionado  && <h2>Descrição: {  mapaSelecionado.description }</h2>}
                 </div>
             </Info>
-            <Botao theme={buttonStyle} onClick={ entrarMapa.bind(this)}> Entrar </Botao>
+            <Botao theme={buttonStyle} onClick={ entrarMapa }> Entrar </Botao>
         </Container>
     )
     

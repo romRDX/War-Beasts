@@ -1,38 +1,35 @@
-import React, { useCallback } from 'react';
+import React, { useContext } from 'react';
 
 import history from 'services/history';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 import { Container, Portrait, Info } from './styles';
+import { useMap } from 'hooks/useMap';
+import StagesContext from 'telas/TelaMapa/context/StagesContext';
 
-const Detalhes = ({estagioSelecionado}) => {
+const Detalhes = () => {
+    const { selectedStage } = useContext(StagesContext);
+    const { setActiveStage } = useMap();
 
-    const entrarEstagio = useCallback( () => {
-
-        const dispatcher = {
-            type: 'ENTER_STAGE',
-            stage: estagioSelecionado.nome,
-            nome: estagioSelecionado.nome
+    const handleSetActiveStage = () => {
+        if(selectedStage){
+            setActiveStage(selectedStage)
+            history.push("/batalha-A");
         }
-
-        history.push('/batalha-A');
-    }, [history, estagioSelecionado]);
+    }
 
     return (
         <Container>
             <Portrait />
             <Info>
                 <div>
-                    { estagioSelecionado.nome  && <h2>Estágio: { estagioSelecionado.nome }</h2>}
+                    { selectedStage  && <h2>Nome: { selectedStage.name }</h2>}
                 </div>
                 <div>
-                    { estagioSelecionado.nivel  && <h2>Nível: { estagioSelecionado.nivel }</h2>}
-                </div>
-                <div>
-                    
+                    { selectedStage  && <h2>Descrição: { selectedStage.description }</h2>}
                 </div>
             </Info>
-            <Botao theme={{ size: [60,6], margin: '10px auto 25px'}} onClick={ entrarEstagio.bind(this)}> Entrar </Botao>
+            <Botao theme={{ size: [60,6], margin: '10px auto 25px'}} onClick={handleSetActiveStage}> Entrar </Botao>
         </Container>
     )
     

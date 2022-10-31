@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const PersonagemMiniatura = styled.div`
 
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     padding: 0px;
     max-width: 60%;
@@ -11,7 +11,7 @@ export const PersonagemMiniatura = styled.div`
     margin: 15px auto;
     max-height: 131px;
     cursor: pointer;
-
+    transition: 0.5s;
  
     .image {
         max-width:55%;
@@ -49,5 +49,10 @@ export const PersonagemMiniatura = styled.div`
         * {
             margin: 4px 0 7px 0;
         }
-    }  
+    }
+
+    ${props => props.isSelected && `
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    `}
 `;

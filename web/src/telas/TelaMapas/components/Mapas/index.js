@@ -1,25 +1,34 @@
-import React from 'react';
-import { connect } from 'react-redux';
-
-import mapas from 'Data/Mapas';
+import React, { useState, useEffect } from 'react';
 
 import Mapa from './Components/Mapa';
 
 import { Mapas, Tokens } from './styles';
+import { apiWB } from 'services/axios';
 
-const mapaEstagios = ({mapProgress}) => {
+const MapaEstagios = () => {
+
+    const [maps, setMaps] = useState(null);
+
+    useEffect(() => {
+        apiWB.get("/maps").then((resp) => {
+            console.log("MAPAS: ", resp);
+            if(resp.data.maps){
+                setMaps(resp.data.maps);
+            }
+        });
+    }, []);
     
     return (
         <Mapas>
-            <Tokens>{ mapProgress.tokens }</Tokens>
+            <Tokens>{ 5 }</Tokens>
             {
                 
-                mapas.map( mapa => (
-                    <Mapa key={mapa.nome} mapa={mapa} />
+                maps?.map( map => (
+                    <Mapa key={map.id} mapa={map} />
                 ))
             }
         </Mapas>
     )
 }
 
-export default connect( state => ({ mapProgress: state.mapProgress }))(mapaEstagios);
+export default MapaEstagios;

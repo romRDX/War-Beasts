@@ -1,38 +1,27 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { BotaoVoltar } from 'globalComponents/Botoes/styles';
 
 import Mapa from './components/Mapa';
+
 import Detalhes from './components/Detalhes';
 
 import { Container } from './styles';
-import MapaContext from 'telas/TelaMapa/context/MapaContext';
+
+import StagesContext from './context/StagesContext';
 
 const TelaMapa = () => {
 
-    const [ estagioSelecionado, setEstagioSelecionado ] = useState('');
-
-    useEffect( ()=> {
-
-        return () => {
-
-        };
-
-    }, [estagioSelecionado]);
-
-    const selecionarEstagio = useCallback( (stage) => {
-        setEstagioSelecionado(stage);
-    }, [])
+    const [selectedStage, setSelectedStage ] = useState(null);
     
     return (
         <Container>
             <BotaoVoltar ><Link  to="/mapas">Voltar</Link></BotaoVoltar>
-            <MapaContext.Provider value={{ selecionarEstagio, estagioSelecionado }}>
-                <Detalhes estagioSelecionado={ estagioSelecionado } />
+            <StagesContext.Provider value={{ selectedStage, setSelectedStage }}>
+                <Detalhes />
                 <Mapa />
-            </MapaContext.Provider>
-            
+            </StagesContext.Provider>
         </Container>
     )
     

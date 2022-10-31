@@ -6,7 +6,7 @@ import TelaClasses from './components/TelaRacas';
 import TelaRacas from './components/TelaClasses';
 import { Container } from "./styles.js";
 import { BotaoVoltar } from 'globalComponents/Botoes/styles';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 import { apiWB } from 'services/axios';
 
@@ -14,6 +14,7 @@ import { apiWB } from 'services/axios';
 const TelaPersonagensNovo = () => {
 
     const { authData } = useAuth();
+    const history = useHistory();
 
     const [ races, setRaces ] = useState('');
     const [ selectedRace , setSelectedRace] = useState('');
@@ -37,11 +38,9 @@ const TelaPersonagensNovo = () => {
                 playerId: authData.id,
             })
         }).then((resp) => {
-            console.log(resp);
+            if(resp.data.success) history.push("/personagens");
         });
     }
-
-    console.log("CRIOU: ",authData);
     
     return (
         <Container>

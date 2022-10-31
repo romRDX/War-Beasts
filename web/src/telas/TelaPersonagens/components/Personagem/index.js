@@ -1,24 +1,43 @@
 import React, { useContext, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Info, Portrait, Atributos, Detalhes, Divisor } from './styles.js';
+import { Info, Portrait, Atributos, Detalhes, Divisor, DivisorBotao } from './styles.js';
 import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext.js';
 import { useCharacter } from 'hooks/useCharacter.js';
+import { apiWB } from 'services/axios.js';
+import { useAuth } from 'hooks/useAuth.js';
 
-const Personagem = () => {
+const Personagem = ({ setMyCharacters }) => {
     const { setSelectedCharacter } = useCharacter();
+    const { authData } = useAuth();
 
     const history = useHistory();
-    const { personagemSelecionado } = useContext(PersonagensContext);
+    const { personagemSelecionado, selecionarPersonagem } = useContext(PersonagensContext);
 
     const chooseChar = useCallback( () => {
         setSelectedCharacter(personagemSelecionado);
         history.push('/principal');
     }, [personagemSelecionado, history]);
 
+    const deleteChar = () => {
+        apiWB.post("/characters/delete", {
+            params: JSON.stringify({
+                characterId: personagemSelecionado.id,
+                playerId: authData.id,
+            })
+        }).then((resp) => {
+            if(resp.data.success){
+                selecionarPersonagem(null);
+                setMyCharacters(prevValue => {
+                    return prevValue.filter((item) => item.id != personagemSelecionado.id);
+                })
+            }
+        })
+    };
+
     return (
         <Info>
-            { personagemSelecionado.atributes && 
+            { personagemSelecionado && 
             <>
                 <h1>Prefixo - {personagemSelecionado.name} - Sufixo</h1>
                 <Portrait >
@@ -45,8 +64,11 @@ const Personagem = () => {
                         <div className="TOU" >TOU : {personagemSelecionado.atributes.TOU}</div>
                         <div className="AGI" >AGI : {personagemSelecionado.atributes.AGI}</div>
                     </Atributos>
-                </Divisor> 
-                <button onClick={chooseChar}> Entrar </button>
+                </Divisor>
+                <DivisorBotao>
+                    <button onClick={chooseChar}> Entrar </button>
+                    <button onClick={deleteChar}> Deletar </button>
+                </DivisorBotao>
             </>
             }
         </Info>

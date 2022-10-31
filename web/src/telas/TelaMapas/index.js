@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { BotaoVoltar } from 'globalComponents/Botoes/styles.js';
 
-import MapasContext from './context/MapasContext';
+import MapsContext from './context/MapsContext';
 
 import Mapas from './components/Mapas';
 import Detalhes from './components/Detalhes';
@@ -26,10 +26,10 @@ const TelaMapas = () => {
     return (
         <Container>
             <BotaoVoltar theme={ buttonStyle } ><Link  to="/principal">Voltar</Link></BotaoVoltar>
-            <MapasContext.Provider value={{ selecionarMapa }}>
+            <MapsContext.Provider value={{ selecionarMapa, mapaSelecionado }}>
                 <Detalhes mapaSelecionado={ mapaSelecionado } />
                 <Mapas />
-            </MapasContext.Provider>
+            </MapsContext.Provider>
         </Container>
     )
     
