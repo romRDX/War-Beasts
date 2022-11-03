@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Botao } from 'globalComponents/Botoes/styles';
 
-import { Background, Container, Container_2 } from "./styles.js";
+import { Background, Container, Container2 } from "./styles.js";
 
 const TelaLogin = () => {
     const teste = (e) => {
@@ -14,7 +14,7 @@ const TelaLogin = () => {
         <Background>
             <Container>
                 <h1>WAR BEAST</h1>
-                <Container_2>
+                <Container2>
                     <form onSubmit={ teste }>
                         <div>
                             <label>Nome</label>
@@ -38,7 +38,7 @@ const TelaLogin = () => {
                         </div>
                         <Botao type="submit" theme={{size: [60,30], fontSize: '35px', paddA: '13% 2%' }}>Cadastrar</Botao>
                     </form>
-                </Container_2>
+                </Container2>
             </Container>
         </Background>
     )

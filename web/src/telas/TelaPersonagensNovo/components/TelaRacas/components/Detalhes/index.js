@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import Caracteristicas from './components/Caracteristicas';
 import { Botao } from 'globalComponents/Botoes/styles';
 
-import { Container, Container_2 , Descricao, Nome } from './styles';
+import { Container, Container2 , Descricao, Nome } from './styles';
 import raceContext from 'telas/TelaPersonagensNovo/context/raceContext';
 
 const Detalhes = () => {
@@ -20,10 +20,10 @@ const Detalhes = () => {
                 { selectedClass && selectedClass.description }-X
             </Descricao>
             <Caracteristicas />
-            <Container_2>
+            <Container2>
                 <Nome id={'nomePersonagem'} placeholder="Nome" >{}</Nome>
                 <Botao theme={{size: [25,65]}} onClick={ () => handleCreateCharacter() } >Criar</Botao>
-            </Container_2>
+            </Container2>
         </Container>
     );
 };

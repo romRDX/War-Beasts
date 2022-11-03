@@ -13,7 +13,7 @@ export const Container = styled.div`
     justify-content: space-between;
 `;
 
-export const Container_2 = styled.div`
+export const Container2 = styled.div`
     border: 1px solid black;
     box-sizing: border-box;
     padding: 0px;

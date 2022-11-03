@@ -5,7 +5,6 @@ import Miniatura from './components/Miniatura';
 import { Botao } from 'globalComponents/Botoes/styles';
 import { Container , Minis } from './styles.js';
 import { apiWB } from 'services/axios';
-import { useWS } from 'hooks/useWS';
 import { useAuth } from 'hooks/useAuth';
 import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext';
 
@@ -14,8 +13,6 @@ const Miniaturas = ({ myCharacters, setMyCharacters}) => {
     const history = useHistory();
 
     const { personagemSelecionado } = useContext(PersonagensContext);
-
-    // const [myCharacters, setMyCharacters] = useState(null);
 
     const { authData } = useAuth();
 
@@ -39,7 +36,6 @@ const Miniaturas = ({ myCharacters, setMyCharacters}) => {
         getMyCharacters();
     }, []);
     
-    const { sendWsMessage } = useWS();
     return (
         <Container>
             <h1>WAR BEAST</h1>

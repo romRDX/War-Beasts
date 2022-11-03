@@ -11,12 +11,14 @@ import { useCharacter } from 'hooks/useCharacter';
 import { useAuth } from 'hooks/useAuth';
 import { useMap } from 'hooks/useMap';
 import BattleContext from './context/BattleContext';
+import { useWS } from 'hooks/useWS';
 
 const Ambiente = () => {
 
     const { selectedCharacter } = useCharacter();
     const { authData } = useAuth();
     const { activeStage } = useMap();
+    const webSocketClient = useWS();
 
     const [battleId, setBattleId] = useState(null);
     const [monsterData, setMonsterData] = useState(null);
@@ -24,7 +26,6 @@ const Ambiente = () => {
     useEffect(() => {
 
         if(authData && activeStage && selectedCharacter){
-            console.log("FOI");
             apiWB.post("/battle-start", {
                 params: JSON.stringify({
                         playerId: authData.id,
@@ -33,13 +34,24 @@ const Ambiente = () => {
                     })
                 }
             ).then((resp) => {
+                console.log("XX: ", resp);
                 if(resp.data.success){
                     setBattleId(resp.data.battleId);
-                    setMonsterData(resp.data.monsterData);
+                    setMonsterData(resp.data.monsters);
                 }
             })
         }
     }, [authData, selectedCharacter, activeStage]);
+
+    useEffect(() => {
+        if(webSocketClient){
+            webSocketClient.sendMessage(JSON.stringify({ teste: "RED-2"}));
+        }
+    }, [webSocketClient]);
+
+    const handleSendMessage = () => {
+
+    }
 
     return (
         <Container>
