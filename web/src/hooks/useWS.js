@@ -7,15 +7,18 @@ const test = "ws://localhost:3005"; //"ws://warbeasts-api.herokuapp.com";
 // 'ws://localhost:3001'
 // const test2 = "ws://warbeasts-api-2.herokuapp.com/";
 
-export const useWS = () => {
+export const useWS = (rdx) => {
+
+  console.log("RDX: ", rdx);
 
   const newClient = useWebSocket(test, {
     onOpen: () => console.log(`Connected to App WS`),
     onMessage: (test) => {
-        if (newClient.lastJsonMessage) {
-        console.log("WS1: ", newClient.lastJsonMessage);
-        console.log("WS2: ", test);
-        }
+        // if (newClient.lastJsonMessage) {
+        // console.log("WS1: ", newClient.lastJsonMessage);
+        // console.log("WS2: ", test);
+        // }
+        rdx(test);
     },
     onClose: (test) => {
       const x = newClient.getWebSocket();

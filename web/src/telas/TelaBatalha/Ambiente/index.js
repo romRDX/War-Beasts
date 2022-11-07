@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Container } from './styles';
 
@@ -18,7 +18,12 @@ const Ambiente = () => {
     const { selectedCharacter } = useCharacter();
     const { authData } = useAuth();
     const { activeStage } = useMap();
-    const webSocketClient = useWS();
+
+    const handlePveActionResponse = (data) => {
+        console.log("DATA-RDX: ", data.data);
+    }
+
+    const webSocketClient = useWS(handlePveActionResponse);
 
     const [battleId, setBattleId] = useState(null);
     const [monsterData, setMonsterData] = useState(null);
@@ -43,19 +48,29 @@ const Ambiente = () => {
         }
     }, [authData, selectedCharacter, activeStage]);
 
-    useEffect(() => {
-        if(webSocketClient){
-            webSocketClient.sendMessage(JSON.stringify({ teste: "RED-2"}));
-        }
-    }, [webSocketClient]);
+    // useEffect(() => {
+    //     if(webSocketClient){
+    //         webSocketClient.sendMessage(JSON.stringify({ selectedCharacter, playerId: authData.playerId, battleId }));
+    //     }
+    // }, []);
 
-    const handleSendMessage = () => {
+    const handleSendMessage = useCallback((skillId) => {
+        console.log("X1: ", selectedCharacter.id);
+        console.log("X2: ", authData.id);
 
-    }
+        webSocketClient.sendMessage(JSON.stringify({ 
+            actionType: "pve-battle-action",
+            skillId,
+            battleId,
+            playerId: authData.id,
+            characterId: selectedCharacter.id,
+            monsterId: monsterData.id,
+        }));
+    }, [authData, selectedCharacter, battleId, monsterData]);
 
     return (
         <Container>
-            <BattleContext.Provider value={{ battleId, monsterData }}>
+            <BattleContext.Provider value={{ battleId, monsterData, handleSendMessage }}>
                 <PlayerCard />
                 <PlayerModel />
                 <EnemyModel />

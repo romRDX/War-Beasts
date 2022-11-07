@@ -1,20 +1,28 @@
 import { useCharacter } from 'hooks/useCharacter';
-import React from 'react';
+import React, { useContext } from 'react';
+import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
 
 import { Container, Buttons, EnergyBar, Skill } from "./styles";
 
 const SkillsButtons = ({player}) => {
 
     const { selectedCharacter } = useCharacter();
+
+    const { handleSendMessage } = useContext(BattleContext);
+
+    // console.log(handleSendMessage);
+    const handleCreateAction = (skillId) => {
+
+    }
     
     return (
         <Container>
             <Buttons>
                 {
-                    selectedCharacter?.skills?.map( hab => (
-                        <Skill key={hab.id} className='skill' >
-                            <img src={hab.icon} />
-                            <h2>{hab.energy}</h2>
+                    selectedCharacter?.skills?.map( skill => (
+                        <Skill key={skill.id} className='skill' onClick={() => handleSendMessage(skill.id)} >
+                            <img src={skill.icon} />
+                            <h2>{skill.energy}</h2>
                         </Skill>
                     ))
                 }
