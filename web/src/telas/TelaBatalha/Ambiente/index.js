@@ -27,6 +27,7 @@ const Ambiente = () => {
 
     const [battleId, setBattleId] = useState(null);
     const [monsterData, setMonsterData] = useState(null);
+    const [turn, setTurn] = useState(0);
 
     useEffect(() => {
 
@@ -43,6 +44,7 @@ const Ambiente = () => {
                 if(resp.data.success){
                     setBattleId(resp.data.battleId);
                     setMonsterData(resp.data.monsters);
+                    setTurn(1);
                 }
             })
         }
@@ -65,6 +67,7 @@ const Ambiente = () => {
             playerId: authData.id,
             characterId: selectedCharacter.id,
             monsterId: monsterData.id,
+            turn,
         }));
     }, [authData, selectedCharacter, battleId, monsterData]);
 
