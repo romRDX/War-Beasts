@@ -19,15 +19,32 @@ const Ambiente = () => {
     const { authData } = useAuth();
     const { activeStage } = useMap();
 
-    const handlePveActionResponse = (data) => {
-        console.log("DATA-RDX: ", data.data);
-    }
+    const [battleId, setBattleId] = useState(null);
+    const [battleLog, setBattleLog] = useState([]);
+
+    const handlePveActionResponse = useCallback((data) => {
+        // console.log("DATA-RDX1: ", data.data);
+        
+        const parsedData = JSON.parse(data.data);
+        console.log("DATA-RDX2: ", parsedData);
+        setBattleState(parsedData.battleData);
+        setBattleLog( prev => [ ...prev, parsedData.battleLog ]);
+    },[]);
 
     const webSocketClient = useWS(handlePveActionResponse);
 
-    const [battleId, setBattleId] = useState(null);
-    const [monsterData, setMonsterData] = useState(null);
-    const [turn, setTurn] = useState(0);
+    const[battleState, setBattleState] = useState({
+        battleId: null,
+        playerId: null,
+        characterId: null,
+        monsterId: null,
+        characterData: null,
+        characterInitialData: null,
+        monsterData: null,
+        monsterInitialData: null,
+        currentTurn: null,
+        turnsData: null,
+    })
 
     useEffect(() => {
 
@@ -40,11 +57,19 @@ const Ambiente = () => {
                     })
                 }
             ).then((resp) => {
-                console.log("XX: ", resp);
+                console.log("XX: ", resp.data.monsters);
                 if(resp.data.success){
                     setBattleId(resp.data.battleId);
-                    setMonsterData(resp.data.monsters);
-                    setTurn(1);
+                    setBattleState( prev => (
+                        { 
+                            ...prev,
+                            battleId: resp.data.battleId,
+                            monsterData: resp.data.monsters,
+                            monsterInitialData: resp.data.monsters,
+                        }
+                    ));
+                    // setMonsterData(resp.data.monsters);
+                    // setTurn(1);
                 }
             })
         }
@@ -57,8 +82,6 @@ const Ambiente = () => {
     // }, []);
 
     const handleSendMessage = useCallback((skillId) => {
-        console.log("X1: ", selectedCharacter.id);
-        console.log("X2: ", authData.id);
 
         webSocketClient.sendMessage(JSON.stringify({ 
             actionType: "pve-battle-action",
@@ -66,14 +89,17 @@ const Ambiente = () => {
             battleId,
             playerId: authData.id,
             characterId: selectedCharacter.id,
-            monsterId: monsterData.id,
-            turn,
+            monsterId: battleState.monsterData.id,
+            turn: battleState.currentTurn,
         }));
-    }, [authData, selectedCharacter, battleId, monsterData]);
+        
+    }, [authData, selectedCharacter, battleState]);
+
+    console.log('TURN: ', battleState.currentTurn);
 
     return (
         <Container>
-            <BattleContext.Provider value={{ battleId, monsterData, handleSendMessage }}>
+            <BattleContext.Provider value={{ battleState, handleSendMessage }}>
                 <PlayerCard />
                 <PlayerModel />
                 <EnemyModel />

@@ -39,5 +39,11 @@ export const Life = styled.div`
     border-radius: 10px;
     width: 100%;
     height: 10%;
-    background-image: linear-gradient(  #ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+    
+
+    div {
+        width: ${ props => `${ props.percentageHP || 95 }%` };
+        height: 100%;
+        background-image: linear-gradient(  #ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+    }
 `;
