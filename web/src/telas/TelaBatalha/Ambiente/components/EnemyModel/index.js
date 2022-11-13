@@ -9,20 +9,24 @@ const EnemyModel = () => {
 
     const { battleState } = useContext(BattleContext);
 
-    console.log("MONSTER: ", battleState?.monsterData);
-    console.log("MONSTER: ", battleState?.monsterData);
-
     const percentageHP = useMemo(() => {
-        const x = battleState.monsterData?.HP;
-        const y = battleState.monsterInitialData?.HP;
-        const z =  battleState.monsterData?.HP*100/battleState.monsterInitialData?.HP;
+        const monsterMaxHP = battleState.monsterData?.HP;
+        const monsterCurrentHP = battleState.monsterInitialData?.HP;
 
-        console.log("CURRENT HP: ", x);
-        console.log("CURRENT HP: ", y);
-        console.log("CURRENT HP: ", z);
+        if(monsterMaxHP && monsterCurrentHP){
+            const finalHP = monsterMaxHP*100/monsterCurrentHP;
 
-        return battleState.monsterData?.HP*100/battleState.monsterInitialData?.HP;
+            if(finalHP < 0){
+                return 0;
+            } else {
+                return finalHP    
+            };
+        } else {
+            return 100;
+        }
     }, [battleState]);
+
+    
    
     return (
         <Container>
