@@ -56,13 +56,18 @@ export const Info = styled.div`
     }
 `;
 
-
 export const Life = styled.div`
     border: 1px solid black;
     border-radius: 10px;
     width: 100%;
-    height: 19%;
-    background-image: linear-gradient(  #ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+    height: 15%;
+    
+    div {
+        width: ${ props => `${ props.percentageHP }%` };
+        border-radius: 10px;
+        height: 100%;
+        background-image: linear-gradient(  #ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+    }
 `;
 
 export const Secundarios = styled.div`

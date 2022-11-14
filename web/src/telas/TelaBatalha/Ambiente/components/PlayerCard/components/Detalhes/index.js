@@ -1,5 +1,6 @@
+import React, { useContext, useMemo } from 'react';
 import { useCharacter } from 'hooks/useCharacter';
-import React from 'react';
+import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
 
 import { Container } from './styles';
 import { Portrait, Info, Life, Secundarios } from './styles';
@@ -7,8 +8,26 @@ import { Portrait, Info, Life, Secundarios } from './styles';
 const Detalhes = () => { 
 
     const { selectedCharacter } = useCharacter();
+    const { battleState } = useContext(BattleContext);
 
-    console.log("ASD: ", selectedCharacter);
+    const percentageHP = useMemo(() => {
+        const characterMaxHP = battleState.characterData?.HP;
+        const characterCurrentHP = battleState.characterInitialData?.HP;
+
+        if(characterMaxHP && characterCurrentHP){
+            const finalHP = characterMaxHP*100/characterCurrentHP;
+
+            if(finalHP < 0){
+                return 0;
+            } else {
+                return finalHP    
+            };
+        } else {
+            return 100;
+        }
+    }, [battleState]);
+
+    console.log("ASD: ", percentageHP);
 
     return (
         <Container>
@@ -33,7 +52,8 @@ const Detalhes = () => {
                                 <h2 className="TOUCON" > Resist. Atordoar : {selectedCharacter.atributes.AGI} </h2>
                             </Secundarios>
                         </Info>
-                        <Life>
+                        <Life percentageHP={percentageHP}>
+                            <div />
                         </Life>
                     </div>
                 )

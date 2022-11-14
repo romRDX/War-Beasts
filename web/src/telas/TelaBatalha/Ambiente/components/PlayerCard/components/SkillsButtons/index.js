@@ -1,8 +1,9 @@
 import { useCharacter } from 'hooks/useCharacter';
 import React, { useContext } from 'react';
 import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
+import SkillItem from './components/SkillItem/SkillItem';
 
-import { Container, Buttons, EnergyBar, Skill } from "./styles";
+import { Container, Buttons, EnergyBar } from "./styles";
 
 const SkillsButtons = ({player}) => {
 
@@ -20,10 +21,11 @@ const SkillsButtons = ({player}) => {
             <Buttons>
                 {
                     selectedCharacter?.skills?.map( skill => (
-                        <Skill key={skill.id} className='skill' onClick={() => handleSendMessage(skill.id)} >
-                            <img src={skill.icon} />
-                            <h2>{skill.energy}</h2>
-                        </Skill>
+                        // <Skill key={skill.id} className='skill' onClick={() => handleSendMessage(skill.id)} >
+                        //     <img src={skill.icon} />
+                        //     <h2>{skill.energy}</h2>
+                        // </Skill>
+                        <SkillItem key={skill.id} className='skill' activateSkill={handleSendMessage} skill={skill} />
                     ))
                 }
             </Buttons>
