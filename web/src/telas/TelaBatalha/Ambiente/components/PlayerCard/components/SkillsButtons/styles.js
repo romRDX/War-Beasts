@@ -4,7 +4,7 @@ export const Container = styled.div`
 
     border: 1px solid black;
     border-radius: 10px;
-    height: 65%;
+    height: 68%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -54,7 +54,7 @@ export const EnergyBar = styled.div`
 
     .skill {
         width: 30%;
-        height: 90%;
+        height: 70%;
         margin: auto;
         border-radius: 40px;
         border: 1px solid black;
@@ -65,6 +65,26 @@ export const EnergyBar = styled.div`
         background: yellow;
         height: 40%;
         margin: auto;
-        border: 1px solid gray;
+        position: relative;
+
+        border: 1px solid black;
+        
+        div:first-child {
+            width: ${ props => `${ props.percentageEnergy }%` };
+            height: 100%;
+            // background-image: linear-gradient(#ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+            background-image: linear-gradient( rgba(255,255,255,1) 0%, rgba(249,255,0,0.6530987394957983) 50%, rgba(255,255,255,1) 100%);
+        }
+
+        div:nth-child(2) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+        }
     }
 `;

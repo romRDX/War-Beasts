@@ -7,7 +7,11 @@ export const Container = styled.div`
     height: 89%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
+    > div:first-child {
+        height: 55px;
+    }
 `;
 
 export const Modelo = styled.div`
@@ -19,4 +23,20 @@ export const Modelo = styled.div`
     background-size: contain;
     margin: 0 auto;
     background-repeat: no-repeat;
+`;
+
+export const Life = styled.div`
+    border: 1px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 10%;
+    
+    div {
+        width: ${ props => `${ props.percentageHP }%` };
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 100%;
+        background-image: linear-gradient(#ff9999, #ff7f7f, #ff3232, #ff0000, #ff3232, #ff7f7f, #ff9999);
+    }
 `;

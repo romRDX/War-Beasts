@@ -1,37 +1,48 @@
 import { useCharacter } from 'hooks/useCharacter';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
 import SkillItem from './components/SkillItem/SkillItem';
 
 import { Container, Buttons, EnergyBar } from "./styles";
 
-const SkillsButtons = ({player}) => {
+const SkillsButtons = () => {
 
     const { selectedCharacter } = useCharacter();
+    const { battleState } = useContext(BattleContext);
+    const { handleSendActionMessage } = useContext(BattleContext);
 
-    const { handleSendMessage } = useContext(BattleContext);
+    const percentageEnergy = useMemo(() => {
+        const monsterMaxHP = battleState.characterData?.energy;
+        const monsterCurrentHP = battleState.characterInitialData?.energy;
 
-    // console.log(handleSendMessage);
-    const handleCreateAction = (skillId) => {
+        if(monsterMaxHP && monsterCurrentHP){
+            const finalHP = monsterMaxHP*100/monsterCurrentHP;
 
-    }
+            if(finalHP < 0){
+                return 0;
+            } else {
+                return finalHP    
+            };
+        } else {
+            return 100;
+        }
+    }, [battleState]);
     
     return (
         <Container>
             <Buttons>
                 {
                     selectedCharacter?.skills?.map( skill => (
-                        // <Skill key={skill.id} className='skill' onClick={() => handleSendMessage(skill.id)} >
-                        //     <img src={skill.icon} />
-                        //     <h2>{skill.energy}</h2>
-                        // </Skill>
-                        <SkillItem key={skill.id} className='skill' activateSkill={handleSendMessage} skill={skill} />
+                        <SkillItem key={skill.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} />
                     ))
                 }
             </Buttons>
-            <EnergyBar>
+            <EnergyBar percentageEnergy={percentageEnergy}>
                     <div className='skill'></div>
-                    <div className="bar" ></div>
+                    <div className="bar" >
+                        <div />
+                        {/* MECANICA SKILL <div>{battleState?.characterData?.energy || 0 }</div> */}
+                    </div>
             </EnergyBar>
         </Container>
     )

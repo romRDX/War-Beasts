@@ -1,8 +1,6 @@
-import { useCharacter } from 'hooks/useCharacter';
-import React, { useContext } from 'react';
-import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
+import React from 'react';
 
-import { Container, Buttons, EnergyBar, Skill } from "./styles";
+import { Container } from "./styles";
 
 const SkillItem = ({skill, activateSkill}) => {
  

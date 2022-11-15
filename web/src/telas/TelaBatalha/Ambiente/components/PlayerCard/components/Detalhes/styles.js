@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     border-radius: 10px;
-    height: 35%;
+    height: 30%;
     position: relative;
     display: flex;
     
@@ -19,7 +19,7 @@ export const Portrait = styled.div`
     border-right: 1px solid black;
     border-radius: 10px 0 0px 10px;
     width: 40%;
-    height: 80%;
+    height: 100%;
     box-sizing: border-box;
     background-image: url('${ props => props.img}');
     background-position: center;
@@ -33,7 +33,7 @@ export const Info = styled.div`
     width: 60%;
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 100%;
     box-sizing: border-box;
 
     h3 {

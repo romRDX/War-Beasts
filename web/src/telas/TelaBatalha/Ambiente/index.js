@@ -19,12 +19,7 @@ const Ambiente = () => {
     const { authData } = useAuth();
     const { activeStage } = useMap();
 
-    const [battleId, setBattleId] = useState(null);
-    const [battleLog, setBattleLog] = useState([]);
-
     const handlePveActionResponse = useCallback((data) => {
-        // console.log("DATA-RDX1: ", data.data);
-        
         const parsedData = JSON.parse(data.data);
         console.log("DATA-RDX2: ", parsedData);
         setBattleState(parsedData.battleData);
@@ -33,6 +28,7 @@ const Ambiente = () => {
 
     const webSocketClient = useWS(handlePveActionResponse);
 
+    const [battleLog, setBattleLog] = useState([]);
     const[battleState, setBattleState] = useState({
         battleId: null,
         playerId: null,
@@ -57,36 +53,33 @@ const Ambiente = () => {
                     })
                 }
             ).then((resp) => {
-                console.log("XX: ", resp.data.monsters);
+                console.log("XX: ", resp.data);
                 if(resp.data.success){
-                    setBattleId(resp.data.battleId);
-                    setBattleState( prev => (
-                        { 
-                            ...prev,
-                            battleId: resp.data.battleId,
-                            monsterData: resp.data.monsters,
-                            monsterInitialData: resp.data.monsters,
-                        }
-                    ));
-                    // setMonsterData(resp.data.monsters);
-                    // setTurn(1);
+                    setBattleState(resp.data.battleState);
                 }
             })
         }
     }, [authData, selectedCharacter, activeStage]);
 
-    // useEffect(() => {
-    //     if(webSocketClient){
-    //         webSocketClient.sendMessage(JSON.stringify({ selectedCharacter, playerId: authData.playerId, battleId }));
-    //     }
-    // }, []);
-
-    const handleSendMessage = useCallback((skillId) => {
+    const handleSendActionMessage = useCallback((skillId) => {
 
         webSocketClient.sendMessage(JSON.stringify({ 
             actionType: "pve-battle-action",
             skillId,
-            battleId,
+            battleId: battleState.battleId,
+            playerId: authData.id,
+            characterId: selectedCharacter.id,
+            monsterId: battleState.monsterData.id,
+            turn: battleState.currentTurn,
+        }));
+        
+    }, [authData, selectedCharacter, battleState]);
+
+    const handleSendTurnEndMessage = useCallback((skillId) => {
+
+        webSocketClient.sendMessage(JSON.stringify({ 
+            actionType: "pve-battle-end-turn",
+            battleId: battleState.battleId,
             playerId: authData.id,
             characterId: selectedCharacter.id,
             monsterId: battleState.monsterData.id,
@@ -99,7 +92,7 @@ const Ambiente = () => {
 
     return (
         <Container>
-            <BattleContext.Provider value={{ battleState, handleSendMessage }}>
+            <BattleContext.Provider value={{ battleState, handleSendActionMessage }}>
                 <PlayerCard />
                 <PlayerModel />
                 <EnemyModel />
