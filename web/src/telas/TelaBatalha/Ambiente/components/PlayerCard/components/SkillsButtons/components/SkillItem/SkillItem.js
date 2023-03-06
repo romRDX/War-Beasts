@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Container } from "./styles";
 
-const SkillItem = ({skill, activateSkill}) => {
+const SkillItem = ({skill, activateSkill, disabled}) => {
  
     return (
-        <Container onClick={() => activateSkill(skill.id)}>            
+        <Container onClick={() => activateSkill(skill.id)} disabled={disabled}>            
             <img src={skill.icon} />
             <h2>{skill.energy}</h2>
             <div>

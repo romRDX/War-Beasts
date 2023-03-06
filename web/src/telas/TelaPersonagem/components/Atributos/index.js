@@ -36,12 +36,12 @@ const Atributos = () => {
                 }
             };
 
-            STR += selectedCharacter.atributes.STR;
-            DEX += selectedCharacter.atributes.DEX;
-            CON += selectedCharacter.atributes.CON;
-            INT += selectedCharacter.atributes.INT;
-            TOU += selectedCharacter.atributes.TOU;
-            AGI += selectedCharacter.atributes.AGI;
+            STR += selectedCharacter.attributes.STR;
+            DEX += selectedCharacter.attributes.DEX;
+            CON += selectedCharacter.attributes.CON;
+            INT += selectedCharacter.attributes.INT;
+            TOU += selectedCharacter.attributes.TOU;
+            AGI += selectedCharacter.attributes.AGI;
 
             return {
                 ...totalItensAtributes,

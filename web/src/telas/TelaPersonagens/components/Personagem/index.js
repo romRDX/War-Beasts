@@ -57,12 +57,12 @@ const Personagem = ({ setMyCharacters }) => {
                 <Divisor>
                     <h2>Atributos</h2>
                     <Atributos>
-                        <div className="STR" >STR : {personagemSelecionado.atributes.STR}</div>
-                        <div className="DEX" >DEX : {personagemSelecionado.atributes.DEX}</div>
-                        <div className="CON" >CON : {personagemSelecionado.atributes.CON}</div>
-                        <div className="INT" >INT : {personagemSelecionado.atributes.INT}</div>
-                        <div className="TOU" >TOU : {personagemSelecionado.atributes.TOU}</div>
-                        <div className="AGI" >AGI : {personagemSelecionado.atributes.AGI}</div>
+                        <div className="STR" >STR : {personagemSelecionado.attributes.STR}</div>
+                        <div className="DEX" >DEX : {personagemSelecionado.attributes.DEX}</div>
+                        <div className="CON" >CON : {personagemSelecionado.attributes.CON}</div>
+                        <div className="INT" >INT : {personagemSelecionado.attributes.INT}</div>
+                        <div className="TOU" >TOU : {personagemSelecionado.attributes.TOU}</div>
+                        <div className="AGI" >AGI : {personagemSelecionado.attributes.AGI}</div>
                     </Atributos>
                 </Divisor>
                 <DivisorBotao>

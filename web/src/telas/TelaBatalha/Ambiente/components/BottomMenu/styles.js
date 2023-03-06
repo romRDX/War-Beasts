@@ -9,7 +9,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
 
-    div {
+    > button {
         border: 1px solid black;
         border-radius: 10px;
         width: 27%;
@@ -19,16 +19,27 @@ export const Container = styled.div`
     }
 `;
 
-export const Menu = styled.div`
-
+export const MenuContainer = styled.button`
     position: relative;
+`;
 
-    .menu {
-        position: absolute;
-        bottom: 0;
-        height: 300px;
-        width: 100%;
-        margin: 0 0 12% 0;
+export const Menu = styled.div`
+    position: absolute;
+    bottom: 66px;
+    right: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 100%;
+    background: #7B7167;
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    place-items:  center;
+    
+    button { 
+        border-radius: 10px;
+        height: 40px;
+        width: 97%;
+        // margin: 5px auto 0 auto;
     }
-
 `;

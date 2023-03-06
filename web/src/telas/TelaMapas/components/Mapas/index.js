@@ -22,7 +22,6 @@ const MapaEstagios = () => {
         <Mapas>
             <Tokens>{ 5 }</Tokens>
             {
-                
                 maps?.map( map => (
                     <Mapa key={map.id} mapa={map} />
                 ))

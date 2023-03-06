@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
     position: relative;
-    height: fit-content;
+    height: 90px;
+    width: 90px;
     margin: auto;
+    padding: 0;
+    border: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
 
     h2 {
         text-align: center;

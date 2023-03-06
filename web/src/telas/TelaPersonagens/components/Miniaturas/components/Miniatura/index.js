@@ -16,6 +16,8 @@ import PersonagensContext from 'telas/TelaPersonagens/context/PersonagensContext
             </div>
             <div className="image">
                 <img src={character.portrait} />
+                {/* parece que entrar na conta e usar alguma imagem ou pegar o link reativa */}
+                {/* <img src="/game-icons/skill5.webp" /> */}
             </div>
         </PersonagemMiniatura>
     )

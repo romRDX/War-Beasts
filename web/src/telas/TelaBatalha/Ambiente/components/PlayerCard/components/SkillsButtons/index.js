@@ -32,9 +32,12 @@ const SkillsButtons = () => {
         <Container>
             <Buttons>
                 {
-                    selectedCharacter?.skills?.map( skill => (
-                        <SkillItem key={skill.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} />
-                    ))
+                    // selectedCharacter?.skills?.map( skill => (
+                    //     <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState.battleResults} />
+                    // ))
+                    selectedCharacter?.skills?.map( skill => {
+                        return skill ? <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState.battleResults} /> : null;
+                    })
                 }
             </Buttons>
             <EnergyBar percentageEnergy={percentageEnergy}>

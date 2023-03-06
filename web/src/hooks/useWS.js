@@ -10,12 +10,13 @@ const test = "ws://localhost:3005"; //"ws://warbeasts-api.herokuapp.com";
 export const useWS = (callBackFunc) => {
 
   const newClient = useWebSocket(test, {
-    onOpen: () => console.log(`Connected to App WS`),
+    onOpen: (x) => console.log(`Connected to App WS: `, x),
     onMessage: (test) => {
         // if (newClient.lastJsonMessage) {
         // console.log("WS1: ", newClient.lastJsonMessage);
         // console.log("WS2: ", test);
         // }
+        console.log("MESSAGE: ", test);
         callBackFunc(test);
     },
     onClose: (test) => {

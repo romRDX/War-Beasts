@@ -8,6 +8,8 @@ export const CharacterProvider = ({ children }) => {
   
   const [selectedCharacter, setSelectedCharacter] = useState(null);
 
+  console.log("CHARACTER: ", selectedCharacter);
+
   useEffect(() => {
     const char = window.localStorage.getItem('wb-char');
     if(char){

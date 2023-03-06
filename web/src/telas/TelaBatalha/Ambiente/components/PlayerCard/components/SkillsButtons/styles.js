@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
     border: 1px solid black;
     border-radius: 10px;
     height: 68%;
@@ -12,17 +11,11 @@ export const Container = styled.div`
 `;
 
 export const Buttons = styled.div`
-
     height: 69%;
     display: grid;
     grid-template-columns: 30% 30% 30%;
     width: 100%;
     padding: 15px 5px;
-
-    img {
-        width: 140%;
-    }
-
 `;
 
 export const Skill = styled.div`
@@ -44,7 +37,6 @@ export const Skill = styled.div`
 
 
 export const EnergyBar = styled.div`
-
     width: 100%;
     height: 30%;
     border-top: 1px solid black;
@@ -62,7 +54,7 @@ export const EnergyBar = styled.div`
 
     .bar {
         width: 55%;
-        background: yellow;
+        background: gray;
         height: 40%;
         margin: auto;
         position: relative;

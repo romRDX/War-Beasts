@@ -1,14 +1,39 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 97.5%;
-    height: 97.5%;
+    width: 100%;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 4px 0 2px 0;
+    padding: 8px;
     position: relative;
+`;
+
+export const BattleResults = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+        width: 400px;
+        height: 200px;
+        background: #FFF;
+        border-radius: 10px;
+        padding: 10px;
+
+        > div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 `;
