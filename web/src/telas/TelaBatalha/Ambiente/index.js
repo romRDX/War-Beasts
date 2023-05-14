@@ -38,12 +38,13 @@ const Ambiente = () => {
     const [battleLog, setBattleLog] = useState([]);
     const[battleState, setBattleState] = useState({
         battleId: null,
+        // battleLogs: null,
         playerId: null,
         characterId: null,
         monsterId: null,
         characterData: null,
         characterInitialData: null,
-        monsterData: null,
+        monsterData: { id: null },
         monsterInitialData: null,
         currentTurn: null,
         turnsData: null,
@@ -60,7 +61,7 @@ const Ambiente = () => {
                 monsterId: battleState.monsterData.id,
             }));
         }
-    }, [webSocketClient, battleState.battleId, authData, selectedCharacter]);
+    }, [webSocketClient, battleState.battleId, authData, selectedCharacter, battleState.currentTurn, battleState.monsterData.id]);
 
     useEffect(() => {
         if(authData && activeStage && selectedCharacter){
@@ -102,7 +103,7 @@ const Ambiente = () => {
             turn: battleState.currentTurn,
         }));
         
-    }, [authData, selectedCharacter, battleState]);
+    }, [webSocketClient, battleState.battleId, battleState.monsterData.id, battleState.currentTurn, authData.id, selectedCharacter.id]);
 
     const handleSendEscapeMessage = useCallback(() => {
 
@@ -114,7 +115,7 @@ const Ambiente = () => {
 
         setShowBattleResults(true);
         
-    }, [authData, battleState]);
+    }, [authData.id, battleState.battleId, webSocketClient]);
 
     const handleSendTurnEndMessage = useCallback(() => {
 
@@ -127,7 +128,7 @@ const Ambiente = () => {
             turn: battleState.currentTurn,
         }));
         
-    }, [authData, selectedCharacter, battleState]);
+    }, [webSocketClient, battleState.battleId, battleState.monsterData.id, battleState.currentTurn, authData.id, selectedCharacter.id]);
 
     console.log('TURN: ', battleState.turnsData);
 
@@ -137,7 +138,7 @@ const Ambiente = () => {
                 <PlayerCard />
                 <PlayerModel />
                 <EnemyModel />
-                <BottomMenu />
+                <BottomMenu logs={battleState.battleLogs} characterId={selectedCharacter.id} />
             </BattleContext.Provider>
             { showBattleResults &&
                 <BattleResults>

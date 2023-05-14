@@ -16,7 +16,7 @@ export const useWS = (callBackFunc) => {
         // console.log("WS1: ", newClient.lastJsonMessage);
         // console.log("WS2: ", test);
         // }
-        console.log("MESSAGE: ", test);
+        // console.log("MESSAGE: ", test);
         callBackFunc(test);
     },
     onClose: (test) => {
