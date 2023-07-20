@@ -16,7 +16,8 @@ import TelaPersonagemTracos from './telas/TelaPersonagemTracos';
 import TelaPersonagemItems from './telas/TelaPersonagemItems';
 import TelaMapa from './telas/TelaMapa';
 import TelaMapas from './telas/TelaMapas';
-import TelaBatalha_A from './telas/TelaBatalha/Ambiente';
+import TelaBatalha_PVE from './telas/TelaBatalha/Ambiente';
+import TelaBatalha_PVP from './telas/TelaBatalha/Jogador';
 import NotFound from './telas/NotFound';
 
 import './global.css';
@@ -42,7 +43,8 @@ export default class App extends Component {
                   <Route path="/personagem/tracos" component={TelaPersonagemTracos} exact />
                 <Route path="/mapa" component={TelaMapa} exact />
                 <Route path="/mapas" component={TelaMapas} exact />
-                <Route path="/batalha-A" component={TelaBatalha_A} exact />
+                <Route path="/batalha-PVE" component={TelaBatalha_PVE} exact />
+                <Route path="/batalha-PVP/:battleId" component={TelaBatalha_PVP} exact />
                 <Route path="/arena" component={TelaArena} exact />
                 <Route component={NotFound} />
               </Switch>

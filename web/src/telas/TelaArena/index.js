@@ -31,7 +31,7 @@ const TelaArena = () => {
 
         if(parsedData.apiMessage === "MATCH SUCCEEDED"){
             // setIsLookingForMatch((prev) => !prev);
-            history.push("/");
+            history.push(`/batalha-PVP/${parsedData.battleData.battleId}`);
         }
     },[history]);
 
