@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Container, BattleResults } from './styles';
 
@@ -24,6 +24,8 @@ const Ambiente = ({ match }) => {
 
     const [showBattleResults, setShowBattleResults] = useState(false);
     const [playerNumber, setPlayerNumber] = useState(0);
+    const [battleLog, setBattleLog] = useState([]);
+    const[battleState, setBattleState] = useState();
 
     const handlePveActionResponse = useCallback((data) => {
         const parsedData = JSON.parse(data.data);
@@ -48,10 +50,7 @@ const Ambiente = ({ match }) => {
 
     const webSocketClient = useWS(handlePveActionResponse);
 
-    const [battleLog, setBattleLog] = useState([]);
-    const[battleState, setBattleState] = useState();
-
-    console.log('BATTLE-ID: ', battleState?.battleId);
+    // console.log('BATTLE-ID: ', battleState?.battleId);
 
     useEffect(() => {
         if(webSocketClient.readyState && !battleState){
@@ -63,6 +62,21 @@ const Ambiente = ({ match }) => {
             }));
         }
     }, [webSocketClient, match, authData, selectedCharacter, battleState]);
+
+    const playersData = useMemo(() => {
+        if(!battleState){
+            return {
+                myData: {},
+                enemyData: {}
+            }
+        }
+
+        return {
+            myData: battleState.players.find((player) => player.playerId === authData.id ),
+            enemyData: battleState.players.find((player) => player.playerId !== authData.id )
+        }
+    }, [authData, battleState])
+
     // }, [webSocketClient, battleState.battleId, authData, selectedCharacter, battleState.currentTurn, battleState.monsterData.id]);
 
     // useEffect(() => {
@@ -93,19 +107,19 @@ const Ambiente = ({ match }) => {
 
     // console.log("CHAR: ", battleState.characterData);
 
-    // const handleSendActionMessage = useCallback((skillId) => {
+    const handleSendActionMessage = useCallback((skillId) => {
 
-    //     webSocketClient.sendMessage(JSON.stringify({ 
-    //         actionType: "pve-battle-action",
-    //         skillId,
-    //         battleId: battleState.battleId,
-    //         playerId: authData.id,
-    //         characterId: selectedCharacter.id,
-    //         monsterId: battleState.monsterData.id,
-    //         turn: battleState.currentTurn,
-    //     }));
+        webSocketClient.sendMessage(JSON.stringify({ 
+            actionType: "pvp-battle-action",
+            skillId,
+            battleId: battleState.battleId,
+            playerId: authData.id,
+            characterId: selectedCharacter.id,
+            monsterId: battleState.monsterData.id,
+            turn: battleState.currentTurn,
+        }));
         
-    // }, [webSocketClient, battleState.battleId, battleState.monsterData.id, battleState.currentTurn, authData.id, selectedCharacter.id]);
+    }, [webSocketClient, battleState, authData, selectedCharacter]);
 
     // const handleSendEscapeMessage = useCallback(() => {
 
@@ -132,15 +146,13 @@ const Ambiente = ({ match }) => {
         
     // }, [webSocketClient, battleState.battleId, battleState.monsterData.id, battleState.currentTurn, authData.id, selectedCharacter.id]);
 
-    // console.log('TURN: ', battleState.turnsData);
-
     return (
         <Container>
-            {/* <BattleContext.Provider value={{ battleState, handleSendActionMessage, handleSendEscapeMessage, handleSendTurnEndMessage }}>
-                <PlayerCard />
-                <PlayerModel />
-                <EnemyModel />
-                <BottomMenu logs={battleState.battleLogs} characterId={selectedCharacter.id} />
+            <BattleContext.Provider value={{ battleState, playersData, handleSendActionMessage /*, handleSendEscapeMessage, handleSendTurnEndMessage*/ }}>
+                <PlayerCard player={playersData.myData} />
+                <PlayerModel player={playersData.myData} />
+                <EnemyModel player={playersData.enemyData} />
+                {/* <BottomMenu logs={battleState.battleLogs} characterId={selectedCharacter.id} /> */}
             </BattleContext.Provider>
             { showBattleResults &&
                 <BattleResults>
@@ -160,7 +172,7 @@ const Ambiente = ({ match }) => {
                         </div>
                     </div>
                 </BattleResults>
-            } */}
+            }
         </Container>
     )
 }

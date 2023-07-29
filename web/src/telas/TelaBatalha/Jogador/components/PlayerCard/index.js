@@ -5,12 +5,12 @@ import Detalhes from './components/Detalhes';
 
 import { Container } from './styles';
 
-const PlayerCard = () => {
+const PlayerCard = ({ player }) => {
     
     return (
         <Container>
-            <Detalhes />
-            <SkillsButtons />
+            <Detalhes player={player} />
+            <SkillsButtons player={player} />
         </Container>
     )
 }
