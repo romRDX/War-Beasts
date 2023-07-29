@@ -1,19 +1,17 @@
-import { useCharacter } from 'hooks/useCharacter';
 import React, { useContext, useMemo } from 'react';
-import BattleContext from 'telas/TelaBatalha/Ambiente/context/BattleContext';
+import BattleContext from 'telas/TelaBatalha/Jogador/context/BattleContext';
 import SkillItem from './components/SkillItem/SkillItem';
 
 import { Container, Buttons, EnergyBar } from "./styles";
 
-const SkillsButtons = () => {
+const SkillsButtons = ({ player }) => {
 
-    const { selectedCharacter } = useCharacter();
-    const { battleState } = useContext(BattleContext);
-    const { handleSendActionMessage } = useContext(BattleContext);
+    // const { selectedCharacter } = useCharacter();
+    const { battleState, handleSendActionMessage } = useContext(BattleContext);
 
     const energyData = useMemo(() => {
-        const monsterCurrentEnergy = battleState.characterData?.energy;
-        const monsterMaxEnergy = battleState.characterInitialData?.energy;
+        const monsterCurrentEnergy = player?.characterData?.energy;
+        const monsterMaxEnergy = player?.characterInitialData?.energy;
 
         const finalData = {
             maxEnergy: monsterMaxEnergy,
@@ -34,7 +32,7 @@ const SkillsButtons = () => {
         }
 
         return finalData;
-    }, [battleState]);
+    }, [player]);
     
     return (
         <Container>
@@ -43,8 +41,9 @@ const SkillsButtons = () => {
                     // selectedCharacter?.skills?.map( skill => (
                     //     <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState.battleResults} />
                     // ))
-                    selectedCharacter?.skills?.map( skill => {
-                        return skill ? <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState.battleResults} /> : null;
+
+                    player?.characterData?.skills?.map( skill => {
+                        return skill ? <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState?.battleResults} /> : null;
                     })
                 }
             </Buttons>

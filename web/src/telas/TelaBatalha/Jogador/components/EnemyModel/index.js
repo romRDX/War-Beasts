@@ -5,13 +5,13 @@ import { Modelo, Life } from './styles'
 import { useCharacter } from 'hooks/useCharacter';
 import BattleContext from '../../context/BattleContext';
 
-const EnemyModel = () => {
+const EnemyModel = ({ player }) => {
 
     const { battleState } = useContext(BattleContext);
 
     const hpData = useMemo(() => {
-        const monsterCurrentHP = battleState.monsterData?.HP;
-        const monsterMaxHP = battleState.monsterInitialData?.HP;
+        const monsterCurrentHP = player?.characterInitialData?.HP;
+        const monsterMaxHP = player?.characterData?.HP;
 
         const finalData = {
             maxHP: monsterMaxHP,
@@ -33,14 +33,14 @@ const EnemyModel = () => {
 
         return finalData;
 
-    }, [battleState]);
+    }, [player]);
 
     
    
     return (
         <Container>
-            <h2>{battleState.monsterData?.name}</h2>
-            <Modelo img={battleState.monsterData?.portrait} />
+            <h2>{player?.characterInitialData?.name}</h2>
+            <Modelo img={player?.characterInitialData?.portrait} />
             <Life percentageHP={hpData.percentageHP}>
                 <div />
                 <p>{Math.round(hpData.currentHP)}/{hpData.maxHP}</p>
