@@ -10,8 +10,9 @@ const EnemyModel = ({ player }) => {
     const { battleState } = useContext(BattleContext);
 
     const hpData = useMemo(() => {
-        const monsterCurrentHP = player?.characterInitialData?.HP;
-        const monsterMaxHP = player?.characterData?.HP;
+        console.log("PLAY: ", player);
+        const monsterMaxHP = player?.characterInitialData?.HP;
+        const monsterCurrentHP = player?.characterData?.HP;
 
         const finalData = {
             maxHP: monsterMaxHP,
@@ -20,12 +21,12 @@ const EnemyModel = ({ player }) => {
         }
 
         if(monsterMaxHP && monsterCurrentHP){
-            const finalHP = monsterCurrentHP*100/monsterMaxHP;
+            const finalHPpercentage = monsterCurrentHP*100/monsterMaxHP;
 
-            if(finalHP < 0){
+            if(finalHPpercentage < 0){
                 finalData.percentageHP = 0;
             } else {
-                finalData.percentageHP = finalHP    ;
+                finalData.percentageHP = finalHPpercentage;
             };
         } else {
             finalData.percentageHP = 100;
@@ -43,7 +44,7 @@ const EnemyModel = ({ player }) => {
             <Modelo img={player?.characterInitialData?.portrait} />
             <Life percentageHP={hpData.percentageHP}>
                 <div />
-                <p>{Math.round(hpData.currentHP)}/{hpData.maxHP}</p>
+                <p>{Math.round(hpData.currentHP)}/{Math.round(hpData.maxHP)}</p>
             </Life>
         </Container>
     )

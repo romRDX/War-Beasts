@@ -20,12 +20,12 @@ const Ambiente = ({ match }) => {
     const { authData } = useAuth();
     const { activeStage } = useMap();
 
-    
-
     const [showBattleResults, setShowBattleResults] = useState(false);
     const [playerNumber, setPlayerNumber] = useState(0);
     const [battleLog, setBattleLog] = useState([]);
-    const[battleState, setBattleState] = useState();
+    const [battleState, setBattleState] = useState();
+
+    console.log("BATTLE-STATE: ", battleState);
 
     const handlePveActionResponse = useCallback((data) => {
         const parsedData = JSON.parse(data.data);
@@ -115,7 +115,6 @@ const Ambiente = ({ match }) => {
             battleId: battleState.battleId,
             playerId: authData.id,
             characterId: selectedCharacter.id,
-            monsterId: battleState.monsterData.id,
             turn: battleState.currentTurn,
         }));
         

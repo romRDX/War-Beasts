@@ -11,8 +11,8 @@ const PlayerModel = ({ player }) => {
     const { battleState } = useContext(BattleContext);
 
     const hpData = useMemo(() => {
-        const characterCurrentHP = player?.characterInitialData?.HP;
-        const characterMaxHP = player?.characterData?.HP;
+        const characterMaxHP = player?.characterInitialData?.HP;
+        const characterCurrentHP = player?.characterData?.HP;
 
         const finalData = {
             maxHP: characterMaxHP,
