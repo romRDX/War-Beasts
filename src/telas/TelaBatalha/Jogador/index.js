@@ -29,7 +29,7 @@ const Ambiente = ({ match }) => {
 
     const handlePveActionResponse = useCallback((data) => {
         const parsedData = JSON.parse(data.data);
-        console.log("PVP-BATTLE-DATA: ", parsedData);
+        // console.log("PVP-BATTLE-DATA: ", parsedData);
         setBattleState(parsedData.battleData);
 
         if(parsedData.dataType === "battle-start-config"){
@@ -42,10 +42,10 @@ const Ambiente = ({ match }) => {
 
         
         // setBattleLog( prev => [ ...prev, parsedData.battleLog ]);
-        // if(parsedData.battleData.battleResults){
-        //     console.log("BATTLE IS OVER");
-        //     setShowBattleResults(true);
-        // }
+        if(parsedData.battleData.battleResults){
+            console.log("BATTLE IS OVER");
+            setShowBattleResults(true);
+        }
     },[authData]);
 
     const webSocketClient = useWS(handlePveActionResponse);
@@ -120,53 +120,65 @@ const Ambiente = ({ match }) => {
         
     }, [webSocketClient, battleState, authData, selectedCharacter]);
 
-    // const handleSendEscapeMessage = useCallback(() => {
+    const handleSendEscapeMessage = useCallback(() => {
 
-    //     webSocketClient.sendMessage(JSON.stringify({ 
-    //         actionType: "pve-battle-escape",
-    //         battleId: battleState.battleId,
-    //         playerId: authData.id,
-    //     }));
+        webSocketClient.sendMessage(JSON.stringify({ 
+            actionType: "pve-battle-escape",
+            battleId: battleState.battleId,
+            playerId: authData.id,
+        }));
 
-    //     setShowBattleResults(true);
+        setShowBattleResults(true);
         
-    // }, [authData.id, battleState.battleId, webSocketClient]);
+    }, [authData, battleState, webSocketClient]);
 
-    // const handleSendTurnEndMessage = useCallback(() => {
+    const handleSendTurnEndMessage = useCallback(() => {
 
-    //     webSocketClient.sendMessage(JSON.stringify({ 
-    //         actionType: "pve-battle-end-turn",
-    //         battleId: battleState.battleId,
-    //         playerId: authData.id,
-    //         characterId: selectedCharacter.id,
-    //         monsterId: battleState.monsterData.id,
-    //         turn: battleState.currentTurn,
-    //     }));
+        // console.log("KKK: ", playersData.enemyData);
+
+        webSocketClient.sendMessage(JSON.stringify({ 
+            actionType: "pvp-battle-end-turn",
+            battleId: battleState.battleId,
+            playerId: authData.id,
+            characterId: selectedCharacter.id,
+            enemyPlayerId: playersData.enemyData.playerId,
+            enemyCharacterId: playersData.enemyData.characterId,
+            turn: battleState.currentTurn,
+        }));
         
-    // }, [webSocketClient, battleState.battleId, battleState.monsterData.id, battleState.currentTurn, authData.id, selectedCharacter.id]);
+    }, [webSocketClient, battleState, battleState, battleState, authData, selectedCharacter]);
+
+    // console.log("asd: ", battleState?.battleLogs);
 
     return (
         <Container>
-            <BattleContext.Provider value={{ battleState, playersData, handleSendActionMessage /*, handleSendEscapeMessage, handleSendTurnEndMessage*/ }}>
+            <BattleContext.Provider value={{ battleState, playersData, handleSendActionMessage, handleSendEscapeMessage, handleSendTurnEndMessage }}>
                 <PlayerCard player={playersData.myData} />
                 <PlayerModel player={playersData.myData} />
                 <EnemyModel player={playersData.enemyData} />
-                {/* <BottomMenu logs={battleState.battleLogs} characterId={selectedCharacter.id} /> */}
+                <BottomMenu logs={battleState?.battleLogs || ''} characterId={selectedCharacter?.id} />
             </BattleContext.Provider>
             { showBattleResults &&
                 <BattleResults>
                     <div>
-                        <h1>{battleState.battleResults?.message}</h1>
+                        <h1>
+                        {
+                            battleState.battleResults?.winnerId == selectedCharacter.id ?
+                            'You Win!'
+                            :
+                            'You Lose!'
+                        }
+                        </h1>
                         { battleState.battleResults?.status == "win" && 
+                        // fazer a redução de ranking no back
                             <>
-                                <p>Experiencia recebida: {activeStage?.experience}</p>
-                                <span>Recompensas extras: ---</span>
+                                <p>Pontos de ranking nesta partida: {activeStage?.experience}</p>
+                                <span>Ranking após partida: ---</span>
                             </>
                         }
                         
                         <div>
-                            <button onClick={() => history.push("/mapa")}>Ir para Estágios</button>
-                            <button onClick={() => history.push("/mapas")}>Ir para Mapas</button>
+                            <button onClick={() => history.push("/arena")}>Voltar para Arena</button>
                             <button onClick={() => history.push("/principal")}>Ir para o Menu</button>
                         </div>
                     </div>

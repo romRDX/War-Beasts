@@ -3,10 +3,11 @@ import BattleContext from 'telas/TelaBatalha/Jogador/context/BattleContext';
 import SkillItem from './components/SkillItem/SkillItem';
 
 import { Container, Buttons, EnergyBar } from "./styles";
+import { useCharacter } from 'hooks/useCharacter';
 
 const SkillsButtons = ({ player }) => {
 
-    // const { selectedCharacter } = useCharacter();
+    const { selectedCharacter } = useCharacter();
     const { battleState, handleSendActionMessage } = useContext(BattleContext);
 
     const energyData = useMemo(() => {
@@ -36,14 +37,27 @@ const SkillsButtons = ({ player }) => {
     
     return (
         <Container>
-            <Buttons>
+            <Buttons isMyTurn={battleState?.currentCharacterToAct === selectedCharacter.id}>
                 {
                     // selectedCharacter?.skills?.map( skill => (
                     //     <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState.battleResults} />
                     // ))
 
                     player?.characterData?.skills?.map( skill => {
-                        return skill ? <SkillItem key={skill?.id} className='skill' activateSkill={handleSendActionMessage} skill={skill} disabled={battleState?.battleResults} /> : null;
+                        return skill ? 
+                            <SkillItem 
+                                key={skill?.id} 
+                                className='skill' 
+                                activateSkill={handleSendActionMessage} 
+                                skill={skill} 
+                                disabled={
+                                    battleState?.battleResults
+                                    ||
+                                    battleState?.currentCharacterToAct !== selectedCharacter.id
+                                }
+                            />
+                            : 
+                            null;
                     })
                 }
             </Buttons>

@@ -16,6 +16,7 @@ export const Buttons = styled.div`
     grid-template-columns: 30% 30% 30%;
     width: 100%;
     padding: 15px 5px;
+    ${ props => props.isMyTurn ? '' : "pointer-events: none" };
 `;
 
 export const Skill = styled.div`
