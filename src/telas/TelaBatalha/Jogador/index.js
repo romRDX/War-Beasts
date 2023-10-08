@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Container, BattleResults } from './styles';
+import { Container, BattleResults, ResultsMessage } from './styles';
 
 import PlayerCard from './components/PlayerCard';
 import PlayerModel from './components/PlayerModel';
@@ -161,14 +161,14 @@ const Ambiente = ({ match }) => {
             { showBattleResults &&
                 <BattleResults>
                     <div>
-                        <h1>
+                        <ResultsMessage>
                         {
                             battleState.battleResults?.winnerId == selectedCharacter.id ?
                             'You Win!'
                             :
                             'You Lose!'
                         }
-                        </h1>
+                        </ResultsMessage>
                         { battleState.battleResults?.status == "win" && 
                         // fazer a redução de ranking no back
                             <>

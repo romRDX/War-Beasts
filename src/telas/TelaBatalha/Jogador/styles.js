@@ -37,3 +37,10 @@ export const BattleResults = styled.div`
         }
     }
 `;
+
+export const ResultsMessage = styled.div`
+    font-size: 24px;
+    text-align: center;
+    padding: 8px 12px;
+    margin: 0 auto;
+`;

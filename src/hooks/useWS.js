@@ -3,7 +3,12 @@ import useWebSocket from 'react-use-websocket';
 
 // const WsContext = createContext({});
 
-const test = "ws://localhost:3005"; //"ws://warbeasts-api.herokuapp.com";
+// const test = "ws://wb-db-manager.onrender.com";
+const test = 'ws://wb-db-manager.onrender.com/'; //quase funciona
+// const test = "ws://wb-ws-server-d1ef2fdf69cd.herokuapp.com/";
+// "https://wb-db-manager.onrender.com";
+// const test = "ws://localhost:3005"; FUNCIONA
+//"ws://warbeasts-api.herokuapp.com";
 // 'ws://localhost:3001'
 // const test2 = "ws://warbeasts-api-2.herokuapp.com/";
 
