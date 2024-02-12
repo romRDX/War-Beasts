@@ -16,13 +16,14 @@ const Detalhes = () => {
     
     return (    
         <Container>
+            <h1>{ selectedClass.name }</h1>
             <Descricao>
-                { selectedClass && selectedClass.description }-X
+                { selectedClass && selectedClass.description }
             </Descricao>
             <Caracteristicas />
             <Container2>
                 <Nome id={'nomePersonagem'} placeholder="Nome" >{}</Nome>
-                <Botao theme={{size: [25,65]}} onClick={ () => handleCreateCharacter() } >Criar</Botao>
+                <Botao disabled={!selectedClass} theme={{size: [25,65]}} onClick={ () => handleCreateCharacter() } >Criar</Botao>
             </Container2>
         </Container>
     );

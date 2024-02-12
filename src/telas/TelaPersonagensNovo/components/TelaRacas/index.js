@@ -13,8 +13,9 @@ const TelaRacas = () => {
 
     return (
         <Container>
+            
+            <Opcoes title={"Escolha uma classe para seu personagem:"} classes={selectedRace.classes} />
             <Detalhes />
-            <Opcoes classes={selectedRace.classes} />
         </Container>
     )
 };

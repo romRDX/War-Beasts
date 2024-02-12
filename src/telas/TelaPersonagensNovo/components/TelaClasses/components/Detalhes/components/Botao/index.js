@@ -7,8 +7,8 @@ const Detalhes = () => {
     const { selectedRace, confirmRace } = useContext(TriboContext);
 
     return (
-        <Botao theme={{size: [50,6] }} onClick={ () => confirmRace(selectedRace) }>
-            Selecionar
+        <Botao disabled={!selectedRace} theme={{size: [50,6] }} onClick={ () => confirmRace(selectedRace) }>
+            Confirmar escolha
         </Botao>
     )
 };

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { apiWB } from 'services/axios';
-import { Container } from './styles';
+import { Container, OptionsContainer, Title } from './styles';
 
 import RaceOption from './components/RaceOption';
 
-const Opcoes = () => {
+const Opcoes = ({ title }) => {
         
         const [races, setRaces] = useState();
         
@@ -16,11 +16,17 @@ const Opcoes = () => {
 
         return (
                 <Container>
-                        {   
-                                races && races.map( race => (
-                                        <RaceOption race={race}  key={race.name} />
-                                ))
-                        }
+                        <Title>
+                                <h1>{title}</h1>
+                                <p>Veja detalhes da Tribo escolhida ao lado</p>
+                        </Title>
+                        <OptionsContainer>
+                                {   
+                                        races && races.map( race => (
+                                                <RaceOption race={race}  key={race.name} />
+                                        ))
+                                }
+                        </OptionsContainer>
                 </Container>
         )
 };

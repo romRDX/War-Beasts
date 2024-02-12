@@ -9,8 +9,8 @@ export const Botao = styled.button`
   -webkit-text-decoration: none;
   text-decoration: none;
   text-shadow: 3px 0 0 lightgrey, -3px 0 0 lightgrey, 0 3px 0 lightgrey, 0 -3px 0 lightgrey, 2px 2px lightgrey, -2px -2px 0 lightgrey, 2px -2px 0 lightgrey, -2px 2px 0 lightgrey;
-  background: #7B7167;
-  color: #800000;
+  background: ${ props => props.disabled ? 'gray' :  '#7B7167' };
+  color: ${ props => props.disabled ? 'gray' :  '#800000' };
   padding: ${ props => props.theme.padd ? props.theme.padd : 0 };
   font-size: ${ props => props.theme.fontSize ? props.theme.fontSize : '17px' };
   margin: ${ props => props.theme.margin ? props.theme.margin : 'auto' };
@@ -18,10 +18,19 @@ export const Botao = styled.button`
   width: ${ props => props.theme.size ? props.theme.size[0] : '5' }%;
   height: ${ props => props.theme.size ? props.theme.size[1]+'%' : '6.5%' };
   
-  &:hover {
-    color: red;
-    box-shadow: inset 0px 0px 8px 1px black;
+  ${ props => !props.disabled && 
+    `
+    &:hover {
+      color: red;
+      box-shadow: inset 0px 0px 8px 1px black;
+    }
+    `
   }
+
+  // &:hover {
+  //   color: red;
+  //   box-shadow: inset 0px 0px 8px 1px black;
+  // }
 
   a {
     color: #800000;

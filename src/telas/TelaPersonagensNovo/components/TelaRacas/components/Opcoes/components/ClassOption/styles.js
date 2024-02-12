@@ -1,19 +1,63 @@
+// import styled from 'styled-components';
+
+
+// export const Container = styled.div`
+//   // height: 33.31%;
+//   // border: 1px solid black;
+
+//   width: 270px;
+//   height: 270px;
+//   position: relative;
+//   border: 1px solid black;
+//   border-radius: 50%;
+//   margin: auto 5%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   ${props => props.isSelected && 'box-shadow: 0 0px 0px 6px red'};
+// `;
+
+// export const Minis = styled.div`
+    
+// `;
+
+// export const DetalhesTribo = styled.div`
+  
+// `;
+
+// export const DetalhesRaca = styled.div`
+  
+// `;
+
 import styled from 'styled-components';
 
 
 export const Container = styled.div`
-  height: 33.31%;
-  border: 1px solid black;
-`;
+    width: 270px;
+    height: 270px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: auto 5%;
+    display: flex;
+    justify-content: center;
 
-export const Minis = styled.div`
+    ${props => props.isSelected && 'box-shadow: 0 0px 0px 6px red'};
+
+    img {
+        border-radius: 50%;
+    }
     
-`;
-
-export const DetalhesTribo = styled.div`
-  
-`;
-
-export const DetalhesRaca = styled.div`
-  
+    h2 {
+        position: absolute;
+        bottom: -27px;
+        left: 0;
+        right: 0;
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
 `;

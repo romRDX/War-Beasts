@@ -8,6 +8,14 @@ export const Container = styled.div`
     border: 1px solid black;
     border-radius: 50%;
     margin: auto 5%;
+    display: flex;
+    justify-content: center;
+
+    ${props => props.isSelected && 'box-shadow: 0 0px 0px 6px red'};
+
+    img {
+        border-radius: 50%;
+    }
     
     h2 {
         position: absolute;

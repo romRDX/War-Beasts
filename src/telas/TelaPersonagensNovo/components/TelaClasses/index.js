@@ -7,8 +7,9 @@ import { Container } from './styles.js';
 
 const TelaTribos = ( props ) => (
     <Container>
+        
+        <Opcoes title={"Escolha uma raça para seu personagem: "} />
         <Detalhes func={props.confirmarTribo} />
-        <Opcoes />
     </Container>
 );
 

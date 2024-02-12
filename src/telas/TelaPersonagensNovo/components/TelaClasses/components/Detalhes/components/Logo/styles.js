@@ -7,4 +7,10 @@ export const Container = styled.div`
     height: 37%;
     border: 1px solid black;
     margin: auto;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `;

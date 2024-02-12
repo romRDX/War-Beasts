@@ -37,7 +37,7 @@ const Personagem = ({ setMyCharacters }) => {
 
     return (
         <Info>
-            { personagemSelecionado && 
+            { personagemSelecionado ?
             <>
                 <h1>Prefixo - {personagemSelecionado.name} - Sufixo</h1>
                 <Portrait >
@@ -70,6 +70,9 @@ const Personagem = ({ setMyCharacters }) => {
                     <button onClick={deleteChar}> Deletar </button>
                 </DivisorBotao>
             </>
+            :
+
+            <h1>Selecione um personagem ao lado para jogar</h1>
             }
         </Info>
     )

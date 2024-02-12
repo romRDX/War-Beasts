@@ -14,7 +14,7 @@ const Detalhes = () => {
     return (
         <Container>
             <h1>{ selectedRace.name }</h1>
-            <Logo />
+            <Logo img={selectedRace.wallpaper} />
     
             <Descricao descricao={ selectedRace.description} />
             <Botao />
