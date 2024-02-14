@@ -16,16 +16,26 @@ export const Container = styled.div`
 export const Container2 = styled.div`
     border: 1px solid black;
     box-sizing: border-box;
-    padding: 0px;
+    padding: 8px;
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    // flex-direction: column;
     height: 32%;
     justify-content: flex-start;
+    align-items: center;
 
-    > div {
-        width: 80px;
-        height: 80px;
-        margin: auto 2%;
+    // div {
+    //     display: flex;
+    //     gap: 8px;
+
+    //     > div {
+    //         width: 80px;
+    //         height: 80px;
+    //     }
+    // }
+
+    h1 {
+        width: 100%;
+        margin-bottom: 10px;
     }
 `;

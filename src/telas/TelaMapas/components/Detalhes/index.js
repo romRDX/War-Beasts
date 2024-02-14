@@ -37,8 +37,12 @@ const Detalhes = ({ mapaSelecionado }) => {
                 <div>
                 {  mapaSelecionado  && <h2>Descrição: {  mapaSelecionado.description }</h2>}
                 </div>
+
+                {
+                    !mapaSelecionado && <h1> Selecione um mapa ao lado!!!</h1>
+                }
             </Info>
-            <Botao theme={buttonStyle} onClick={ entrarMapa }> Entrar </Botao>
+            <Botao disabled={!mapaSelecionado} theme={buttonStyle} onClick={ entrarMapa }> Entrar </Botao>
         </Container>
     )
     

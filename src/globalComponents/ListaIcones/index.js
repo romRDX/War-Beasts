@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Dado } from './styles';
+import { Dado, Container } from './styles';
 
 const ListaIcones = ({dados, slots, selected, setSelectedItemFromList, setSelected, showOnly = false}) => {
 
@@ -53,7 +53,7 @@ const ListaIcones = ({dados, slots, selected, setSelectedItemFromList, setSelect
     }
 
     return (
-        <> { slots ? renderSlots() : renderIcons() } </>
+        <Container> { slots ? renderSlots() : renderIcons() } </Container>
     )
 };
 

@@ -34,7 +34,7 @@ export const Descricao = styled.div`
     height: 40%;
     border: 1px solid black;
     margin: auto;
-    padding-top: 50px;
+    padding: 10px;
 `;
 
 export const Nome = styled.input`

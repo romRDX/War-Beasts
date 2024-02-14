@@ -14,7 +14,7 @@ const Detalhes = () => {
     const handleSetActiveStage = () => {
         if(selectedStage){
             setActiveStage(selectedStage)
-            history.push("/batalha-A");
+            history.push("/batalha-PVE");
         }
     }
 

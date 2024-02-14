@@ -38,12 +38,17 @@ const Miniaturas = ({ myCharacters, setMyCharacters}) => {
     
     return (
         <Container>
-            <h1>WAR BEAST</h1>
+            <h1>WAR BEASTS</h1>
+
             <Minis>
                 {   
-                    myCharacters && myCharacters.map( character => (
+                    myCharacters ?
+                    
+                    myCharacters.map( character => (
                         <Miniatura isSelected={personagemSelecionado?.id == character.id} character={character} key={character.id}/>
                     ))
+                    :
+                    <h1>Crie um novo personagem clicando no botão abaixo!!!</h1>
                 }
             </Minis>
         

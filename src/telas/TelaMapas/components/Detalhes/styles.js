@@ -75,4 +75,15 @@ export const Info = styled.div`
             margin: 0 10px;
         }
     }
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        border-radius: 10px;
+        background: lightgray;
+        max-width: 70%;
+        width: 100%;
+        margin: 50px auto;
+        padding: 10px 15px;
+      }
 `;

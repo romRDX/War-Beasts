@@ -12,7 +12,7 @@ export const Box = styled.div`
   transition: 0.5s;
 
   ${props => props.isSelected && `
-    box-shadow: 0 0 10px red;
+    box-shadow: 0 0 4px 6px red;
   `}
 
 `;

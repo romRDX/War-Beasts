@@ -8,6 +8,8 @@ export const Box = styled.div`
     padding: 8px;
     border-radius: 10px;
     margin: auto;
+    display: flex;
+    justify-content: center;
 
     div {
         width: 99%;

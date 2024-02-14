@@ -9,10 +9,4 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 40px 20px;
-
-    > div {
-        height: 80px;
-        width: 80px;
-        margin: 0 2%;
-    }
 `;

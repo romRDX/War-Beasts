@@ -7,6 +7,7 @@ import { useWS } from 'hooks/useWS';
 import { useCharacter } from 'hooks/useCharacter';
 import { useAuth } from 'hooks/useAuth';
 import { useHistory } from 'react-router-dom';
+import Timer from './components/Timer/index.js';
 
 
 const TelaArena = () => {
@@ -72,6 +73,7 @@ const TelaArena = () => {
             { isLookingForMatch &&
                 <Loading>
                     <div />
+                    <Timer />
                     <p>Buscando...</p>
                 </Loading>
             }

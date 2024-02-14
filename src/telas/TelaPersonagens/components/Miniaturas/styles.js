@@ -18,11 +18,24 @@ export const Container = styled.div`
 `;
 
 export const Minis = styled.div`
-    margin: 20px 0 0 0;
-    height: 82%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    overflow-y: scroll;
+  margin: 20px 0 0 0;
+  height: 82%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background: lightgray;
+    max-width: 70%;
+    width: 100%;
+    margin: auto auto 15px auto;
+    padding: 10px 15px;
+  }
 `;
 
 
