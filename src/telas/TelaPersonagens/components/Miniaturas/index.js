@@ -54,7 +54,7 @@ const Miniaturas = ({ myCharacters, setMyCharacters}) => {
         
             <Botao onClick={() => {
                 history.push("/personagens/novo")
-            }} theme={{ size: [60,6]}}>Criar novo personagemx</Botao>
+            }} theme={{ size: [60,6]}}>Criar novo personagem</Botao>
         </Container>
     )
 };
